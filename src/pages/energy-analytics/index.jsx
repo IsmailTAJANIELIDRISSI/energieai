@@ -205,13 +205,14 @@ const EnergyAnalytics = () => {
   }
 
   const chartData = energyData.map((item) => ({
-    date: item.timestamp,
+    date: item.timestamp.split("T")[0],
     consumption: item.power_usage_kW,
     cost: item.cost_mad,
     efficiency: item.efficiency_score,
-    co2: item.co2 || 0, // Add default if co2 is missing
-    staticAudit: item.static_audit_value || 0, // Add if you have comparison data
+    co2: item.co2 || 0,
+    staticAudit: item.static_audit_value || 0,
   }));
+  console.log(chartData);
 
   return (
     <div className="min-h-screen bg-background">
