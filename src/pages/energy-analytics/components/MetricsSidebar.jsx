@@ -1,58 +1,62 @@
-import React from 'react';
-import Icon from '../../../components/AppIcon';
+import React from "react";
+import Icon from "../../../components/AppIcon";
 
-const MetricsSidebar = ({ 
-  totalConsumption, 
-  averageCost, 
-  efficiency, 
+const MetricsSidebar = ({
+  totalConsumption,
+  averageCost,
+  efficiency,
   co2Footprint,
   selectedChartType,
-  onChartTypeChange 
+  onChartTypeChange,
 }) => {
   const metrics = [
     {
-      id: 'consumption',
-      label: 'Consommation Totale',
-      value: `${totalConsumption.toLocaleString('fr-FR')} kWh`,
-      change: '+12.5%',
-      changeType: 'increase',
-      icon: 'Zap',
-      color: 'text-blue-600'
+      id: "consumption",
+      label: "Consommation Totale",
+      value: `${totalConsumption.toLocaleString("fr-FR")} kWh`,
+      change: "+12.5%",
+      changeType: "increase",
+      icon: "Zap",
+      color: "text-blue-600",
     },
     {
-      id: 'cost',
-      label: 'Coût Moyen',
-      value: `${averageCost.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} MAD`,
-      change: '-8.3%',
-      changeType: 'decrease',
-      icon: 'DollarSign',
-      color: 'text-green-600'
+      id: "cost",
+      label: "Coût Moyen",
+      value: `${averageCost.toLocaleString("fr-FR", {
+        minimumFractionDigits: 2,
+      })} MAD`,
+      change: "-8.3%",
+      changeType: "decrease",
+      icon: "DollarSign",
+      color: "text-green-600",
     },
     {
-      id: 'efficiency',
-      label: 'Efficacité Globale',
+      id: "efficiency",
+      label: "Efficacité Globale",
       value: `${efficiency}%`,
-      change: '+5.2%',
-      changeType: 'increase',
-      icon: 'TrendingUp',
-      color: 'text-orange-600'
+      change: "+5.2%",
+      changeType: "increase",
+      icon: "TrendingUp",
+      color: "text-orange-600",
     },
     {
-      id: 'co2',
-      label: 'Empreinte CO₂',
-      value: `${co2Footprint.toLocaleString('fr-FR')} kg`,
-      change: '-15.7%',
-      changeType: 'decrease',
-      icon: 'Leaf',
-      color: 'text-emerald-600'
-    }
+      id: "co2",
+      label: "Empreinte CO₂",
+      value: `${co2Footprint.toLocaleString("fr-FR")} kg`,
+      change: "-15.7%",
+      changeType: "decrease",
+      icon: "Leaf",
+      color: "text-emerald-600",
+    },
   ];
 
   const chartTypes = [
-    { id: 'line', label: 'Courbe', icon: 'TrendingUp' },
-    { id: 'bar', label: 'Barres', icon: 'BarChart3' },
-    { id: 'area', label: 'Aires', icon: 'Activity' }
+    { id: "line", label: "Courbe", icon: "TrendingUp" },
+    { id: "bar", label: "Barres", icon: "BarChart3" },
+    { id: "area", label: "Aires", icon: "Activity" },
   ];
+
+  console.log(metrics);
 
   return (
     <div className="w-full space-y-6">
@@ -68,15 +72,23 @@ const MetricsSidebar = ({
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Icon name={metric.icon} size={14} className={metric.color} />
-                  <span className="text-xs text-muted-foreground">{metric.label}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {metric.label}
+                  </span>
                 </div>
-                <span className={`text-xs font-medium ${
-                  metric.changeType === 'increase' ? 'text-green-600' : 'text-red-600'
-                }`}>
+                <span
+                  className={`text-xs font-medium ${
+                    metric.changeType === "increase"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
                   {metric.change}
                 </span>
               </div>
-              <div className="text-lg font-bold text-foreground">{metric.value}</div>
+              <div className="text-lg font-bold text-foreground">
+                {metric.value}
+              </div>
             </div>
           ))}
         </div>
@@ -95,8 +107,8 @@ const MetricsSidebar = ({
               onClick={() => onChartTypeChange(type.id)}
               className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 selectedChartType === type.id
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-foreground hover:bg-muted'
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-muted"
               }`}
             >
               <Icon name={type.icon} size={16} />
@@ -118,11 +130,15 @@ const MetricsSidebar = ({
             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-sm text-foreground">Surveillance Dynamique</span>
+            <span className="text-sm text-foreground">
+              Surveillance Dynamique
+            </span>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
           </div>
           <div className="pt-2 border-t border-border">
-            <div className="text-xs text-muted-foreground">Économies Réalisées</div>
+            <div className="text-xs text-muted-foreground">
+              Économies Réalisées
+            </div>
             <div className="text-lg font-bold text-green-600">15.3%</div>
           </div>
         </div>

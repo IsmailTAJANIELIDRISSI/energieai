@@ -1,184 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Icon from '../../components/AppIcon';
-import Button from '../../components/ui/Button';
-import AlertCard from './components/AlertCard';
-import AlertFilters from './components/AlertFilters';
-import AlertSummary from './components/AlertSummary';
-import AlertTabs from './components/AlertTabs';
-import BulkActions from './components/BulkActions';
-import AlertModal from './components/AlertModal';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import axios from "axios";
+import Icon from "../../components/AppIcon";
+import Button from "../../components/ui/Button";
+import AlertCard from "./components/AlertCard";
+import AlertFilters from "./components/AlertFilters";
+import AlertSummary from "./components/AlertSummary";
+import AlertTabs from "./components/AlertTabs";
+import BulkActions from "./components/BulkActions";
+import AlertModal from "./components/AlertModal";
 
 const AlertsNotifications = () => {
   const [alerts, setAlerts] = useState([]);
   const [filteredAlerts, setFilteredAlerts] = useState([]);
-  const [activeTab, setActiveTab] = useState('all');
+  const [machines, setMachines] = useState([]);
+  const [activeTab, setActiveTab] = useState("all");
   const [selectedAlerts, setSelectedAlerts] = useState([]);
   const [filters, setFilters] = useState({
-    search: '',
-    severity: 'all',
-    status: 'all',
-    category: 'all',
-    location: 'all',
-    dateRange: { start: '', end: '' }
+    search: "",
+    severity: "all",
+    status: "all",
+    category: "all",
+    location: "all",
+    dateRange: { start: "", end: "" },
   });
   const [selectedAlert, setSelectedAlert] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sortBy, setSortBy] = useState('timestamp');
-  const [sortOrder, setSortOrder] = useState('desc');
+  const [sortBy, setSortBy] = useState("timestamp");
+  const [sortOrder, setSortOrder] = useState("desc");
   const [isLoading, setIsLoading] = useState(true);
-
-  // Mock alerts data
-  const mockAlerts = [
-    {
-      id: 'alert_001',
-      title: 'Surconsommation énergétique détectée',
-      description: `La ligne de production 1 présente une consommation énergétique 35% supérieure à la normale depuis 2h30. Cette anomalie pourrait indiquer un dysfonctionnement des moteurs ou un problème d'isolation thermique.`,severity: 'critical',status: 'new',category: 'energy',location: 'Ligne de production 1',timestamp: new Date(Date.now() - 150000),assignedTo: '',
-      recommendations: [
-        'Vérifier l\'état des moteurs électriques',
-        'Contrôler l\'isolation thermique des équipements',
-        'Analyser les données de température ambiante',
-        'Programmer une maintenance préventive'
-      ],
-      notes: '',
-      resolution: ''
-    },
-    {
-      id: 'alert_002',
-      title: 'Micro-coupure électrique',
-      description: `Interruption électrique de 3 secondes détectée sur le secteur B. Impact sur 4 machines avec redémarrage automatique effectué.`,
-      severity: 'high',
-      status: 'acknowledged',
-      category: 'system',
-      location: 'Secteur B - Entrepôt',
-      timestamp: new Date(Date.now() - 300000),
-      assignedTo: 'fatima.benali',
-      recommendations: [
-        'Vérifier la stabilité du réseau électrique',
-        'Contrôler les disjoncteurs et fusibles',
-        'Tester les systèmes de sauvegarde'
-      ],
-      notes: 'Équipe technique notifiée',
-      resolution: ''
-    },
-    {
-      id: 'alert_003',
-      title: 'Maintenance préventive requise',
-      description: `Le compresseur C-104 approche de son seuil de maintenance programmée. 2847 heures de fonctionnement sur 3000 heures recommandées.`,
-      severity: 'medium',
-      status: 'in_progress',
-      category: 'maintenance',
-      location: 'Atelier mécanique',
-      timestamp: new Date(Date.now() - 450000),
-      assignedTo: 'youssef.alami',
-      recommendations: [
-        'Programmer l\'arrêt du compresseur',
-        'Préparer les pièces de rechange',
-        'Coordonner avec l\'équipe de maintenance'
-      ],
-      notes: 'Pièces commandées, livraison prévue demain',
-      resolution: ''
-    },
-    {
-      id: 'alert_004',
-      title: 'Économie d\'énergie réalisée',
-      description: `Optimisation automatique réussie sur la ligne 2. Réduction de 12% de la consommation énergétique grâce aux ajustements des paramètres de fonctionnement.`,
-      severity: 'info',
-      status: 'resolved',
-      category: 'energy',
-      location: 'Ligne de production 2',
-      timestamp: new Date(Date.now() - 600000),
-      assignedTo: 'sara.idrissi',
-      recommendations: [
-        'Appliquer les mêmes paramètres aux autres lignes',
-        'Documenter les réglages optimaux',
-        'Programmer une vérification hebdomadaire'
-      ],
-      notes: 'Économie estimée: 450 MAD/jour',
-      resolution: 'Paramètres optimisés et documentés'
-    },
-    {
-      id: 'alert_005',
-      title: 'Température élevée détectée',
-      description: `Le moteur M-205 présente une température de fonctionnement de 85°C, dépassant le seuil recommandé de 75°C.`,
-      severity: 'high',
-      status: 'new',
-      category: 'equipment',
-      location: 'Zone de conditionnement',
-      timestamp: new Date(Date.now() - 750000),
-      assignedTo: '',
-      recommendations: [
-        'Arrêter immédiatement le moteur',
-        'Vérifier le système de refroidissement',
-        'Contrôler les roulements et lubrification'
-      ],
-      notes: '',
-      resolution: ''
-    },
-    {
-      id: 'alert_006',
-      title: 'Mise à jour système disponible',
-      description: `Une nouvelle version du firmware est disponible pour les contrôleurs énergétiques. Version 2.4.1 avec améliorations de performance.`,
-      severity: 'low',
-      status: 'new',
-      category: 'system',
-      location: 'Système central',
-      timestamp: new Date(Date.now() - 900000),
-      assignedTo: 'omar.tazi',
-      recommendations: [
-        'Planifier la mise à jour pendant l\'arrêt',
-        'Sauvegarder la configuration actuelle',
-        'Tester sur un contrôleur pilote'
-      ],
-      notes: '',
-      resolution: ''
-    },
-    {
-      id: 'alert_007',
-      title: 'Dépassement seuil CO2',
-      description: `Les émissions de CO2 ont dépassé le seuil environnemental de 15% par rapport aux objectifs mensuels.`,
-      severity: 'medium',
-      status: 'acknowledged',
-      category: 'safety',
-      location: 'Installation générale',
-      timestamp: new Date(Date.now() - 1050000),
-      assignedTo: 'ahmed.mansouri',
-      recommendations: [
-        'Analyser les sources d\'émission principales',
-        'Optimiser les processus énergivores',
-        'Réviser les objectifs environnementaux'
-      ],
-      notes: 'Rapport environnemental en cours',
-      resolution: ''
-    },
-    {
-      id: 'alert_008',
-      title: 'Efficacité machine optimale',
-      description: `La machine M-301 atteint un rendement de 98.5%, dépassant les objectifs de performance de 3.5%.`,
-      severity: 'info',
-      status: 'closed',
-      category: 'equipment',
-      location: 'Ligne de production 3',
-      timestamp: new Date(Date.now() - 1200000),
-      assignedTo: 'fatima.benali',
-      recommendations: [
-        'Documenter les paramètres optimaux',
-        'Répliquer sur machines similaires',
-        'Programmer maintenance préventive'
-      ],
-      notes: 'Performance exceptionnelle maintenue',
-      resolution: 'Paramètres documentés et répliqués'
-    }
-  ];
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setAlerts(mockAlerts);
-      setIsLoading(false);
-    }, 1000);
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const [alertsRes, machinesRes] = await Promise.all([
+          axios.get(`${import.meta.env.VITE_JSON_SERVER_URL}/alerts`),
+          axios.get(`${import.meta.env.VITE_JSON_SERVER_URL}/machines`),
+        ]);
 
-    return () => clearTimeout(timer);
+        // Transform alerts to include location names
+        const transformedAlerts = alertsRes.data.map((alert) => ({
+          ...alert,
+          timestamp: new Date(alert.timestamp),
+          location: alert.machine_id
+            ? machinesRes.data.find((m) => m.id === alert.machine_id)?.name ||
+              alert.location
+            : alert.location,
+        }));
+
+        setAlerts(transformedAlerts);
+        setMachines(machinesRes.data);
+        setIsLoading(false);
+      } catch (err) {
+        setError("Erreur lors du chargement des alertes");
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+    const interval = setInterval(fetchData, 50000); // Auto-refresh every 2 seconds
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -189,55 +72,70 @@ const AlertsNotifications = () => {
     let filtered = [...alerts];
 
     // Tab filtering
-    if (activeTab !== 'all') {
-      if (activeTab === 'critical') {
-        filtered = filtered.filter(alert => alert.severity === 'critical');
-      } else if (activeTab === 'warnings') {
-        filtered = filtered.filter(alert => ['high', 'medium'].includes(alert.severity));
-      } else if (activeTab === 'info') {
-        filtered = filtered.filter(alert => ['low', 'info'].includes(alert.severity));
-      } else if (activeTab === 'new') {
-        filtered = filtered.filter(alert => alert.status === 'new');
+    if (activeTab !== "all") {
+      if (activeTab === "critical") {
+        filtered = filtered.filter((alert) => alert.severity === "critical");
+      } else if (activeTab === "warnings") {
+        filtered = filtered.filter((alert) =>
+          ["high", "medium"].includes(alert.severity)
+        );
+      } else if (activeTab === "info") {
+        filtered = filtered.filter((alert) =>
+          ["low", "info"].includes(alert.severity)
+        );
+      } else if (activeTab === "new") {
+        filtered = filtered.filter((alert) => alert.status === "new");
       }
     }
 
     // Search filtering
     if (filters.search) {
       const searchTerm = filters.search.toLowerCase();
-      filtered = filtered.filter(alert =>
-        alert.title.toLowerCase().includes(searchTerm) ||
-        alert.description.toLowerCase().includes(searchTerm) ||
-        alert.location.toLowerCase().includes(searchTerm)
+      filtered = filtered.filter(
+        (alert) =>
+          alert.title.toLowerCase().includes(searchTerm) ||
+          alert.description.toLowerCase().includes(searchTerm) ||
+          alert.location.toLowerCase().includes(searchTerm)
       );
     }
 
     // Other filters
-    if (filters.severity !== 'all') {
-      filtered = filtered.filter(alert => alert.severity === filters.severity);
+    if (filters.severity !== "all") {
+      filtered = filtered.filter(
+        (alert) => alert.severity === filters.severity
+      );
     }
 
-    if (filters.status !== 'all') {
-      filtered = filtered.filter(alert => alert.status === filters.status);
+    if (filters.status !== "all") {
+      filtered = filtered.filter((alert) => alert.status === filters.status);
     }
 
-    if (filters.category !== 'all') {
-      filtered = filtered.filter(alert => alert.category === filters.category);
+    if (filters.category !== "all") {
+      filtered = filtered.filter(
+        (alert) => alert.category === filters.category
+      );
     }
 
-    if (filters.location !== 'all') {
-      filtered = filtered.filter(alert => alert.location.includes(filters.location));
+    if (filters.location !== "all") {
+      filtered = filtered.filter((alert) =>
+        alert.location.includes(filters.location)
+      );
     }
 
     // Date range filtering
     if (filters.dateRange.start) {
       const startDate = new Date(filters.dateRange.start);
-      filtered = filtered.filter(alert => new Date(alert.timestamp) >= startDate);
+      filtered = filtered.filter(
+        (alert) => new Date(alert.timestamp) >= startDate
+      );
     }
 
     if (filters.dateRange.end) {
       const endDate = new Date(filters.dateRange.end);
       endDate.setHours(23, 59, 59, 999);
-      filtered = filtered.filter(alert => new Date(alert.timestamp) <= endDate);
+      filtered = filtered.filter(
+        (alert) => new Date(alert.timestamp) <= endDate
+      );
     }
 
     // Sorting
@@ -245,12 +143,12 @@ const AlertsNotifications = () => {
       let aValue = a[sortBy];
       let bValue = b[sortBy];
 
-      if (sortBy === 'timestamp') {
+      if (sortBy === "timestamp") {
         aValue = new Date(aValue);
         bValue = new Date(bValue);
       }
 
-      if (sortOrder === 'asc') {
+      if (sortOrder === "asc") {
         return aValue > bValue ? 1 : -1;
       } else {
         return aValue < bValue ? 1 : -1;
@@ -263,18 +161,19 @@ const AlertsNotifications = () => {
   const getAlertCounts = () => {
     return {
       total: alerts.length,
-      critical: alerts.filter(a => a.severity === 'critical').length,
-      warnings: alerts.filter(a => ['high', 'medium'].includes(a.severity)).length,
-      info: alerts.filter(a => ['low', 'info'].includes(a.severity)).length,
-      new: alerts.filter(a => a.status === 'new').length
+      critical: alerts.filter((a) => a.severity === "critical").length,
+      warnings: alerts.filter((a) => ["high", "medium"].includes(a.severity))
+        .length,
+      info: alerts.filter((a) => ["low", "info"].includes(a.severity)).length,
+      new: alerts.filter((a) => a.status === "new").length,
     };
   };
 
   const handleAlertSelect = (alertId, isSelected) => {
     if (isSelected) {
-      setSelectedAlerts(prev => [...prev, alertId]);
+      setSelectedAlerts((prev) => [...prev, alertId]);
     } else {
-      setSelectedAlerts(prev => prev.filter(id => id !== alertId));
+      setSelectedAlerts((prev) => prev.filter((id) => id !== alertId));
     }
   };
 
@@ -282,71 +181,135 @@ const AlertsNotifications = () => {
     if (selectedAlerts.length === filteredAlerts.length) {
       setSelectedAlerts([]);
     } else {
-      setSelectedAlerts(filteredAlerts.map(alert => alert.id));
+      setSelectedAlerts(filteredAlerts.map((alert) => alert.id));
     }
   };
 
-  const handleBulkAction = (action, alertIds, data = {}) => {
-    setAlerts(prev => prev.map(alert => {
-      if (alertIds.includes(alert.id)) {
+  const handleBulkAction = async (action, alertIds, data = {}) => {
+    try {
+      const updates = alertIds.map(async (alertId) => {
+        const alert = alerts.find((a) => a.id === alertId);
+        if (!alert) return;
+
+        let updatedAlert;
         switch (action) {
-          case 'acknowledge':
-            return { ...alert, status: 'acknowledged' };
-          case 'resolve':
-            return { ...alert, status: 'resolved' };
-          case 'close':
-            return { ...alert, status: 'closed' };
-          case 'assign':
-            return { ...alert, assignedTo: data.user };
-          case 'delete':
+          case "acknowledge":
+            updatedAlert = { ...alert, status: "acknowledged" };
+            break;
+          case "resolve":
+            updatedAlert = { ...alert, status: "resolved" };
+            break;
+          case "close":
+            updatedAlert = { ...alert, status: "closed" };
+            break;
+          case "assign":
+            updatedAlert = { ...alert, assignedTo: data.user };
+            break;
+          case "delete":
+            await axios.delete(
+              `${import.meta.env.VITE_JSON_SERVER_URL}/alerts/${alertId}`
+            );
             return null;
           default:
             return alert;
         }
-      }
-      return alert;
-    }).filter(Boolean));
+        await axios.patch(
+          `${import.meta.env.VITE_JSON_SERVER_URL}/alerts/${alertId}`,
+          updatedAlert
+        );
+        return updatedAlert;
+      });
 
-    setSelectedAlerts([]);
-  };
-
-  const handleAlertAction = (action, alertId, data = {}) => {
-    switch (action) {
-      case 'acknowledge':
-        setAlerts(prev => prev.map(alert =>
-          alert.id === alertId ? { ...alert, status: 'acknowledged' } : alert
-        ));
-        break;
-      case 'assign':
-        // Open assignment modal or dropdown
-        console.log('Assign alert:', alertId);
-        break;
-      case 'addNote':
-        // Open note modal
-        console.log('Add note to alert:', alertId);
-        break;
-      case 'viewDetails':
-        const alert = alerts.find(a => a.id === alertId);
-        setSelectedAlert(alert);
-        setIsModalOpen(true);
-        break;
+      const updatedAlerts = (await Promise.all(updates)).filter(Boolean);
+      setAlerts((prev) =>
+        prev
+          .map(
+            (alert) => updatedAlerts.find((u) => u?.id === alert.id) || alert
+          )
+          .filter(Boolean)
+      );
+      setSelectedAlerts([]);
+    } catch (err) {
+      console.error("Erreur lors de l'action groupée:", err);
+      setError("Erreur lors de l'application des actions groupées");
     }
   };
 
-  const handleSaveAlert = (alertId, formData) => {
-    setAlerts(prev => prev.map(alert =>
-      alert.id === alertId ? { ...alert, ...formData } : alert
-    ));
+  const handleAlertAction = async (action, alertId, data = {}) => {
+    try {
+      switch (action) {
+        case "acknowledge":
+          await axios.patch(
+            `${import.meta.env.VITE_JSON_SERVER_URL}/alerts/${alertId}`,
+            { status: "acknowledged" }
+          );
+          setAlerts((prev) =>
+            prev.map((alert) =>
+              alert.id === alertId
+                ? { ...alert, status: "acknowledged" }
+                : alert
+            )
+          );
+          break;
+        case "assign":
+          await axios.patch(
+            `${import.meta.env.VITE_JSON_SERVER_URL}/alerts/${alertId}`,
+            { assignedTo: data.user }
+          );
+          setAlerts((prev) =>
+            prev.map((alert) =>
+              alert.id === alertId ? { ...alert, assignedTo: data.user } : alert
+            )
+          );
+          break;
+        case "addNote":
+          await axios.patch(
+            `${import.meta.env.VITE_JSON_SERVER_URL}/alerts/${alertId}`,
+            { notes: data.notes }
+          );
+          setAlerts((prev) =>
+            prev.map((alert) =>
+              alert.id === alertId ? { ...alert, notes: data.notes } : alert
+            )
+          );
+          break;
+        case "viewDetails":
+          const alert = alerts.find((a) => a.id === alertId);
+          setSelectedAlert(alert);
+          setIsModalOpen(true);
+          break;
+      }
+    } catch (err) {
+      console.error(`Erreur lors de l'action ${action}:`, err);
+      setError(`Erreur lors de l'exécution de l'action ${action}`);
+    }
+  };
+
+  const handleSaveAlert = async (alertId, formData) => {
+    try {
+      await axios.patch(
+        `${import.meta.env.VITE_JSON_SERVER_URL}/alerts/${alertId}`,
+        formData
+      );
+      setAlerts((prev) =>
+        prev.map((alert) =>
+          alert.id === alertId ? { ...alert, ...formData } : alert
+        )
+      );
+    } catch (err) {
+      console.error("Erreur lors de la sauvegarde de l'alerte:", err);
+      setError("Erreur lors de la sauvegarde de l'alerte");
+    }
   };
 
   const handleClearFilters = () => {
     setFilters({
-      search: '',
-      severity: 'all',
-      status: 'all',
-      category: 'all',
-      location: 'all',
-      dateRange: { start: '', end: '' }
+      search: "",
+      severity: "all",
+      status: "all",
+      category: "all",
+      location: "all",
+      dateRange: { start: "", end: "" },
     });
   };
 
@@ -356,7 +319,37 @@ const AlertsNotifications = () => {
         <div className="flex items-center justify-center h-96">
           <div className="flex items-center space-x-3">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-            <span className="text-muted-foreground">Chargement des alertes...</span>
+            <span className="text-muted-foreground">
+              Chargement des alertes...
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="flex items-center justify-center h-96">
+          <div className="text-center">
+            <Icon
+              name="AlertTriangle"
+              size={48}
+              className="text-error mx-auto mb-4"
+            />
+            <h2 className="text-xl font-semibold text-foreground mb-2">
+              Erreur de Chargement
+            </h2>
+            <p className="text-muted-foreground mb-4">{error}</p>
+            <Button
+              variant="outline"
+              iconName="RotateCcw"
+              iconPosition="left"
+              onClick={() => window.location.reload()}
+            >
+              Réessayer
+            </Button>
           </div>
         </div>
       </div>
@@ -378,7 +371,6 @@ const AlertsNotifications = () => {
                 Surveillance en temps réel des événements critiques
               </p>
             </div>
-            
             <div className="flex items-center space-x-3">
               <Button
                 variant="outline"
@@ -388,12 +380,7 @@ const AlertsNotifications = () => {
               >
                 Actualiser
               </Button>
-              
-              <Button
-                variant="default"
-                iconName="Settings"
-                iconSize={16}
-              >
+              <Button variant="default" iconName="Settings" iconSize={16}>
                 Configurer
               </Button>
             </div>
@@ -429,27 +416,30 @@ const AlertsNotifications = () => {
                 <div className="flex items-center space-x-2">
                   <input
                     type="checkbox"
-                    checked={selectedAlerts.length === filteredAlerts.length && filteredAlerts.length > 0}
+                    checked={
+                      selectedAlerts.length === filteredAlerts.length &&
+                      filteredAlerts.length > 0
+                    }
                     onChange={handleSelectAll}
                     className="rounded border-border"
                   />
                   <span className="text-sm text-muted-foreground">
-                    {filteredAlerts.length} alerte{filteredAlerts.length > 1 ? 's' : ''}
+                    {filteredAlerts.length} alerte
+                    {filteredAlerts.length > 1 ? "s" : ""}
                   </span>
                 </div>
-                
                 {selectedAlerts.length > 0 && (
                   <span className="text-sm text-primary font-medium">
-                    {selectedAlerts.length} sélectionnée{selectedAlerts.length > 1 ? 's' : ''}
+                    {selectedAlerts.length} sélectionnée
+                    {selectedAlerts.length > 1 ? "s" : ""}
                   </span>
                 )}
               </div>
-              
               <div className="flex items-center space-x-2">
                 <select
                   value={`${sortBy}-${sortOrder}`}
                   onChange={(e) => {
-                    const [field, order] = e.target.value.split('-');
+                    const [field, order] = e.target.value.split("-");
                     setSortBy(field);
                     setSortOrder(order);
                   }}
@@ -467,12 +457,17 @@ const AlertsNotifications = () => {
             <div className="space-y-4">
               {filteredAlerts.length === 0 ? (
                 <div className="text-center py-12">
-                  <Icon name="Bell" size={48} className="mx-auto text-muted-foreground mb-4" />
+                  <Icon
+                    name="Bell"
+                    size={48}
+                    className="mx-auto text-muted-foreground mb-4"
+                  />
                   <h3 className="text-lg font-medium text-foreground mb-2">
                     Aucune alerte trouvée
                   </h3>
                   <p className="text-muted-foreground">
-                    Aucune alerte ne correspond aux critères de filtrage actuels.
+                    Aucune alerte ne correspond aux critères de filtrage
+                    actuels.
                   </p>
                 </div>
               ) : (
@@ -488,17 +483,27 @@ const AlertsNotifications = () => {
                       <input
                         type="checkbox"
                         checked={selectedAlerts.includes(alert.id)}
-                        onChange={(e) => handleAlertSelect(alert.id, e.target.checked)}
+                        onChange={(e) =>
+                          handleAlertSelect(alert.id, e.target.checked)
+                        }
                         className="rounded border-border"
                       />
                     </div>
                     <div className="pl-10">
                       <AlertCard
                         alert={alert}
-                        onAcknowledge={(id) => handleAlertAction('acknowledge', id)}
-                        onAssign={(id) => handleAlertAction('assign', id)}
-                        onAddNote={(id) => handleAlertAction('addNote', id)}
-                        onViewDetails={(id) => handleAlertAction('viewDetails', id)}
+                        onAcknowledge={(id) =>
+                          handleAlertAction("acknowledge", id)
+                        }
+                        onAssign={(id, user) =>
+                          handleAlertAction("assign", id, { user })
+                        }
+                        onAddNote={(id, notes) =>
+                          handleAlertAction("addNote", id, { notes })
+                        }
+                        onViewDetails={(id) =>
+                          handleAlertAction("viewDetails", id)
+                        }
                       />
                     </div>
                   </motion.div>
@@ -521,7 +526,6 @@ const AlertsNotifications = () => {
         onClearSelection={() => setSelectedAlerts([])}
       />
 
-      {/* Alert Modal */}
       <AlertModal
         alert={selectedAlert}
         isOpen={isModalOpen}

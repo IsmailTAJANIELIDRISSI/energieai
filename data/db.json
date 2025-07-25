@@ -1,0 +1,491 @@
+{
+  "machines": [
+    {
+      "id": "COMP-001",
+      "name": "Compresseur Principal",
+      "type": "compressor",
+      "department": "maintenance",
+      "status": "operational",
+      "normalConsumption": "70-80",
+      "currentPower": 78.5,
+      "efficiency": 89,
+      "temperature": 72,
+      "lastMaintenance": "2025-01-10",
+      "dailyCost": 563.2,
+      "uptime": 98.5
+    },
+    {
+      "id": "CUT-003",
+      "name": "Machine de Découpe #3",
+      "type": "cutter",
+      "department": "production",
+      "status": "alert",
+      "normalConsumption": "40-50",
+      "currentPower": 52.8,
+      "efficiency": 76,
+      "temperature": 85,
+      "lastMaintenance": "2024-12-20",
+      "dailyCost": 378.9,
+      "uptime": 92.1,
+      "alertMessage": "Température élevée détectée"
+    },
+    {
+      "id": "CONV-001",
+      "name": "Convoyeur Principal A1",
+      "type": "conveyor",
+      "department": "production",
+      "status": "optimal",
+      "normalConsumption": "40-50",
+      "currentPower": 45.2,
+      "efficiency": 87,
+      "temperature": 68,
+      "lastMaintenance": "2025-01-15",
+      "dailyCost": 324,
+      "uptime": 98.5
+    },
+    {
+      "id": "COOL-001",
+      "name": "Système de Refroidissement",
+      "type": "cooling",
+      "department": "production",
+      "status": "maintenance",
+      "normalConsumption": "80-100",
+      "currentPower": 0,
+      "efficiency": 0,
+      "temperature": 25,
+      "lastMaintenance": "2025-01-22",
+      "dailyCost": 0,
+      "uptime": 0
+    },
+    {
+      "id": "CONV-002",
+      "name": "Convoyeur #2",
+      "type": "conveyor",
+      "department": "packaging",
+      "status": "optimal",
+      "normalConsumption": "10-15",
+      "currentPower": 12.3,
+      "efficiency": 94,
+      "temperature": 45,
+      "lastMaintenance": "2025-01-18",
+      "dailyCost": 88.2,
+      "uptime": 97.8
+    },
+    {
+      "id": "PACK-001",
+      "name": "Machine d'Emballage",
+      "type": "packaging",
+      "department": "packaging",
+      "status": "inactive",
+      "normalConsumption": "30-40",
+      "currentPower": 0,
+      "efficiency": 0,
+      "temperature": 22,
+      "lastMaintenance": "2025-01-05",
+      "dailyCost": 0,
+      "uptime": 0
+    },
+    {
+      "id": "MIX-002",
+      "name": "Mélangeur Industriel B2",
+      "type": "mixer",
+      "department": "production",
+      "status": "attention",
+      "normalConsumption": "60-75",
+      "currentPower": 72.8,
+      "efficiency": 73,
+      "temperature": 70,
+      "lastMaintenance": "2025-01-08",
+      "dailyCost": 523,
+      "uptime": 94.2
+    },
+    {
+      "id": "PUMP-002",
+      "name": "Pompe Hydraulique D3",
+      "type": "pump",
+      "department": "production",
+      "status": "optimal",
+      "normalConsumption": "35-45",
+      "currentPower": 38.6,
+      "efficiency": 91,
+      "temperature": 65,
+      "lastMaintenance": "2025-01-20",
+      "dailyCost": 277,
+      "uptime": 99.2
+    },
+    {
+      "id": "M-205",
+      "name": "Moteur M-205",
+      "type": "motor",
+      "department": "packaging",
+      "status": "alert",
+      "normalConsumption": "20-30",
+      "currentPower": 28.5,
+      "efficiency": 82,
+      "temperature": 85,
+      "lastMaintenance": "2024-12-15",
+      "dailyCost": 204.5,
+      "uptime": 95
+    },
+    {
+      "id": "M-301",
+      "name": "Machine M-301",
+      "type": "machine",
+      "department": "production",
+      "status": "optimal",
+      "normalConsumption": "50-60",
+      "currentPower": 55.2,
+      "efficiency": 98.5,
+      "temperature": 60,
+      "lastMaintenance": "2025-01-12",
+      "dailyCost": 396,
+      "uptime": 99.8
+    },
+    {
+      "id": "C-104",
+      "name": "Compresseur C-104",
+      "type": "compressor",
+      "department": "maintenance",
+      "status": "attention",
+      "normalConsumption": "60-70",
+      "currentPower": 65.8,
+      "efficiency": 85,
+      "temperature": 70,
+      "lastMaintenance": "2024-11-30",
+      "dailyCost": 472,
+      "uptime": 96.5
+    }
+  ],
+  "energy": [
+    {
+      "id": "1",
+      "machine_id": "COMP-001",
+      "power_usage_kW": 78.5,
+      "coupure": false,
+      "cost_mad": 94.2,
+      "action": "ON",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 89
+    },
+    {
+      "id": "2",
+      "machine_id": "CUT-003",
+      "power_usage_kW": 52.8,
+      "coupure": false,
+      "cost_mad": 63.4,
+      "action": "Éteindre (surcons.)",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 76
+    },
+    {
+      "id": "3",
+      "machine_id": "CONV-001",
+      "power_usage_kW": 45.2,
+      "coupure": false,
+      "cost_mad": 54.2,
+      "action": "ON",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 87
+    },
+    {
+      "id": "4",
+      "machine_id": "COOL-001",
+      "power_usage_kW": 0,
+      "coupure": true,
+      "cost_mad": 0,
+      "action": "Maintenance",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 0
+    },
+    {
+      "id": "5",
+      "machine_id": "CONV-002",
+      "power_usage_kW": 12.3,
+      "coupure": false,
+      "cost_mad": 14.8,
+      "action": "ON",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 94
+    },
+    {
+      "id": "6",
+      "machine_id": "PACK-001",
+      "power_usage_kW": 0,
+      "coupure": true,
+      "cost_mad": 0,
+      "action": "Éteindre (inactif)",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 0
+    },
+    {
+      "id": "7",
+      "machine_id": "MIX-002",
+      "power_usage_kW": 72.8,
+      "coupure": false,
+      "cost_mad": 87.4,
+      "action": "Maintenance",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 73
+    },
+    {
+      "id": "8",
+      "machine_id": "PUMP-002",
+      "power_usage_kW": 38.6,
+      "coupure": false,
+      "cost_mad": 46.3,
+      "action": "ON",
+      "timestamp": "2025-07-23T00:00:00Z",
+      "efficiency_score": 91
+    },
+    {
+      "id": "9",
+      "machine_id": "COMP-001",
+      "power_usage_kW": 2400,
+      "cost_mad": 3600,
+      "efficiency_score": 85,
+      "co2": 1200,
+      "static_audit": 2800,
+      "timestamp": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "10",
+      "machine_id": "COMP-001",
+      "power_usage_kW": 2200,
+      "cost_mad": 3300,
+      "efficiency_score": 88,
+      "co2": 1100,
+      "static_audit": 2750,
+      "timestamp": "2025-01-02T00:00:00Z"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert_001",
+      "title": "Surconsommation énergétique détectée",
+      "description": "La ligne de production 1 présente une consommation énergétique 35% supérieure à la normale depuis 2h30. Cette anomalie pourrait indiquer un dysfonctionnement des moteurs ou un problème d'isolation thermique.",
+      "severity": "critical",
+      "status": "new",
+      "category": "energy",
+      "location": "Ligne de production 1",
+      "machine_id": "COMP-001",
+      "timestamp": "2025-07-25T18:00:00Z",
+      "assignedTo": "",
+      "recommendations": [
+        "Vérifier l'état des moteurs électriques",
+        "Contrôler l'isolation thermique des équipements",
+        "Analyser les données de température ambiante",
+        "Programmer une maintenance préventive"
+      ],
+      "notes": "",
+      "resolution": ""
+    },
+    {
+      "id": "alert_002",
+      "title": "Micro-coupure électrique",
+      "description": "Interruption électrique de 3 secondes détectée sur le secteur B. Impact sur 4 machines avec redémarrage automatique effectué.",
+      "severity": "high",
+      "status": "acknowledged",
+      "category": "system",
+      "location": "Secteur B - Entrepôt",
+      "machine_id": null,
+      "timestamp": "2025-07-25T17:30:00Z",
+      "assignedTo": "fatima.benali",
+      "recommendations": [
+        "Vérifier la stabilité du réseau électrique",
+        "Contrôler les disjoncteurs et fusibles",
+        "Tester les systèmes de sauvegarde"
+      ],
+      "notes": "Équipe technique notifiée",
+      "resolution": ""
+    },
+    {
+      "id": "alert_003",
+      "title": "Maintenance préventive requise",
+      "description": "Le compresseur C-104 approche de son seuil de maintenance programmée. 2847 heures de fonctionnement sur 3000 heures recommandées.",
+      "severity": "medium",
+      "status": "in_progress",
+      "category": "maintenance",
+      "location": "Atelier mécanique",
+      "machine_id": "C-104",
+      "timestamp": "2025-07-25T17:00:00Z",
+      "assignedTo": "youssef.alami",
+      "recommendations": [
+        "Programmer l'arrêt du compresseur",
+        "Préparer les pièces de rechange",
+        "Coordonner avec l'équipe de maintenance"
+      ],
+      "notes": "Pièces commandées, livraison prévue demain",
+      "resolution": ""
+    },
+    {
+      "id": "alert_004",
+      "title": "Économie d'énergie réalisée",
+      "description": "Optimisation automatique réussie sur la ligne 2. Réduction de 12% de la consommation énergétique grâce aux ajustements des paramètres de fonctionnement.",
+      "severity": "info",
+      "status": "resolved",
+      "category": "energy",
+      "location": "Ligne de production 2",
+      "machine_id": "CONV-002",
+      "timestamp": "2025-07-25T16:30:00Z",
+      "assignedTo": "sara.idrissi",
+      "recommendations": [
+        "Appliquer les mêmes paramètres aux autres lignes",
+        "Documenter les réglages optimaux",
+        "Programmer une vérification hebdomadaire"
+      ],
+      "notes": "Économie estimée: 450 MAD/jour",
+      "resolution": "Paramètres optimisés et documentés"
+    },
+    {
+      "id": "alert_005",
+      "title": "Température élevée détectée",
+      "description": "Le moteur M-205 présente une température de fonctionnement de 85°C, dépassant le seuil recommandé de 75°C.",
+      "severity": "high",
+      "status": "new",
+      "category": "equipment",
+      "location": "Zone de conditionnement",
+      "machine_id": "M-205",
+      "timestamp": "2025-07-25T16:00:00Z",
+      "assignedTo": "",
+      "recommendations": [
+        "Arrêter immédiatement le moteur",
+        "Vérifier le système de refroidissement",
+        "Contrôler les roulements et lubrification"
+      ],
+      "notes": "",
+      "resolution": ""
+    },
+    {
+      "id": "alert_006",
+      "title": "Mise à jour système disponible",
+      "description": "Une nouvelle version du firmware est disponible pour les contrôleurs énergétiques. Version 2.4.1 avec améliorations de performance.",
+      "severity": "low",
+      "status": "new",
+      "category": "system",
+      "location": "Système central",
+      "machine_id": null,
+      "timestamp": "2025-07-25T15:30:00Z",
+      "assignedTo": "omar.tazi",
+      "recommendations": [
+        "Planifier la mise à jour pendant l'arrêt",
+        "Sauvegarder la configuration actuelle",
+        "Tester sur un contrôleur pilote"
+      ],
+      "notes": "",
+      "resolution": ""
+    },
+    {
+      "id": "alert_007",
+      "title": "Dépassement seuil CO2",
+      "description": "Les émissions de CO2 ont dépassé le seuil environnemental de 15% par rapport aux objectifs mensuels.",
+      "severity": "medium",
+      "status": "acknowledged",
+      "category": "safety",
+      "location": "Installation générale",
+      "machine_id": null,
+      "timestamp": "2025-07-25T15:00:00Z",
+      "assignedTo": "ahmed.mansouri",
+      "recommendations": [
+        "Analyser les sources d'émission principales",
+        "Optimiser les processus énergivores",
+        "Réviser les objectifs environnementaux"
+      ],
+      "notes": "Rapport environnemental en cours",
+      "resolution": ""
+    },
+    {
+      "id": "alert_008",
+      "title": "Efficacité machine optimale",
+      "description": "La machine M-301 atteint un rendement de 98.5%, dépassant les objectifs de performance de 3.5%.",
+      "severity": "info",
+      "status": "closed",
+      "category": "equipment",
+      "location": "Ligne de production 3",
+      "machine_id": "M-301",
+      "timestamp": "2025-07-25T14:30:00Z",
+      "assignedTo": "fatima.benali",
+      "recommendations": [
+        "Documenter les paramètres optimaux",
+        "Répliquer sur machines similaires",
+        "Programmer maintenance préventive"
+      ],
+      "notes": "Performance exceptionnelle maintenue",
+      "resolution": "Paramètres documentés et répliqués"
+    }
+  ],
+  "forecasts": [
+    {
+      "id": "FORECAST-001",
+      "date": "2025-01-08",
+      "predicted": 2400,
+      "upperBound": 2600,
+      "lowerBound": 2200
+    },
+    {
+      "id": "FORECAST-002",
+      "date": "2025-01-09",
+      "predicted": 2450,
+      "upperBound": 2650,
+      "lowerBound": 2250
+    },
+    {
+      "id": "FORECAST-003",
+      "date": "2025-01-10",
+      "predicted": 2380,
+      "upperBound": 2580,
+      "lowerBound": 2180
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "REC-001",
+      "title": "Optimisation du Compresseur Principal",
+      "description": "Le compresseur principal COMP-001 fonctionne à 85% de sa capacité en permanence, même pendant les périodes de faible demande. L'installation d'un variateur de fréquence permettrait d'ajuster automatiquement la vitesse selon les besoins réels de production.\n\nCette optimisation réduirait significativement la consommation énergétique pendant les heures creuses et améliorerait la durée de vie de l'équipement.",
+      "icon": "Settings",
+      "priority": "Élevée",
+      "difficulty": "Modérée",
+      "machine_id": "COMP-001",
+      "category": "optimization",
+      "potential_savings": 2850,
+      "payback_period": 8,
+      "energy_reduction": 22,
+      "implementation_cost": 18500,
+      "generated_at": "2025-01-20T00:00:00Z",
+      "implementation_steps": [
+        "Arrêt programmé du compresseur pendant une fenêtre de maintenance",
+        "Installation du variateur de fréquence par un technicien certifié",
+        "Configuration des paramètres de régulation automatique",
+        "Tests de fonctionnement et calibrage des seuils",
+        "Formation de l'équipe de maintenance sur le nouveau système",
+        "Mise en service progressive avec surveillance continue"
+      ],
+      "supporting_data": "Analyse des données de consommation sur 3 mois : consommation moyenne de 145 kWh/jour avec des pics inutiles de 180 kWh pendant les périodes de faible production. Le variateur permettrait une économie estimée de 32 kWh/jour en moyenne."
+    }
+  ],
+  "implementations": [
+    {
+      "id": "IMPL-001",
+      "title": "Remplacement Moteur Pompe Secondaire",
+      "machine_id": "PUMP-003",
+      "status": "Implémenté",
+      "progress": 100,
+      "expected_savings": 1200,
+      "actual_savings": 1350,
+      "implementation_cost": 5500,
+      "accepted_at": "2024-12-15T00:00:00Z",
+      "completed_at": "2025-01-10T00:00:00Z"
+    },
+    {
+      "id": "IMPL-002",
+      "title": "Optimisation Ventilation Atelier",
+      "machine_id": "VENT-001",
+      "status": "En Cours",
+      "progress": 65,
+      "expected_savings": 890,
+      "actual_savings": 0,
+      "implementation_cost": 3200,
+      "accepted_at": "2025-01-05T00:00:00Z",
+      "completed_at": null
+    }
+  ]
+}

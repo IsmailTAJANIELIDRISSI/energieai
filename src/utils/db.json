@@ -1,0 +1,67 @@
+{
+  "energyReadings": [
+    {
+      "id": 1,
+      "timestamp": "2024-03-10T10:00:00Z",
+      "machineId": "MACHINE001",
+      "powerConsumption": 2500,
+      "voltage": 220,
+      "current": 11.36,
+      "powerFactor": 0.95,
+      "temperature": 45.5
+    }
+  ],
+  "machines": [
+    {
+      "id": "MACHINE001",
+      "name": "Compresseur Principal",
+      "type": "Compresseur",
+      "status": "active",
+      "location": "Zone A",
+      "specifications": {
+        "maxPower": 3000,
+        "optimalPower": 2200,
+        "minPower": 1000
+      },
+      "maintenanceSchedule": {
+        "lastMaintenance": "2024-02-15",
+        "nextMaintenance": "2024-04-15"
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "id": 1,
+      "machineId": "MACHINE001",
+      "type": "efficiency",
+      "priority": "high",
+      "title": "Optimisation de la consommation du compresseur",
+      "description": "Le compresseur fonctionne au-dessus de sa puissance optimale. Réduire la charge de 15%.",
+      "potentialSavings": 250,
+      "implementationCost": 0,
+      "status": "pending",
+      "createdAt": "2024-03-10T10:30:00Z"
+    }
+  ],
+  "alerts": [
+    {
+      "id": 1,
+      "machineId": "MACHINE001",
+      "type": "overconsumption",
+      "severity": "warning",
+      "message": "Consommation électrique 15% au-dessus du seuil optimal",
+      "timestamp": "2024-03-10T10:15:00Z",
+      "status": "active"
+    }
+  ],
+  "energyMetrics": [
+    {
+      "id": 1,
+      "date": "2024-03-10",
+      "totalConsumption": 45000,
+      "peakDemand": 3500,
+      "cost": 750.25,
+      "co2Emissions": 22.5
+    }
+  ]
+}
