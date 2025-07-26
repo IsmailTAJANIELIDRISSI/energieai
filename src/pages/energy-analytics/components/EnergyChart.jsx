@@ -79,7 +79,7 @@ const EnergyChart = ({
     };
 
     const xAxisProps = {
-      dataKey: "timestamp",
+      dataKey: "date",
       tickFormatter: formatXAxisLabel,
       stroke: "#64748b",
       fontSize: 12,
