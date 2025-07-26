@@ -46,7 +46,7 @@ const DashboardOverview = () => {
 
         // Transform energy data for chart
         const transformedEnergyData = energyRes.data.map((entry) => ({
-          time: new Date(entry.timestamp).toISOString().slice(11, 13),
+          time: new Date(entry.timestamp).toISOString().split("T")[0],
           consumption: entry.power_usage_kW,
           target:
             parseFloat(
