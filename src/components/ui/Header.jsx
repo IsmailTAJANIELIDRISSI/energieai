@@ -1,63 +1,63 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import Icon from '../AppIcon';
-import Button from './Button';
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import Icon from "../AppIcon";
+import Button from "./Button";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('fr');
+  const [language, setLanguage] = useState("fr");
   const [alertCount, setAlertCount] = useState(3);
   const dropdownRef = useRef(null);
 
   const navigationItems = [
     {
-      path: '/dashboard-overview',
-      label: 'Tableau de Bord',
-      icon: 'BarChart3',
-      tooltip: 'Vue d\'ensemble de l\'énergie'
+      path: "/dashboard-overview",
+      label: "Tableau de Bord",
+      icon: "BarChart3",
+      tooltip: "Vue d'ensemble de l'énergie",
     },
     {
-      path: '/machine-monitoring',
-      label: 'Machines',
-      icon: 'Settings',
-      tooltip: 'Surveillance des équipements'
+      path: "/machine-monitoring",
+      label: "Machines",
+      icon: "Settings",
+      tooltip: "Surveillance des équipements",
     },
     {
-      path: '/energy-analytics',
-      label: 'Analyses',
-      icon: 'Zap',
-      tooltip: 'Analyses énergétiques'
+      path: "/energy-analytics",
+      label: "Analyses",
+      icon: "Zap",
+      tooltip: "Analyses énergétiques",
     },
     {
-      path: '/recommendations-engine',
-      label: 'Recommandations',
-      icon: 'FileText',
-      tooltip: 'Optimisations suggérées'
+      path: "/recommendations-engine",
+      label: "Recommandations",
+      icon: "FileText",
+      tooltip: "Optimisations suggérées",
     },
     {
-      path: '/alerts-notifications',
-      label: 'Alertes',
-      icon: 'AlertTriangle',
-      tooltip: 'Notifications critiques',
-      badge: alertCount
-    }
+      path: "/alerts-notifications",
+      label: "Alertes",
+      icon: "AlertTriangle",
+      tooltip: "Notifications critiques",
+      badge: alertCount,
+    },
   ];
 
   const moreItems = [
     {
-      path: '/reports-export',
-      label: 'Rapports',
-      icon: 'Download',
-      tooltip: 'Exportation et rapports'
-    }
+      path: "/reports-export",
+      label: "Rapports",
+      icon: "Download",
+      tooltip: "Exportation et rapports",
+    },
   ];
 
   const languages = [
-    { code: 'fr', label: 'Français', flag: '🇫🇷' },
-    { code: 'ar', label: 'العربية', flag: '🇲🇦' }
+    { code: "fr", label: "Français", flag: "🇫🇷" },
+    { code: "ar", label: "العربية", flag: "🇲🇦" },
   ];
 
   useEffect(() => {
@@ -67,12 +67,12 @@ const Header = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
+    const savedLanguage = localStorage.getItem("language");
     if (savedLanguage) {
       setLanguage(savedLanguage);
     }
@@ -85,13 +85,13 @@ const Header = () => {
 
   const handleLanguageChange = (langCode) => {
     setLanguage(langCode);
-    localStorage.setItem('language', langCode);
+    localStorage.setItem("language", langCode);
     setUserDropdownOpen(false);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
-    navigate('/login');
+    localStorage.removeItem("authToken");
+    navigate("/login");
   };
 
   const isActive = (path) => location.pathname === path;
@@ -121,8 +121,8 @@ const Header = () => {
                 onClick={() => handleNavigation(item.path)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive(item.path)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-foreground hover:bg-muted hover:text-foreground'
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-muted hover:text-foreground"
                 }`}
               >
                 <Icon name={item.icon} size={16} />
@@ -133,11 +133,11 @@ const Header = () => {
                   </span>
                 )}
               </button>
-              
+
               {/* Tooltip */}
-              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-popover text-popover-foreground text-xs rounded-lg shadow-modal opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-popover text-popover-foreground text-xs rounded-lg shadow-modal opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                 {item.tooltip}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-popover"></div>
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-popover"></div>{" "}
               </div>
             </div>
           ))}
@@ -153,14 +153,16 @@ const Header = () => {
             >
               Plus
             </Button>
-            
+
             <div className="absolute top-full right-0 mt-2 w-48 bg-popover border border-border rounded-lg shadow-modal opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               {moreItems.map((item) => (
                 <button
                   key={item.path}
                   onClick={() => handleNavigation(item.path)}
                   className={`w-full flex items-center space-x-3 px-4 py-3 text-sm text-left hover:bg-muted transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg ${
-                    isActive(item.path) ? 'bg-primary text-primary-foreground' : 'text-popover-foreground'
+                    isActive(item.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-popover-foreground"
                   }`}
                 >
                   <Icon name={item.icon} size={16} />
@@ -178,7 +180,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => handleNavigation('/alerts-notifications')}
+              onClick={() => handleNavigation("/alerts-notifications")}
               className="relative"
             >
               <Icon name="Bell" size={20} />
@@ -200,15 +202,19 @@ const Header = () => {
                 AM
               </div>
               <div className="hidden md:block text-left">
-                <div className="text-sm font-medium text-foreground">Ahmed Mansouri</div>
-                <div className="text-xs text-muted-foreground">Gestionnaire d'énergie</div>
+                <div className="text-sm font-medium text-foreground">
+                  Ahmed Mansouri
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  Gestionnaire d'énergie
+                </div>
               </div>
-              <Icon 
-                name="ChevronDown" 
-                size={16} 
+              <Icon
+                name="ChevronDown"
+                size={16}
                 className={`text-muted-foreground transition-transform duration-200 ${
-                  userDropdownOpen ? 'rotate-180' : ''
-                }`} 
+                  userDropdownOpen ? "rotate-180" : ""
+                }`}
               />
             </button>
 
@@ -221,8 +227,12 @@ const Header = () => {
                       AM
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-popover-foreground">Ahmed Mansouri</div>
-                      <div className="text-xs text-muted-foreground">ahmed.mansouri@energieai.ma</div>
+                      <div className="text-sm font-medium text-popover-foreground">
+                        Ahmed Mansouri
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        ahmed.mansouri@energieai.ma
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -238,8 +248,8 @@ const Header = () => {
                       onClick={() => handleLanguageChange(lang.code)}
                       className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-md transition-colors duration-200 ${
                         language === lang.code
-                          ? 'bg-primary text-primary-foreground'
-                          : 'text-popover-foreground hover:bg-muted'
+                          ? "bg-primary text-primary-foreground"
+                          : "text-popover-foreground hover:bg-muted"
                       }`}
                     >
                       <span className="text-base">{lang.flag}</span>
@@ -256,7 +266,7 @@ const Header = () => {
                   <button
                     onClick={() => {
                       setUserDropdownOpen(false);
-                      handleNavigation('/profile');
+                      handleNavigation("/profile");
                     }}
                     className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-popover-foreground hover:bg-muted rounded-md transition-colors duration-200"
                   >
@@ -267,7 +277,7 @@ const Header = () => {
                   <button
                     onClick={() => {
                       setUserDropdownOpen(false);
-                      handleNavigation('/settings');
+                      handleNavigation("/settings");
                     }}
                     className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-popover-foreground hover:bg-muted rounded-md transition-colors duration-200"
                   >
@@ -311,8 +321,8 @@ const Header = () => {
                 onClick={() => handleNavigation(item.path)}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive(item.path)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-foreground hover:bg-muted'
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-muted"
                 }`}
               >
                 <Icon name={item.icon} size={18} />

@@ -77,7 +77,7 @@ const RecommendationCard = ({
                   {recommendation.priority}
                 </span>
                 <span className="text-sm text-muted-foreground">
-                  Machine: {recommendation.machineId}
+                  Machine: {recommendation.machine_id}
                 </span>
               </div>
             </div>

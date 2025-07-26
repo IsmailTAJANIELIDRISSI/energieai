@@ -1,5 +1,5 @@
 export const calculateMetrics = (energyData, machines) => {
-  console.log(energyData);
+  console.log(energyData.map((e) => e.co2));
 
   const totalConsumption = energyData.reduce(
     (sum, entry) => sum + (entry.power_usage_kW || 0),
