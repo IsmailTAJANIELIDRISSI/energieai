@@ -7,6 +7,12 @@ const ImplementationTracker = ({
   onUpdateStatus,
   onViewDetails,
 }) => {
+  console.log(implementations);
+  console.log(
+    implementations[0].actual_savings
+      ? `${implementations[0].actual_savings.toLocaleString("fr-MA")} MAD/mois`
+      : "En attente"
+  );
   const getStatusColor = (status) => {
     switch (status) {
       case "Implémenté":
@@ -163,14 +169,14 @@ const ImplementationTracker = ({
                       </span>
                     </div>
                   </div>
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     size="icon"
                     onClick={() => onViewDetails(implementation)}
                     className="text-muted-foreground hover:text-foreground"
                   >
                     <Icon name="Eye" size={16} />
-                  </Button>
+                  </Button> */}
                 </div>
 
                 {/* Progress Bar */}
