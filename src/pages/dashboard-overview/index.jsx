@@ -9,13 +9,69 @@ import AlertsPanel from "./components/AlertsPanel";
 import MachineStatusGrid from "./components/MachineStatusGrid";
 import QuickActions from "./components/QuickActions";
 import CostAnalysis from "./components/CostAnalysis";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   calculateMetrics,
   calculateCostDistribution,
 } from "../../utils/energyCalculations";
+import Icon from "../../components/AppIcon";
 
 // Debug environment variables
 console.log("All Vite env vars:", import.meta.env);
+
+// Animation variants for staggered children
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Stagger each child by 0.2s
+    },
+  },
+};
+
+// Animation variants for individual cards
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+// Animation variants for sections sliding from sides
+const sectionVariants = {
+  hidden: (direction) => ({
+    opacity: 0,
+    x: direction === "left" ? -50 : 50,
+  }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+// Animation variants for scale effect
+const scaleVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+// Animation variants for summary stats
+const statVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
 
 const DashboardOverview = () => {
   const navigate = useNavigate();
@@ -186,119 +242,182 @@ const DashboardOverview = () => {
       </div>
     );
   }
-  console.log(metrics);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       <Header />
       <div className="pt-16">
         <div className="px-4 sm:px-6 lg:px-8">
           <Breadcrumb />
-          <div className="mb-8">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h1 className="text-2xl font-bold text-slate-900 mb-2">
-                  Tableau de Bord Énergétique
-                </h1>
-                <p className="text-slate-600">
-                  Surveillance en temps réel de votre consommation énergétique
-                </p>
-              </div>
-              <div className="mt-4 sm:mt-0 text-sm text-slate-500">
-                Dernière mise à jour: {currentTime.toLocaleTimeString("fr-FR")}
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <MetricsCard
-              title="Consommation Actuelle"
-              value={metrics.currentConsumption.toFixed(1)}
-              unit="kWh"
-              change="+2.3%"
-              changeType="positive"
-              icon="Zap"
-              color="info"
-            />
-            <MetricsCard
-              title="Coût Journalier"
-              value={formatCurrency(metrics.dailyCost)}
-              change="-5.1%"
-              changeType="positive"
-              icon="DollarSign"
-              color="success"
-            />
-            <MetricsCard
-              title="Score d'Efficacité"
-              value={metrics.efficiency.toFixed(1)}
-              unit="%"
-              change="+1.2%"
-              changeType="positive"
-              icon="Target"
-              color="success"
-            />
-            <MetricsCard
-              title="Empreinte CO₂"
-              value={metrics.co2Footprint.toFixed(1)}
-              unit="kg"
-              change="-3.8%"
-              changeType="positive"
-              icon="Leaf"
-              color="success"
-            />
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-            <div className="lg:col-span-2">
-              <EnergyChart
-                data={energyData}
-                title="Consommation Énergétique (24h)"
-              />
-            </div>
-            <div className="lg:col-span-1">
-              <AlertsPanel alerts={alertsData} />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
-            <div className="lg:col-span-2">
-              <MachineStatusGrid machines={machinesData} />
-            </div>
-            <div className="lg:col-span-1">
-              <CostAnalysis data={costData} />
-            </div>
-            <div className="lg:col-span-1">
-              <QuickActions
-                onGenerateReport={handleGenerateReport}
-                onViewRecommendations={handleViewRecommendations}
-                onExportData={handleExportData}
-              />
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-card mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-2xl font-bold text-green-600 mb-1">
-                  15%
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="py-6"
+          >
+            <div className="mb-8 py-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-foreground flex items-center">
+                    <Icon
+                      name="Settings"
+                      size={28}
+                      className="mr-3 text-primary"
+                    />
+                    Tableau de Bord Énergétique
+                  </h1>
+                  <p className="text-muted-foreground mt-1">
+                    Surveillance en temps réel de votre consommation énergétique
+                  </p>
                 </div>
-                <div className="text-sm text-slate-600">
-                  Économies Réalisées
-                </div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-blue-600 mb-1">
-                  {machinesData.length}
-                </div>
-                <div className="text-sm text-slate-600">
-                  Machines Surveillées
-                </div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-orange-600 mb-1">
-                  24/7
-                </div>
-                <div className="text-sm text-slate-600">
-                  Surveillance Continue
-                </div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="mt-4 sm:mt-0 text-sm text-muted-foreground"
+                >
+                  Dernière mise à jour:{" "}
+                  {currentTime.toLocaleTimeString("fr-FR")}
+                </motion.div>
               </div>
             </div>
-          </div>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={cardVariants}>
+                <MetricsCard
+                  title="Consommation Actuelle"
+                  value={metrics.currentConsumption.toFixed(1)}
+                  unit="kWh"
+                  change="+2.3%"
+                  changeType="positive"
+                  icon="Zap"
+                  color="info"
+                />
+              </motion.div>
+              <motion.div variants={cardVariants}>
+                <MetricsCard
+                  title="Coût Journalier"
+                  value={formatCurrency(metrics.dailyCost)}
+                  change="-5.1%"
+                  changeType="positive"
+                  icon="DollarSign"
+                  color="success"
+                />
+              </motion.div>
+              <motion.div variants={cardVariants}>
+                <MetricsCard
+                  title="Score d'Efficacité"
+                  value={metrics.efficiency.toFixed(1)}
+                  unit="%"
+                  change="+1.2%"
+                  changeType="positive"
+                  icon="Target"
+                  color="success"
+                />
+              </motion.div>
+              <motion.div variants={cardVariants}>
+                <MetricsCard
+                  title="Empreinte CO₂"
+                  value={metrics.co2Footprint.toFixed(1)}
+                  unit="kg"
+                  change="-3.8%"
+                  changeType="positive"
+                  icon="Leaf"
+                  color="success"
+                />
+              </motion.div>
+            </motion.div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+              <motion.div
+                variants={sectionVariants}
+                initial="hidden"
+                animate="visible"
+                custom="left"
+                className="lg:col-span-2"
+              >
+                <EnergyChart
+                  data={energyData}
+                  title="Consommation Énergétique (24h)"
+                />
+              </motion.div>
+              <motion.div
+                variants={sectionVariants}
+                initial="hidden"
+                animate="visible"
+                custom="right"
+                className="lg:col-span-1"
+              >
+                <AlertsPanel alerts={alertsData} />
+              </motion.div>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
+              <motion.div
+                variants={scaleVariants}
+                initial="hidden"
+                animate="visible"
+                className="lg:col-span-2"
+              >
+                <MachineStatusGrid machines={machinesData} />
+              </motion.div>
+              <motion.div
+                variants={scaleVariants}
+                initial="hidden"
+                animate="visible"
+                className="lg:col-span-1"
+              >
+                <CostAnalysis data={costData} />
+              </motion.div>
+              <motion.div
+                variants={scaleVariants}
+                initial="hidden"
+                animate="visible"
+                className="lg:col-span-1"
+              >
+                <QuickActions
+                  onGenerateReport={handleGenerateReport}
+                  onViewRecommendations={handleViewRecommendations}
+                  onExportData={handleExportData}
+                />
+              </motion.div>
+            </div>
+            <motion.div
+              className="bg-white p-6 rounded-lg border border-slate-200 shadow-card mb-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <motion.div variants={statVariants}>
+                  <div className="text-2xl font-bold text-green-600 mb-1">
+                    15%
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    Économies Réalisées
+                  </div>
+                </motion.div>
+                <motion.div variants={statVariants}>
+                  <div className="text-2xl font-bold text-blue-600 mb-1">
+                    {machinesData.length}
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    Machines Surveillées
+                  </div>
+                </motion.div>
+                <motion.div variants={statVariants}>
+                  <div className="text-2xl font-bold text-orange-600 mb-1">
+                    24/7
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    Surveillance Continue
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>

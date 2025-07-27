@@ -1856,6 +1856,2020 @@
       "icon": "Lightbulb",
       "generated_at": "2025-07-27T16:03:35.277Z",
       "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633482623-0",
+      "title": "Résoudre l'alerte de température élevée sur la machine de découpe CUT-003",
+      "description": "La machine de découpe CUT-003 signale une température élevée (85°C), ce qui pourrait endommager l'équipement et entraîner des temps d'arrêt. Une inspection et une maintenance immédiates sont nécessaires pour identifier et résoudre le problème de surchauffe.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 500,
+      "payback_period": 1,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Arrêter la machine CUT-003.",
+        "Inspecter le système de refroidissement (ventilateurs, radiateurs) pour tout blocage ou dysfonctionnement.",
+        "Vérifier les niveaux de lubrification et l'état des pièces mobiles.",
+        "Nettoyer et remplacer les filtres si nécessaire.",
+        "Effectuer des tests de température après la réparation pour s'assurer que la machine fonctionne dans sa plage normale.",
+        "Réinitialiser l'alerte dans le système de surveillance."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 100,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 500
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction du risque de panne et de temps d'arrêt imprévus.",
+        "regulatory_compliance": "Assurer la conformité aux normes de sécurité et d'exploitation."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de diagnostic de température, outils de nettoyage, lubrifiants.",
+        "duration": "4-8 heures.",
+        "cost": 100
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:24:42.623Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633482623-1",
+      "title": "Optimiser la consommation d'énergie du compresseur principal COMP-001",
+      "description": "Les données énergétiques montrent une consommation d'énergie élevée et un coût associé important pour le compresseur principal COMP-001. Bien que l'efficacité soit bonne, des améliorations peuvent être apportées pour réduire la consommation globale et les émissions de CO2.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 1500,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du système de compresseur.",
+        "Vérifier et réparer les fuites d'air dans le système de distribution.",
+        "Optimiser les paramètres de pression du compresseur en fonction des besoins de production.",
+        "Installer un système de récupération de chaleur pour réutiliser la chaleur générée par le compresseur.",
+        "Envisager le remplacement du compresseur par un modèle plus efficace si la consommation reste élevée après les optimisations."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 4500,
+      "environmental_impact": {
+        "co2_reduction": 400,
+        "energy_saved": 2000
+      },
+      "business_impact": {
+        "efficiency_improvement": 8,
+        "risk_reduction": "Réduction des coûts d'énergie et amélioration de la fiabilité du système d'air comprimé.",
+        "regulatory_compliance": "Réduction de l'empreinte carbone et conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur énergétique, technicien de maintenance.",
+        "tools": "Détecteur de fuites d'air, analyseur de puissance, outils de maintenance.",
+        "duration": "1 semaine.",
+        "cost": 4500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:24:42.624Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633482624-2",
+      "title": "Planifier la maintenance du Système de Refroidissement COOL-001",
+      "description": "Le Système de Refroidissement COOL-001 est en mode maintenance, avec une efficacité et un uptime de 0. Une planification et une exécution rapide de la maintenance sont cruciales pour éviter l'impact sur d'autres machines ou processus.",
+      "machine_id": "COOL-001",
+      "priority": "Critique",
+      "potential_savings": 0,
+      "payback_period": 0,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Diagnostiquer la cause de la maintenance (panne, entretien planifié).",
+        "Commander ou préparer les pièces de rechange nécessaires.",
+        "Effectuer la maintenance (réparation ou remplacement).",
+        "Tester le système pour s'assurer de son bon fonctionnement.",
+        "Remettre en service le système."
+      ],
+      "energy_reduction": 0,
+      "implementation_cost": 200,
+      "environmental_impact": {
+        "co2_reduction": 0,
+        "energy_saved": 0
+      },
+      "business_impact": {
+        "efficiency_improvement": 0,
+        "risk_reduction": "Empêcher l'arrêt d'autres machines dépendant du système de refroidissement.",
+        "regulatory_compliance": "Assurer que le système de refroidissement fonctionne conformément aux spécifications du fabricant."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de maintenance standard, équipement de test.",
+        "duration": "4-24 heures.",
+        "cost": 200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:24:42.624Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633510070-0",
+      "title": "Réduire la consommation du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée et variable du Compresseur Principal (COMP-001) avec des pics de consommation de 2400 kW et 2200 kW.  L'audit statique montre également une réduction au fil des jours, ce qui peut indiquer une dégradation. Bien que l'efficacité soit relativement élevée, une maintenance préventive pourrait optimiser davantage sa consommation et réduire les coûts et les émissions de CO2.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 10000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer une inspection approfondie du compresseur pour identifier les fuites d'air, les problèmes d'isolation et l'usure des composants.",
+        "Optimiser les paramètres de fonctionnement du compresseur (pression, température) en fonction des besoins réels de l'usine.",
+        "Mettre en place un programme de maintenance préventive régulier, incluant le remplacement des filtres, la lubrification des pièces mobiles et le contrôle de l'étanchéité.",
+        "Envisager l'installation d'un système de récupération de chaleur pour réutiliser la chaleur générée par le compresseur."
+      ],
+      "energy_reduction": 0.1,
+      "implementation_cost": 5000,
+      "environmental_impact": {
+        "co2_reduction": 500,
+        "energy_saved": 20000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.05,
+        "risk_reduction": "Réduction des pannes et des arrêts de production imprévus.",
+        "regulatory_compliance": "Conformité aux normes environnementales en matière d'émissions de CO2."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance spécialisé en compresseurs, ingénieur en énergie.",
+        "tools": "Anémomètre, thermomètre infrarouge, détecteur de fuites d'air, analyseur de vibrations.",
+        "duration": "2 jours pour l'inspection et l'optimisation, maintenance préventive continue.",
+        "cost": 5000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:25:10.070Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633510070-1",
+      "title": "Intervenir sur la Machine de Découpe #3 (CUT-003) en Alerte Température",
+      "description": "La Machine de Découpe #3 (CUT-003) est en alerte en raison d'une température élevée (85°C). Cela peut entraîner une diminution de l'efficacité, une usure accélérée des composants et un risque accru de panne. Une intervention rapide est nécessaire pour diagnostiquer et résoudre le problème de surchauffe.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 2000,
+      "payback_period": 2,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Vérifier le système de refroidissement de la machine (ventilateurs, radiateurs, etc.).",
+        "Nettoyer les filtres et les conduits d'air pour assurer une circulation optimale.",
+        "Vérifier la lubrification des pièces mobiles pour réduire la friction et la chaleur.",
+        "S'assurer que la machine n'est pas surchargée et qu'elle fonctionne dans les limites de sa capacité."
+      ],
+      "energy_reduction": 0.02,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 5000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.03,
+        "risk_reduction": "Éviter une panne majeure et des arrêts de production.",
+        "regulatory_compliance": "Respecter les normes de sécurité et d'hygiène au travail."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance généraliste.",
+        "tools": "Clés, tournevis, nettoyant pour filtres, graisse lubrifiante.",
+        "duration": "1 jour",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:25:10.070Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633510070-2",
+      "title": "Optimiser l'efficacité du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) affiche une efficacité relativement faible (73%) par rapport aux autres machines. Une analyse plus approfondie et des ajustements peuvent améliorer sa performance et réduire sa consommation d'énergie.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 5000,
+      "payback_period": 8,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyser les données de fonctionnement du mélangeur (vitesse, couple, temps de cycle) pour identifier les points d'inefficacité.",
+        "Optimiser les paramètres de mélange en fonction des produits traités.",
+        "Vérifier l'état des pales et des joints d'étanchéité du mélangeur et les remplacer si nécessaire.",
+        "Envisager l'installation d'un variateur de fréquence pour adapter la vitesse du moteur aux besoins réels."
+      ],
+      "energy_reduction": 0.05,
+      "implementation_cost": 2000,
+      "environmental_impact": {
+        "co2_reduction": 250,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.04,
+        "risk_reduction": "Amélioration de la qualité du mélange et réduction des pertes de matières premières.",
+        "regulatory_compliance": "Respecter les normes de qualité et de sécurité des produits."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en procédés, technicien de maintenance spécialisé en mélangeurs.",
+        "tools": "Analyseur de puissance, tachymètre, outils de mesure de couple.",
+        "duration": "2 jours pour l'analyse et l'optimisation, maintenance corrective selon les besoins.",
+        "cost": 2000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:25:10.070Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633839129-0",
+      "title": "Maintenance Préventive pour Machine de Découpe #3 (CUT-003)",
+      "description": "La machine de découpe CUT-003 signale une température élevée. Une maintenance immédiate est recommandée pour éviter une panne coûteuse et potentiellement dangereuse.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 500,
+      "payback_period": 7,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Arrêter la machine CUT-003.",
+        "Inspecter le système de refroidissement et les ventilateurs.",
+        "Nettoyer les obstructions et remplacer les pièces défectueuses.",
+        "Vérifier le niveau de lubrification et appliquer de la graisse si nécessaire.",
+        "Redémarrer la machine et surveiller la température."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 1500,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 5000
+      },
+      "business_impact": {
+        "efficiency_improvement": 15,
+        "risk_reduction": "Réduction des arrêts de production imprévus.",
+        "regulatory_compliance": "Conformité aux normes de sécurité et environnementales."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié.",
+        "tools": "Outillage de maintenance standard, thermomètre infrarouge.",
+        "duration": "1 jour.",
+        "cost": 1500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:30:39.129Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633839129-1",
+      "title": "Optimisation de la Consommation Énergétique du Compresseur Principal (COMP-001)",
+      "description": "L'historique de consommation du COMP-001 montre une consommation élevée. Un audit énergétique plus approfondi et des ajustements sont recommandés pour réduire les coûts et l'impact environnemental.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 10000,
+      "payback_period": 30,
+      "difficulty": "Difficile",
+      "implementation_steps": [
+        "Réaliser un audit énergétique détaillé du COMP-001.",
+        "Analyser les cycles de fonctionnement et identifier les pics de consommation.",
+        "Optimiser les paramètres de fonctionnement (pression, température).",
+        "Envisager l'installation d'un variateur de fréquence.",
+        "Mettre en place un programme de maintenance préventive rigoureux."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 20000,
+      "environmental_impact": {
+        "co2_reduction": 2000,
+        "energy_saved": 100000
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Réduction des coûts énergétiques et des émissions de CO2.",
+        "regulatory_compliance": "Amélioration de la conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance.",
+        "tools": "Analyseur de puissance, thermographe.",
+        "duration": "2 semaines.",
+        "cost": 20000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:30:39.129Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633839129-2",
+      "title": "Réparation ou Remplacement du Système de Refroidissement (COOL-001)",
+      "description": "Le système de refroidissement COOL-001 est actuellement en maintenance et a un uptime de 0. Cela a potentiellement un impact sur d'autres machines (CUT-003 par exemple). Sa réparation ou son remplacement devrait être une priorité",
+      "machine_id": "COOL-001",
+      "priority": "Critique",
+      "potential_savings": 5000,
+      "payback_period": 60,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Évaluer l'état du système de refroidissement COOL-001.",
+        "Déterminer si une réparation est possible et rentable.",
+        "Si la réparation n'est pas viable, rechercher et installer un nouveau système de refroidissement.",
+        "Optimiser les paramètres de fonctionnement du système de refroidissement.",
+        "Mettre en place un programme de maintenance préventive pour le système de refroidissement."
+      ],
+      "energy_reduction": 15,
+      "implementation_cost": 15000,
+      "environmental_impact": {
+        "co2_reduction": 1500,
+        "energy_saved": 75000
+      },
+      "business_impact": {
+        "efficiency_improvement": 20,
+        "risk_reduction": "Réduction des risques de surchauffe des autres équipements et des arrêts de production.",
+        "regulatory_compliance": "Conformité aux normes de sécurité et environnementales."
+      },
+      "resources_required": {
+        "personnel": "Technicien de réfrigération, ingénieur en maintenance.",
+        "tools": "Outillage de réfrigération, instruments de mesure.",
+        "duration": "1 semaine.",
+        "cost": 15000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:30:39.129Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633840885-0",
+      "title": "Réduire la consommation d'énergie du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée et un coût important pour le compresseur principal (COMP-001). Bien que l'efficacité soit bonne, l'optimisation de son fonctionnement peut entraîner des économies significatives.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 15000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Réaliser un audit approfondi du système d'air comprimé pour identifier les fuites et les inefficacités.",
+        "Optimiser les paramètres de fonctionnement du compresseur (pression, décharge) en fonction des besoins réels.",
+        "Envisager l'installation d'un système de récupération de chaleur pour réutiliser l'énergie thermique produite par le compresseur."
+      ],
+      "energy_reduction": 50000,
+      "implementation_cost": 75000,
+      "environmental_impact": {
+        "co2_reduction": 25000,
+        "energy_saved": 50000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Diminution du risque de panne du compresseur et prolongation de sa durée de vie.",
+        "regulatory_compliance": "Amélioration de la conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Techniciens spécialisés en air comprimé, ingénieur en énergie.",
+        "tools": "Détecteur de fuites ultrasonique, analyseur de puissance.",
+        "duration": "2 semaines",
+        "cost": 75000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:30:40.885Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633840885-1",
+      "title": "Maintenance préventive de la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) a une alerte de température élevée. Une maintenance préventive est nécessaire pour éviter des pannes coûteuses et améliorer son efficacité.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 5000,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Vérifier et nettoyer le système de refroidissement de la machine.",
+        "Inspecter et lubrifier les pièces mobiles pour réduire la friction.",
+        "Calibrer les capteurs de température pour assurer des lectures précises."
+      ],
+      "energy_reduction": 5000,
+      "implementation_cost": 5000,
+      "environmental_impact": {
+        "co2_reduction": 1500,
+        "energy_saved": 5000
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Réduction significative du risque d'arrêt de production dû à une panne.",
+        "regulatory_compliance": "Maintien des normes de sécurité et de performance."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de maintenance de base, thermomètre infrarouge.",
+        "duration": "1 jour",
+        "cost": 5000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:30:40.885Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753633840885-2",
+      "title": "Optimiser la consommation d'énergie du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) a une efficacité relativement faible (73) et un coût quotidien élevé. Une optimisation de son fonctionnement peut réduire les coûts et améliorer l'efficacité.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 7500,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyser les besoins réels de mélange et ajuster la vitesse et la durée du mélange en conséquence.",
+        "Vérifier et remplacer les pièces usées (pales, joints) pour réduire la friction et améliorer l'efficacité.",
+        "Isoler thermiquement le mélangeur pour réduire les pertes de chaleur."
+      ],
+      "energy_reduction": 10000,
+      "implementation_cost": 22500,
+      "environmental_impact": {
+        "co2_reduction": 3000,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 8,
+        "risk_reduction": "Amélioration de la fiabilité du mélangeur et réduction du risque de variations de qualité.",
+        "regulatory_compliance": "Respect des normes de qualité et de sécurité alimentaire."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, ingénieur en procédés.",
+        "tools": "Analyseur de vibration, thermomètre infrarouge.",
+        "duration": "3 jours",
+        "cost": 22500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:30:40.885Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634138005-0",
+      "title": "Maintenance Préventive de la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) présente une température élevée et un statut d'alerte. Une maintenance préventive est recommandée pour éviter une panne potentielle et optimiser son fonctionnement.",
+      "machine_id": "CUT-003",
+      "priority": "Élevée",
+      "potential_savings": 50,
+      "payback_period": 1,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Inspecter le système de refroidissement de la machine de découpe.",
+        "Nettoyer les filtres et les conduits de ventilation.",
+        "Vérifier le niveau de liquide de refroidissement et faire l'appoint si nécessaire.",
+        "Lubrifier les pièces mobiles.",
+        "Tester la machine après la maintenance et surveiller la température."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 200,
+      "environmental_impact": {
+        "co2_reduction": 10,
+        "energy_saved": 2000
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Réduction du risque de panne et d'arrêt de production.",
+        "regulatory_compliance": "Conformité aux normes de sécurité et d'environnement."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié",
+        "tools": "Outils de maintenance standard, thermomètre infrarouge",
+        "duration": "4 heures",
+        "cost": 200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:35:38.005Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634138005-1",
+      "title": "Optimisation de la Consommation du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée du Compresseur Principal (COMP-001). Une analyse et un ajustement de ses paramètres de fonctionnement sont recommandés pour réduire la consommation d'énergie et les coûts associés.",
+      "machine_id": "COMP-001",
+      "priority": "Moyenne",
+      "potential_savings": 300,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyser les données de consommation d'énergie du compresseur sur une période donnée.",
+        "Vérifier et ajuster les paramètres de pression et de débit.",
+        "Inspecter le système de filtration et le remplacer si nécessaire.",
+        "Rechercher et réparer les fuites d'air comprimé.",
+        "Optimiser les cycles de marche/arrêt du compresseur."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 50,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des coûts énergétiques et de l'usure du compresseur.",
+        "regulatory_compliance": "Respect des normes environnementales liées à la consommation d'énergie."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie ou technicien spécialisé dans les compresseurs",
+        "tools": "Analyseur de consommation d'énergie, détecteur de fuites d'air comprimé, outils de maintenance standard",
+        "duration": "8 heures",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:35:38.005Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634138005-2",
+      "title": "Planification de la Maintenance du Système de Refroidissement (COOL-001)",
+      "description": "Le Système de Refroidissement (COOL-001) est actuellement en maintenance et son uptime est à 0. Il est crucial de planifier et d'exécuter la maintenance dans les plus brefs délais pour assurer le bon fonctionnement des autres équipements et éviter les arrêts de production.",
+      "machine_id": "COOL-001",
+      "priority": "Critique",
+      "potential_savings": 100,
+      "payback_period": 0.5,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Établir un plan de maintenance détaillé en fonction des spécifications du fabricant.",
+        "Acquérir les pièces de rechange nécessaires.",
+        "Exécuter la maintenance selon le plan établi.",
+        "Tester le système de refroidissement après la maintenance pour s'assurer de son bon fonctionnement.",
+        "Mettre en place un suivi régulier des performances du système de refroidissement."
+      ],
+      "energy_reduction": 0,
+      "implementation_cost": 1000,
+      "environmental_impact": {
+        "co2_reduction": 0,
+        "energy_saved": 0
+      },
+      "business_impact": {
+        "efficiency_improvement": 20,
+        "risk_reduction": "Évite la surchauffe des équipements, les arrêts de production et les pertes financières.",
+        "regulatory_compliance": "Assure le respect des normes de sécurité et d'environnement liées au refroidissement des équipements."
+      },
+      "resources_required": {
+        "personnel": "Techniciens de maintenance spécialisés dans les systèmes de refroidissement",
+        "tools": "Outils de maintenance spécifiques aux systèmes de refroidissement, instruments de mesure de température et de pression",
+        "duration": "16 heures",
+        "cost": 1000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:35:38.005Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634305355-0",
+      "title": "Réduire la consommation énergétique du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation d'énergie élevée et variable du COMP-001. L'audit statique montre des valeurs de 2800 et 2750, ce qui indique des problèmes de calibration. Une analyse approfondie est nécessaire pour optimiser son fonctionnement.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 500,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Réaliser un audit énergétique détaillé du COMP-001.",
+        "Calibrer le compresseur pour optimiser la pression de sortie.",
+        "Évaluer et réparer les fuites d'air comprimé dans le système.",
+        "Mettre en place un système de contrôle de la demande pour éviter les pics de consommation."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 3000,
+      "environmental_impact": {
+        "co2_reduction": 500,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des coûts énergétiques et prolongation de la durée de vie du compresseur.",
+        "regulatory_compliance": "Conformité aux réglementations sur l'efficacité énergétique."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance.",
+        "tools": "Analyseur de réseau, détecteur de fuites d'air, outils de calibration.",
+        "duration": "2 semaines.",
+        "cost": 3000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:38:25.355Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634305355-1",
+      "title": "Résoudre le problème de température élevée sur la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) signale une température élevée. Cela pourrait indiquer un problème de refroidissement ou de lubrification. Une intervention rapide est nécessaire pour éviter une panne et garantir la qualité de la production.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 200,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Vérifier le système de refroidissement de la CUT-003.",
+        "Vérifier le niveau et la qualité de la lubrification.",
+        "Nettoyer les filtres et les radiateurs du système de refroidissement.",
+        "En cas de persistance du problème, remplacer les composants défectueux."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 2000
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Éviter une panne de la machine et garantir la continuité de la production.",
+        "regulatory_compliance": "Assurer la sécurité des opérateurs et la conformité aux normes environnementales."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Thermomètre infrarouge, outils de maintenance standard.",
+        "duration": "1 jour.",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:38:25.355Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634305355-2",
+      "title": "Optimiser l'utilisation du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) a un score d'efficacité de 73, ce qui est relativement bas. De plus, son statut est 'attention'.  Une inspection et une optimisation de ses paramètres de fonctionnement peuvent améliorer son efficacité et réduire sa consommation d'énergie.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 300,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer une maintenance préventive du MIX-002 (lubrification, remplacement des pièces usées).",
+        "Optimiser les paramètres de mélange (vitesse, durée) en fonction du type de produit.",
+        "Vérifier l'isolation thermique du mélangeur pour réduire les pertes de chaleur.",
+        "Former les opérateurs à une utilisation efficace du mélangeur."
+      ],
+      "energy_reduction": 8,
+      "implementation_cost": 1000,
+      "environmental_impact": {
+        "co2_reduction": 200,
+        "energy_saved": 4000
+      },
+      "business_impact": {
+        "efficiency_improvement": 7,
+        "risk_reduction": "Réduire le risque de panne et améliorer la qualité du mélange.",
+        "regulatory_compliance": "Garantir la conformité aux normes d'hygiène et de sécurité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, ingénieur de production.",
+        "tools": "Outils de maintenance standard, analyseur de qualité du mélange.",
+        "duration": "3 jours.",
+        "cost": 1000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:38:25.355Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634336013-0",
+      "title": "Maintenance corrective urgente de la Machine de Découpe #3",
+      "description": "La Machine de Découpe #3 (CUT-003) signale une température élevée. Ignorer cet avertissement pourrait entraîner une panne de la machine et des arrêts de production coûteux.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 500,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Arrêter immédiatement la Machine de Découpe #3 (CUT-003).",
+        "Inspecter le système de refroidissement et les ventilateurs pour tout blocage ou défaillance.",
+        "Vérifier et remplacer le fluide de refroidissement si nécessaire.",
+        "Consulter le manuel de l'utilisateur pour le dépannage spécifique de la température.",
+        "Effectuer une maintenance préventive complète, y compris la lubrification et le nettoyage.",
+        "Redémarrer la machine et surveiller la température pour s'assurer qu'elle reste dans la plage normale."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 200,
+      "environmental_impact": {
+        "co2_reduction": 25,
+        "energy_saved": 500
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Évite une panne potentielle de la machine et une perte de production.",
+        "regulatory_compliance": "Assure la conformité aux normes de sécurité et environnementales."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié",
+        "tools": "Outils de diagnostic, lubrifiants, pièces de rechange (si nécessaire)",
+        "duration": "4-8 heures",
+        "cost": 200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:38:56.013Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634336013-1",
+      "title": "Optimisation du Compresseur Principal COMP-001",
+      "description": "Les données énergétiques montrent une consommation d'énergie élevée et variable pour le Compresseur Principal (COMP-001).  Comparer avec les données de la machine révèle que la consommation est trop importante par rapport à la consommation normale. Une inspection et un réglage peuvent améliorer l'efficacité et réduire les coûts.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 1000,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du Compresseur Principal (COMP-001) pour identifier les points de gaspillage.",
+        "Vérifier l'étanchéité des conduites d'air et réparer les fuites.",
+        "Optimiser les paramètres de pression et de débit en fonction des besoins réels.",
+        "Nettoyer ou remplacer les filtres à air encrassés.",
+        "Évaluer l'opportunité d'installer un variateur de vitesse pour ajuster la vitesse du compresseur à la demande.",
+        "Planifier une maintenance préventive régulière."
+      ],
+      "energy_reduction": 15,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 75,
+        "energy_saved": 1500
+      },
+      "business_impact": {
+        "efficiency_improvement": 15,
+        "risk_reduction": "Réduit les risques de pannes et d'arrêts de production.",
+        "regulatory_compliance": "Contribue à la réduction des émissions de gaz à effet de serre."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur énergétique, technicien de maintenance qualifié",
+        "tools": "Analyseur de puissance, détecteur de fuites d'air, outils de maintenance",
+        "duration": "1-2 jours",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:38:56.013Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634336013-2",
+      "title": "Maintenance préventive du Compresseur C-104",
+      "description": "Le Compresseur C-104 est en statut 'attention' et sa dernière maintenance date de fin novembre 2024. Une maintenance préventive est nécessaire pour éviter une dégradation de ses performances et d'éventuelles pannes.",
+      "machine_id": "C-104",
+      "priority": "Moyenne",
+      "potential_savings": 300,
+      "payback_period": 6,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Planifier une maintenance préventive du Compresseur C-104.",
+        "Vérifier et remplacer les filtres à air et à huile.",
+        "Lubrifier les pièces mobiles.",
+        "Inspecter et resserrer les connexions électriques.",
+        "Vérifier l'état des courroies et les remplacer si nécessaire.",
+        "Tester les performances du compresseur et ajuster les paramètres si nécessaire."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 150,
+      "environmental_impact": {
+        "co2_reduction": 15,
+        "energy_saved": 300
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduit les risques de pannes et prolonge la durée de vie du compresseur.",
+        "regulatory_compliance": "Assure la conformité aux normes de maintenance."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance",
+        "tools": "Outils de maintenance standard, lubrifiants, filtres de remplacement",
+        "duration": "4 heures",
+        "cost": 150
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:38:56.013Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634375316-0",
+      "title": "Réduire la consommation énergétique du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée et variable du Compresseur Principal (COMP-001). L'audit statique diminue, impliquant potentiellement une dégradation des performances. Optimiser son fonctionnement ou envisager une maintenance préventive pourrait réduire significativement la consommation et les coûts.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 15000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du compresseur pour identifier les sources de gaspillage.",
+        "Vérifier et optimiser les paramètres de pression et de débit.",
+        "Inspecter et remplacer les joints, filtres et autres composants usés.",
+        "Nettoyer les échangeurs de chaleur pour améliorer l'efficacité du refroidissement.",
+        "Envisager l'installation d'un système de contrôle plus performant pour ajuster la production d'air comprimé à la demande réelle."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 7500,
+      "environmental_impact": {
+        "co2_reduction": 600,
+        "energy_saved": 50000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Diminution du risque de panne et interruption de production.",
+        "regulatory_compliance": "Conformité aux normes environnementales."
+      },
+      "resources_required": {
+        "personnel": "Techniciens de maintenance spécialisés, ingénieur en énergie.",
+        "tools": "Analyseur de puissance, détecteur de fuites, outils de maintenance standard.",
+        "duration": "1 semaine",
+        "cost": 7500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:39:35.316Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634375316-1",
+      "title": "Maintenance corrective de la Machine de Découpe #3 (CUT-003) en raison d'une température élevée.",
+      "description": "La Machine de Découpe #3 (CUT-003) affiche une température élevée et un statut 'alert'. Une intervention de maintenance est nécessaire pour éviter des dommages potentiels et optimiser son efficacité. Une température élevée peut entraîner une usure accélérée des composants et une dégradation des performances.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 5000,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Inspecter le système de refroidissement (ventilateurs, radiateurs) et le nettoyer.",
+        "Vérifier le niveau de lubrification et remplacer l'huile si nécessaire.",
+        "S'assurer que les entrées et sorties d'air ne sont pas obstruées.",
+        "Examiner le moteur et les courroies pour détecter d'éventuelles usures.",
+        "Vérifier les capteurs de température."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 2500,
+      "environmental_impact": {
+        "co2_reduction": 200,
+        "energy_saved": 25000
+      },
+      "business_impact": {
+        "efficiency_improvement": 3,
+        "risk_reduction": "Prévention de pannes majeures et arrêts de production.",
+        "regulatory_compliance": "Respect des normes de sécurité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de maintenance standard, thermomètre infrarouge.",
+        "duration": "1 jour",
+        "cost": 2500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:39:35.316Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634375316-2",
+      "title": "Optimiser l'utilisation du Mélangeur Industriel B2 (MIX-002).",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) affiche un statut 'attention' et une efficacité de 73%. Examiner son fonctionnement et envisager une maintenance préventive, ou un remplacement des composants usés, pourrait améliorer son efficacité et réduire les coûts.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 3000,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Evaluer l'usure des pales et envisager leur remplacement.",
+        "Vérifier l'alignement et l'équilibrage des pièces rotatives.",
+        "Optimiser les temps de cycle de mélange.",
+        "S'assurer que le volume de remplissage correspond aux spécifications.",
+        "Nettoyer régulièrement le mélangeur pour éviter l'accumulation de résidus."
+      ],
+      "energy_reduction": 3,
+      "implementation_cost": 1500,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 15000
+      },
+      "business_impact": {
+        "efficiency_improvement": 2,
+        "risk_reduction": "Diminution du risque de défaillance du mélange et amélioration de la qualité du produit.",
+        "regulatory_compliance": "Maintien des standards de qualité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, opérateur de machine.",
+        "tools": "Outils de maintenance standard, équipement d'équilibrage.",
+        "duration": "2 jours",
+        "cost": 1500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:39:35.316Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634839630-0",
+      "title": "Réduire la consommation énergétique du Compresseur Principal (COMP-001)",
+      "description": "L'analyse des données énergétiques historiques révèle une consommation énergétique élevée du Compresseur Principal (COMP-001), représentant un coût important.  L'écart entre la consommation normale (70-80) et le currentPower (78.5) justifie un audit approfondi pour identifier et corriger les inefficacités.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 15000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Réaliser un audit énergétique complet du Compresseur Principal pour identifier les causes des pics de consommation.",
+        "Vérifier et optimiser les paramètres de fonctionnement du compresseur (pression, température, etc.).",
+        "Inspecter et réparer les fuites d'air comprimé dans le système.",
+        "Nettoyer ou remplacer les filtres du compresseur.",
+        "Envisager l'installation d'un système de contrôle plus performant pour optimiser la consommation en fonction de la demande.",
+        "Comparer l'efficacité du compresseur actuel avec des modèles plus récents et plus efficaces énergétiquement, et évaluer la pertinence d'un remplacement si le retour sur investissement est favorable."
+      ],
+      "energy_reduction": 0.15,
+      "implementation_cost": 5000,
+      "environmental_impact": {
+        "co2_reduction": 500,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.1,
+        "risk_reduction": "Diminution des coûts énergétiques et prolongation de la durée de vie du compresseur.",
+        "regulatory_compliance": "Réduction de l'empreinte carbone."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance spécialisé en compresseurs, ingénieur énergétique.",
+        "tools": "Analyseur de puissance, détecteur de fuites d'air, outils de maintenance standard.",
+        "duration": "2-3 jours pour l'audit et les réparations mineures; 1-2 semaines pour un remplacement complet.",
+        "cost": 5000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:47:19.630Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634904692-0",
+      "title": "Enquêter sur la température élevée de la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) a une température élevée détectée (85°C) et un statut 'alert'. Une température hors norme peut indiquer un problème mécanique ou de refroidissement, entraînant une baisse d'efficacité et un risque de panne.",
+      "machine_id": "CUT-003",
+      "priority": "Élevée",
+      "potential_savings": 150,
+      "payback_period": 30,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Vérifier le système de refroidissement (ventilateur, radiateur).",
+        "Inspecter les pièces en mouvement pour détecter une friction excessive.",
+        "Vérifier le capteur de température pour s'assurer de sa précision.",
+        "Consulter le manuel de maintenance pour les procédures de dépannage spécifiques."
+      ],
+      "energy_reduction": 0.1,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 50,
+        "energy_saved": 2000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction du risque de panne et de temps d'arrêt non planifiés.",
+        "regulatory_compliance": "Maintien de la conformité aux normes de sécurité et d'environnement."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié",
+        "tools": "Multimètre, thermomètre infrarouge, outils de base",
+        "duration": "4-8 heures",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:48:24.692Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634904692-1",
+      "title": "Planifier une maintenance préventive pour le Compresseur C-104",
+      "description": "Le Compresseur C-104 est en statut 'attention' et sa dernière maintenance date de fin novembre 2024.  Une maintenance préventive peut améliorer son efficacité, réduire sa consommation d'énergie et éviter des pannes coûteuses.  Le compresseur principal (COMP-001) présente un historique de consommation importante. Il serait judicieux de surveiller également ce compresseur.",
+      "machine_id": "C-104",
+      "priority": "Moyenne",
+      "potential_savings": 100,
+      "payback_period": 60,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Vérifier et remplacer les filtres à air.",
+        "Lubrifier les pièces mobiles.",
+        "Inspecter et resserrer les connexions électriques.",
+        "Vérifier le niveau d'huile et le remplacer si nécessaire.",
+        "Nettoyer le refroidisseur (si applicable)."
+      ],
+      "energy_reduction": 0.05,
+      "implementation_cost": 750,
+      "environmental_impact": {
+        "co2_reduction": 30,
+        "energy_saved": 1500
+      },
+      "business_impact": {
+        "efficiency_improvement": 3,
+        "risk_reduction": "Diminution du risque de panne et augmentation de la durée de vie du compresseur.",
+        "regulatory_compliance": "Respect des réglementations sur la gestion de l'énergie et les émissions."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié",
+        "tools": "Outils de maintenance standard, lubrifiants, filtres",
+        "duration": "4-8 heures",
+        "cost": 750
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:48:24.692Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753634904692-2",
+      "title": "Optimiser le fonctionnement du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) a une efficacité relativement basse (73) et est en statut 'attention'. Optimiser son fonctionnement peut réduire sa consommation d'énergie et augmenter sa productivité.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 75,
+      "payback_period": 90,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Vérifier l'état des lames de mélange et les remplacer si elles sont usées.",
+        "Optimiser la vitesse de mélange pour le type de produit.",
+        "S'assurer que le mélangeur n'est pas surchargé.",
+        "Vérifier l'alignement du moteur et de la transmission."
+      ],
+      "energy_reduction": 0.03,
+      "implementation_cost": 600,
+      "environmental_impact": {
+        "co2_reduction": 20,
+        "energy_saved": 1000
+      },
+      "business_impact": {
+        "efficiency_improvement": 2,
+        "risk_reduction": "Réduction du risque de dommages au produit et amélioration de la qualité du mélange.",
+        "regulatory_compliance": "Respect des normes de production et de sécurité alimentaire (si applicable)."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, opérateur de production",
+        "tools": "Outils de maintenance standard, outils de mesure de la vitesse",
+        "duration": "4-8 heures",
+        "cost": 600
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:48:24.692Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635119029-0",
+      "title": "Abaisser la température de la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) présente une température élevée (85°C) signalée par un message d'alerte. Une température excessive peut réduire l'efficacité et la durée de vie de l'équipement, entraînant des pannes coûteuses et des arrêts de production. Investiguer la cause de cette surchauffe est crucial.",
+      "machine_id": "CUT-003",
+      "priority": "Élevée",
+      "potential_savings": 50,
+      "payback_period": 1,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Vérifier le système de refroidissement de la machine (ventilateurs, échangeurs thermiques).",
+        "Inspecter et nettoyer les filtres à air.",
+        "Vérifier la lubrification des pièces mobiles.",
+        "Contrôler la charge de travail de la machine et s'assurer qu'elle fonctionne dans sa plage nominale."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 200,
+      "environmental_impact": {
+        "co2_reduction": 10,
+        "energy_saved": 100
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Réduction du risque de panne et d'arrêt de production.",
+        "regulatory_compliance": "Conformité aux normes de sécurité et d'environnement."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de diagnostic, outils de nettoyage, lubrifiants.",
+        "duration": "4 heures.",
+        "cost": 200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:51:59.029Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635119029-1",
+      "title": "Optimiser le fonctionnement du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée du Compresseur Principal (COMP-001). Bien que l'efficacité soit bonne, une analyse approfondie de son cycle de fonctionnement et des besoins réels en air comprimé pourrait révéler des opportunités d'optimisation. Les données montrent une variation de la consommation entre le 1er et le 2 janvier, justifiant une investigation sur la cause de cette variation.",
+      "machine_id": "COMP-001",
+      "priority": "Moyenne",
+      "potential_savings": 150,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit du système d'air comprimé pour identifier les fuites et les utilisations inefficaces.",
+        "Optimiser la pression de fonctionnement du compresseur en fonction des besoins réels.",
+        "Installer un système de contrôle de la demande pour éviter les cycles de fonctionnement inutiles.",
+        "Envisager un variateur de vitesse pour adapter la production d'air comprimé à la demande."
+      ],
+      "energy_reduction": 8,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 20,
+        "energy_saved": 200
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des coûts énergétiques et prolongation de la durée de vie du compresseur.",
+        "regulatory_compliance": "Conformité aux normes d'efficacité énergétique."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance.",
+        "tools": "Détecteur de fuites, analyseur de puissance.",
+        "duration": "8 heures.",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:51:59.029Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635119029-2",
+      "title": "Planifier la maintenance du Compresseur C-104",
+      "description": "Le Compresseur C-104 a eu sa dernière maintenance le 30 novembre 2024. Étant donné son statut 'attention' et la durée écoulée depuis la dernière maintenance, il est recommandé de planifier une inspection et une maintenance préventive. Une maintenance régulière permet d'assurer un fonctionnement optimal et d'éviter des pannes coûteuses.",
+      "machine_id": "C-104",
+      "priority": "Moyenne",
+      "potential_savings": 80,
+      "payback_period": 2,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Planifier une date pour la maintenance préventive.",
+        "Inspecter le compresseur pour identifier les signes d'usure ou de dommage.",
+        "Remplacer les filtres à air et à huile.",
+        "Vérifier et ajuster les paramètres de fonctionnement (pression, température).",
+        "Lubrifier les pièces mobiles."
+      ],
+      "energy_reduction": 3,
+      "implementation_cost": 300,
+      "environmental_impact": {
+        "co2_reduction": 5,
+        "energy_saved": 50
+      },
+      "business_impact": {
+        "efficiency_improvement": 3,
+        "risk_reduction": "Réduction du risque de panne et prolongation de la durée de vie du compresseur.",
+        "regulatory_compliance": "Assurer la conformité aux exigences de maintenance."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de maintenance standard, lubrifiants, filtres de rechange.",
+        "duration": "4 heures.",
+        "cost": 300
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:51:59.029Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635195718-0",
+      "title": "Inspection et réparation de la machine de découpe CUT-003 en raison de la température élevée",
+      "description": "La Machine de Découpe #3 (CUT-003) signale une température élevée et un statut d'alerte. Une inspection immédiate et une réparation sont recommandées pour éviter des dommages plus importants, une baisse de l'efficacité et des arrêts de production potentiels.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 150,
+      "payback_period": 14,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Arrêter la machine CUT-003.",
+        "Inspecter le système de refroidissement et les ventilateurs pour détecter les obstructions ou les défaillances.",
+        "Vérifier les capteurs de température pour s'assurer de leur précision.",
+        "Lubrifier les pièces mobiles si nécessaire.",
+        "Remplacer les pièces défectueuses.",
+        "Redémarrer la machine et surveiller la température."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 2100,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 1500
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Réduction des arrêts de production et des coûts de maintenance plus élevés",
+        "regulatory_compliance": "Respect des normes de sécurité et environnementales"
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié",
+        "tools": "Outils de diagnostic, équipement de réparation",
+        "duration": "1-2 jours",
+        "cost": 2100
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:53:15.718Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635195718-1",
+      "title": "Optimisation de la consommation d'énergie du compresseur principal COMP-001",
+      "description": "Les données énergétiques historiques montrent une consommation d'énergie élevée pour le compresseur principal (COMP-001). Réaliser un audit énergétique approfondi et optimiser les paramètres de fonctionnement du compresseur pour réduire la consommation d'énergie et les coûts associés. Comparaison des données du 1er et 2 janvier : diminution de la consommation.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 500,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Réaliser un audit énergétique détaillé du compresseur COMP-001.",
+        "Analyser les données de consommation d'énergie et identifier les opportunités d'optimisation.",
+        "Ajuster les paramètres de pression et de débit en fonction des besoins réels.",
+        "Installer un système de contrôle intelligent pour optimiser le fonctionnement du compresseur en temps réel.",
+        "Réparer les fuites d'air comprimé dans le système.",
+        "Mettre en place un programme de maintenance préventive pour garantir un fonctionnement efficace."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 3000,
+      "environmental_impact": {
+        "co2_reduction": 200,
+        "energy_saved": 3000
+      },
+      "business_impact": {
+        "efficiency_improvement": 8,
+        "risk_reduction": "Réduction des coûts énergétiques et amélioration de la durabilité",
+        "regulatory_compliance": "Conformité aux réglementations énergétiques"
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance",
+        "tools": "Analyseur de puissance, détecteur de fuites d'air comprimé",
+        "duration": "3-5 jours",
+        "cost": 3000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:53:15.718Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635195718-2",
+      "title": "Maintenance préventive du mélangeur industriel MIX-002 pour améliorer l'efficacité",
+      "description": "Le mélangeur industriel B2 (MIX-002) a un score d'efficacité relativement bas (73) et un statut 'attention'. Planifier une maintenance préventive pour améliorer l'efficacité, réduire la consommation d'énergie et prolonger la durée de vie de l'équipement.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 100,
+      "payback_period": 12,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Arrêter le mélangeur industriel MIX-002.",
+        "Inspecter les pièces mobiles pour l'usure et la lubrification.",
+        "Remplacer les pièces usées ou endommagées.",
+        "Nettoyer le mélangeur pour éliminer les obstructions.",
+        "Calibrer les paramètres de fonctionnement.",
+        "Effectuer un test de fonctionnement pour s'assurer du bon fonctionnement."
+      ],
+      "energy_reduction": 3,
+      "implementation_cost": 1200,
+      "environmental_impact": {
+        "co2_reduction": 50,
+        "energy_saved": 1000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des pannes et amélioration de la fiabilité",
+        "regulatory_compliance": "Assurer un fonctionnement sûr et efficace"
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance",
+        "tools": "Outils de base, lubrifiants",
+        "duration": "1 jour",
+        "cost": 1200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:53:15.718Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635217397-0",
+      "title": "Réduire la consommation du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée et variable du Compresseur Principal (COMP-001). Bien que son efficacité soit bonne, optimiser son fonctionnement pourrait générer des économies substantielles et réduire l'empreinte carbone. Un audit plus approfondi est nécessaire pour identifier les causes de la variabilité de la consommation.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 15000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du compresseur et du système d'air comprimé.",
+        "Identifier et corriger les fuites d'air comprimé.",
+        "Optimiser les paramètres de fonctionnement du compresseur (pression, débit).",
+        "Évaluer l'opportunité d'installer un système de contrôle plus performant.",
+        "Comparer les données de consommation actuelles avec des données cibles optimisées et suivre les progrès."
+      ],
+      "energy_reduction": 15,
+      "implementation_cost": 7500,
+      "environmental_impact": {
+        "co2_reduction": 750,
+        "energy_saved": 15000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des coûts énergétiques, augmentation de la fiabilité du système d'air comprimé.",
+        "regulatory_compliance": "Conformité aux normes environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur énergétique, technicien de maintenance.",
+        "tools": "Détecteur de fuites d'air, analyseur de puissance.",
+        "duration": "2 semaines.",
+        "cost": 7500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:53:37.397Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635217397-1",
+      "title": "Maintenance corrective urgente sur la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) est en alerte en raison d'une température élevée. Ignorer cet avertissement pourrait entraîner une panne, des coûts de réparation importants et une perte de production. Une maintenance corrective immédiate est cruciale.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 5000,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Arrêter la machine.",
+        "Identifier la cause de la surchauffe (lubrification insuffisante, ventilation obstruée, composant défectueux).",
+        "Réparer ou remplacer les composants défectueux.",
+        "Vérifier le bon fonctionnement du système de refroidissement.",
+        "Redémarrer la machine et surveiller la température."
+      ],
+      "energy_reduction": 0,
+      "implementation_cost": 1000,
+      "environmental_impact": {
+        "co2_reduction": 0,
+        "energy_saved": 0
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Éviter une panne majeure, réduire les temps d'arrêt.",
+        "regulatory_compliance": "Sécurité des employés."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outillage standard, thermomètre infrarouge.",
+        "duration": "1 jour.",
+        "cost": 1000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:53:37.397Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635217397-2",
+      "title": "Optimiser le fonctionnement du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) a un statut d' 'attention' et une efficacité de 73, ce qui est relativement faible. Analyser les raisons de cette faible efficacité (usure des pièces, mauvais réglages) et mettre en place des actions correctives permettra d'améliorer sa performance et de réduire sa consommation énergétique.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 3000,
+      "payback_period": 4,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Inspecter l'état des pièces mécaniques (pales, roulements).",
+        "Vérifier les réglages du mélangeur (vitesse, temps de mélange).",
+        "Nettoyer le mélangeur et éliminer les dépôts.",
+        "Optimiser la recette de mélange.",
+        "Planifier une maintenance préventive régulière."
+      ],
+      "energy_reduction": 7,
+      "implementation_cost": 1000,
+      "environmental_impact": {
+        "co2_reduction": 150,
+        "energy_saved": 3000
+      },
+      "business_impact": {
+        "efficiency_improvement": 7,
+        "risk_reduction": "Améliorer la qualité du produit, réduire les pertes de matières premières.",
+        "regulatory_compliance": "Respect des normes de qualité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, opérateur du mélangeur.",
+        "tools": "Outillage standard, analyseur de vibration.",
+        "duration": "3 jours.",
+        "cost": 1000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:53:37.397Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635268707-2",
+      "title": "Optimisation du fonctionnement du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) affiche un statut 'attention' et un score d'efficacité de 73, ce qui est inférieur à d'autres machines. Sa consommation actuelle est également proche de la limite supérieure de sa consommation normale. Une analyse et une optimisation de son fonctionnement pourraient entraîner des économies d'énergie significatives.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 3000,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyser les paramètres de fonctionnement du mélangeur (vitesse, temps de mélange) et les adapter aux besoins réels.",
+        "Vérifier l'état des pièces mécaniques (pales, roulements) et les remplacer si nécessaire.",
+        "Optimiser le processus de mélange pour réduire le temps nécessaire et la consommation d'énergie.",
+        "Former les opérateurs à l'utilisation efficace du mélangeur.",
+        "Surveiller régulièrement les performances du mélangeur et effectuer des ajustements si nécessaire."
+      ],
+      "energy_reduction": 0.08,
+      "implementation_cost": 1000,
+      "environmental_impact": {
+        "co2_reduction": 150,
+        "energy_saved": 7500
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.07,
+        "risk_reduction": "Amélioration de la fiabilité du mélangeur et réduction des coûts d'exploitation.",
+        "regulatory_compliance": "Respect des normes de production et de sécurité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, ingénieur de production",
+        "tools": "Outils de diagnostic, analyseur de vibrations",
+        "duration": "3 jours",
+        "cost": 1000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:54:28.707Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635268707-1",
+      "title": "Maintenance préventive de la Machine de Découpe #3 (CUT-003) due à la température élevée",
+      "description": "La Machine de Découpe #3 (CUT-003) affiche un statut d'alerte en raison d'une température élevée. Une maintenance préventive est essentielle pour éviter une panne et optimiser son efficacité. Le niveau d'alerte nécessite une action immédiate.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 5000,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Inspecter le système de refroidissement de la machine de découpe.",
+        "Nettoyer les filtres et les conduits de ventilation.",
+        "Vérifier le niveau de liquide de refroidissement et faire l'appoint si nécessaire.",
+        "Lubrifier les pièces mobiles de la machine.",
+        "Tester la machine après la maintenance pour s'assurer que la température est revenue à la normale."
+      ],
+      "energy_reduction": 0.05,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 250,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.05,
+        "risk_reduction": "Prévention des arrêts de production et réduction des coûts de réparation.",
+        "regulatory_compliance": "Maintien des normes de sécurité et de performance."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance",
+        "tools": "Outils de base, thermomètre infrarouge",
+        "duration": "1 jour",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:54:28.707Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635268707-0",
+      "title": "Réduire la consommation énergétique du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée et variable du Compresseur Principal (COMP-001). Bien que son 'efficiency_score' soit bon, la forte consommation en kWh et le coût associé suggèrent un potentiel d'optimisation significatif. Une analyse plus approfondie est nécessaire pour identifier les causes de cette variabilité et mettre en œuvre des mesures correctives.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 15000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du Compresseur Principal pour identifier les sources de gaspillage.",
+        "Optimiser les paramètres de fonctionnement du compresseur (pression, débit) en fonction des besoins réels.",
+        "Vérifier et réparer les fuites d'air comprimé dans le système de distribution.",
+        "Installer un système de contrôle plus précis pour adapter la production d'air comprimé à la demande.",
+        "Investir dans un compresseur plus efficace si l'audit révèle que le compresseur actuel est obsolète et consomme trop d'énergie."
+      ],
+      "energy_reduction": 0.15,
+      "implementation_cost": 5000,
+      "environmental_impact": {
+        "co2_reduction": 750,
+        "energy_saved": 50000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.1,
+        "risk_reduction": "Réduction des coûts énergétiques et amélioration de la durabilité.",
+        "regulatory_compliance": "Conformité aux réglementations environnementales concernant la consommation d'énergie et les émissions de CO2."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance",
+        "tools": "Analyseur de puissance, détecteur de fuites d'air comprimé",
+        "duration": "2 semaines",
+        "cost": 5000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:54:28.707Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635294399-0",
+      "title": "Optimisation du Compresseur Principal (COMP-001)",
+      "description": "Les données énergétiques montrent une consommation élevée et variable du Compresseur Principal (COMP-001) les 1er et 2 janvier 2025, avec des coûts MAD de 3600 et 3300 respectivement. Bien que l'efficacité soit élevée (85-88), la consommation d'énergie (2400 kW et 2200 kW) est significative. L'audit statique varie également. Analyser les causes de ces variations de consommation et effectuer une maintenance préventive pour stabiliser et réduire la consommation énergétique.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 500,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyser les données de consommation du compresseur sur une période plus longue.",
+        "Inspecter l'état du compresseur (fuites, état des filtres, etc.).",
+        "Optimiser les paramètres de fonctionnement du compresseur (pression, temps de cycle).",
+        "Planifier une maintenance préventive incluant le remplacement des pièces usées."
+      ],
+      "energy_reduction": 0.1,
+      "implementation_cost": 3000,
+      "environmental_impact": {
+        "co2_reduction": 150,
+        "energy_saved": 20000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.05,
+        "risk_reduction": "Réduction des risques de panne et d'augmentation des coûts énergétiques.",
+        "regulatory_compliance": "Conformité aux normes d'efficacité énergétique."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance spécialisé, ingénieur énergétique",
+        "tools": "Analyseur de consommation énergétique, outils de maintenance standard",
+        "duration": "2 jours",
+        "cost": 3000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:54:54.399Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635294399-1",
+      "title": "Réparation de la Machine de Découpe #3 (CUT-003) pour réduire la température",
+      "description": "La Machine de Découpe #3 (CUT-003) est en état d'alerte en raison d'une température élevée (85°C). Cela indique un problème potentiel qui pourrait entraîner une panne ou une réduction de l'efficacité. Une intervention rapide est nécessaire pour diagnostiquer et résoudre le problème de surchauffe.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 100,
+      "payback_period": 2,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Vérifier le système de refroidissement de la machine de découpe.",
+        "Nettoyer les ventilateurs et les dissipateurs de chaleur.",
+        "Lubrifier les pièces mobiles pour réduire la friction.",
+        "Vérifier l'état des capteurs de température."
+      ],
+      "energy_reduction": 0.02,
+      "implementation_cost": 200,
+      "environmental_impact": {
+        "co2_reduction": 10,
+        "energy_saved": 500
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.03,
+        "risk_reduction": "Réduction du risque de panne et d'arrêt de la production.",
+        "regulatory_compliance": "Maintien des conditions de sécurité au travail."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance",
+        "tools": "Outils de maintenance standard, thermomètre infrarouge",
+        "duration": "4 heures",
+        "cost": 200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:54:54.399Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635294399-2",
+      "title": "Optimisation de la consommation du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) présente un score d'efficacité de 73, ce qui est relativement bas par rapport aux autres machines. Sa consommation actuelle (72.8 kW) est dans la plage normale (60-75 kW), mais son efficacité peut être améliorée pour réduire la consommation et les coûts.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 75,
+      "payback_period": 8,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Vérifier et remplacer les pièces usées du mélangeur (pales, roulements).",
+        "Optimiser les paramètres de mélange (vitesse, temps de mélange).",
+        "Isoler thermiquement le mélangeur si nécessaire.",
+        "Analyser l'usure des composants par une analyse vibratoire."
+      ],
+      "energy_reduction": 0.05,
+      "implementation_cost": 600,
+      "environmental_impact": {
+        "co2_reduction": 25,
+        "energy_saved": 1000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.04,
+        "risk_reduction": "Réduction des coûts énergétiques et amélioration de la fiabilité du mélangeur.",
+        "regulatory_compliance": "Conformité aux normes de performance énergétique."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance, ingénieur de production",
+        "tools": "Outils de maintenance standard, analyseur de vibrations",
+        "duration": "1 jour",
+        "cost": 600
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:54:54.399Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635348423-0",
+      "title": "Enquêter sur la température élevée de la machine de découpe CUT-003",
+      "description": "La machine de découpe CUT-003 signale une température élevée (85°C) et un statut d'alerte. Une surchauffe peut entraîner une panne de l'équipement et une perte de production. Il est crucial de diagnostiquer et de résoudre le problème rapidement.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 50,
+      "payback_period": 1,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Vérifier le système de refroidissement de la machine (ventilateurs, conduits).",
+        "Inspecter les capteurs de température pour garantir leur précision.",
+        "Analyser la charge de travail de la machine et ajuster si nécessaire.",
+        "Lubrifier les pièces mobiles pour réduire la friction.",
+        "Nettoyer la machine pour assurer une bonne circulation de l'air."
+      ],
+      "energy_reduction": 0,
+      "implementation_cost": 100,
+      "environmental_impact": {
+        "co2_reduction": 0,
+        "energy_saved": 0
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction du risque de panne de la machine et de temps d'arrêt de la production.",
+        "regulatory_compliance": "Assurer la sécurité des opérations et la conformité aux normes environnementales."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance qualifié",
+        "tools": "Thermomètre infrarouge, outils de base pour la maintenance mécanique",
+        "duration": "4-8 heures",
+        "cost": 100
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:55:48.423Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635348423-1",
+      "title": "Optimiser l'utilisation du Compresseur Principal COMP-001 et du Compresseur C-104",
+      "description": "Les données historiques montrent une consommation énergétique élevée du Compresseur Principal COMP-001. De plus, le compresseur C-104 est en état d'attention. Effectuer un audit énergétique et optimiser le fonctionnement des compresseurs peut réduire significativement les coûts et l'empreinte carbone.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 500,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique complet des compresseurs.",
+        "Vérifier les fuites d'air et les réparer.",
+        "Optimiser les paramètres de pression et de débit.",
+        "Installer un système de contrôle de la demande pour éviter les pics de consommation.",
+        "Nettoyer ou remplacer les filtres à air."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 3000,
+      "environmental_impact": {
+        "co2_reduction": 200,
+        "energy_saved": 5000
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Réduction des coûts énergétiques et prolongation de la durée de vie des équipements.",
+        "regulatory_compliance": "Réduction de l'empreinte carbone et conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur énergéticien, technicien de maintenance",
+        "tools": "Détecteur de fuites d'air, manomètre, analyseur de puissance",
+        "duration": "1-2 semaines",
+        "cost": 3000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:55:48.423Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635348423-2",
+      "title": "Planifier la maintenance du système de refroidissement COOL-001",
+      "description": "Le système de refroidissement COOL-001 est actuellement en maintenance et a un uptime de 0. Assurer une remise en service rapide et efficace du système de refroidissement est crucial pour maintenir les opérations de production à température optimale et éviter les arrêts imprévus.",
+      "machine_id": "COOL-001",
+      "priority": "Moyenne",
+      "potential_savings": 200,
+      "payback_period": 2,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Vérifier et réparer les fuites dans le système de refroidissement.",
+        "Nettoyer ou remplacer les filtres et les serpentins.",
+        "Vérifier le niveau de réfrigérant et le compléter si nécessaire.",
+        "Tester le fonctionnement du compresseur et du ventilateur.",
+        "Calibrer les capteurs de température et les régulateurs."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 50,
+        "energy_saved": 1000
+      },
+      "business_impact": {
+        "efficiency_improvement": 3,
+        "risk_reduction": "Prévention des pannes du système de refroidissement et maintien de la production.",
+        "regulatory_compliance": "Assurer la conformité aux réglementations sur la manipulation des réfrigérants."
+      },
+      "resources_required": {
+        "personnel": "Technicien frigoriste, technicien de maintenance",
+        "tools": "Manomètres, détecteur de fuites, outils de base pour la maintenance frigorifique",
+        "duration": "2-3 jours",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:55:48.423Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635368058-0",
+      "title": "Réduire la consommation du Compresseur Principal (COMP-001)",
+      "description": "La consommation d'énergie du Compresseur Principal (COMP-001) est élevée et variable, comme le montrent les données énergétiques. Bien que son score d'efficacité soit bon, il y a une opportunité de réduire la consommation et les émissions de CO2. L'écart de consommation entre les jours suggère un potentiel d'optimisation.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 300,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique approfondi du compresseur COMP-001.",
+        "Optimiser les paramètres de fonctionnement du compresseur pour réduire la consommation d'énergie pendant les périodes de faible demande.",
+        "Envisager l'installation d'un système de contrôle plus précis pour réguler la pression et le débit d'air.",
+        "Vérifier les fuites d'air et les corriger."
+      ],
+      "energy_reduction": 10,
+      "implementation_cost": 1800,
+      "environmental_impact": {
+        "co2_reduction": 150,
+        "energy_saved": 365000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des coûts énergétiques et des émissions de CO2.",
+        "regulatory_compliance": "Potentiel d'amélioration de la conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, Technicien de maintenance.",
+        "tools": "Analyseur de puissance, détecteur de fuites d'air, équipement de maintenance.",
+        "duration": "2 semaines",
+        "cost": 1800
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:56:08.058Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635368058-1",
+      "title": "Maintenance corrective de la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) est en état d'alerte en raison d'une température élevée détectée. Une maintenance corrective est nécessaire pour éviter des dommages supplémentaires et des arrêts de production.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 200,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Arrêter la Machine de Découpe #3 (CUT-003) immédiatement.",
+        "Inspecter et nettoyer le système de refroidissement de la machine.",
+        "Vérifier et remplacer les pièces usées ou endommagées.",
+        "Effectuer des tests de fonctionnement après la maintenance."
+      ],
+      "energy_reduction": 5,
+      "implementation_cost": 200,
+      "environmental_impact": {
+        "co2_reduction": 25,
+        "energy_saved": 50000
+      },
+      "business_impact": {
+        "efficiency_improvement": 10,
+        "risk_reduction": "Évite une panne majeure de la machine et assure la continuité de la production.",
+        "regulatory_compliance": "Assure le respect des normes de sécurité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de maintenance standard.",
+        "duration": "1 jour",
+        "cost": 200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:56:08.058Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635368058-2",
+      "title": "Optimiser le fonctionnement du Mélangeur Industriel B2 (MIX-002)",
+      "description": "Le Mélangeur Industriel B2 (MIX-002) est en état d'attention avec une efficacité de 73%. Améliorer son efficacité énergétique peut entraîner des économies significatives.",
+      "machine_id": "MIX-002",
+      "priority": "Moyenne",
+      "potential_savings": 100,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyser le processus de mélange pour identifier les points d'inefficacité.",
+        "Optimiser les paramètres de fonctionnement du mélangeur (vitesse, durée).",
+        "Vérifier et entretenir les composants mécaniques (roulements, joints) pour réduire les frottements.",
+        "Envisager l'utilisation d'un moteur à haut rendement."
+      ],
+      "energy_reduction": 3,
+      "implementation_cost": 300,
+      "environmental_impact": {
+        "co2_reduction": 15,
+        "energy_saved": 25000
+      },
+      "business_impact": {
+        "efficiency_improvement": 3,
+        "risk_reduction": "Réduction des coûts énergétiques et amélioration de la fiabilité du mélangeur.",
+        "regulatory_compliance": "Potentiel d'amélioration de la conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur de production, Technicien de maintenance.",
+        "tools": "Analyseur de puissance, équipement de maintenance.",
+        "duration": "1 semaine",
+        "cost": 300
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T16:56:08.058Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635689590-0",
+      "title": "Réduire la consommation du Compresseur Principal (COMP-001)",
+      "description": "La consommation énergétique du Compresseur Principal (COMP-001) est anormalement élevée selon les données énergétiques historiques et l'utilisation normale spécifiée. Bien que les audits statiques semblent corrélés à la consommation, une enquête plus approfondie est nécessaire pour identifier et résoudre les inefficacités potentielles.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 15000,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du Compresseur Principal pour identifier les causes de la consommation élevée.",
+        "Vérifier et réparer les fuites d'air dans le système de compression.",
+        "Optimiser les paramètres de fonctionnement du compresseur, tels que la pression et le débit.",
+        "Évaluer l'opportunité de remplacer le compresseur par un modèle plus efficace si la réparation n'est pas rentable."
+      ],
+      "energy_reduction": 0.1,
+      "implementation_cost": 7500,
+      "environmental_impact": {
+        "co2_reduction": 5000,
+        "energy_saved": 30000
+      },
+      "business_impact": {
+        "efficiency_improvement": 5,
+        "risk_reduction": "Réduction des coûts énergétiques et amélioration de la fiabilité du compresseur.",
+        "regulatory_compliance": "Potentielle conformité aux réglementations sur l'efficacité énergétique."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance.",
+        "tools": "Analyseur de puissance, détecteur de fuites d'air.",
+        "duration": "2 semaines.",
+        "cost": 7500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T17:01:29.590Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635689590-1",
+      "title": "Maintenance préventive de la Machine de Découpe #3 (CUT-003)",
+      "description": "La Machine de Découpe #3 (CUT-003) affiche une alerte de température élevée. Une maintenance préventive est nécessaire pour éviter une panne et optimiser son efficacité.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 5000,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Inspecter et nettoyer le système de refroidissement de la machine.",
+        "Vérifier et remplacer les pièces usées, telles que les roulements et les courroies.",
+        "Lubrifier les composants mécaniques.",
+        "Calibrer les capteurs de température."
+      ],
+      "energy_reduction": 0.05,
+      "implementation_cost": 2500,
+      "environmental_impact": {
+        "co2_reduction": 1000,
+        "energy_saved": 5000
+      },
+      "business_impact": {
+        "efficiency_improvement": 3,
+        "risk_reduction": "Éviter une panne coûteuse et réduire les temps d'arrêt de production.",
+        "regulatory_compliance": "Assurer la sécurité des opérations."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance.",
+        "tools": "Outils de maintenance standard, thermomètre infrarouge.",
+        "duration": "1 jour.",
+        "cost": 2500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T17:01:29.590Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635689590-2",
+      "title": "Optimiser l'utilisation du Système de Refroidissement (COOL-001)",
+      "description": "Le Système de Refroidissement (COOL-001) est actuellement en maintenance et consomme 0 kW. S'assurer qu'il fonctionne de manière optimale et est dimensionné correctement pour les besoins réels.",
+      "machine_id": "COOL-001",
+      "priority": "Moyenne",
+      "potential_savings": 2000,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Évaluer les besoins réels de refroidissement de l'usine.",
+        "S'assurer que le système est correctement isolé et entretenu.",
+        "Optimiser les paramètres de fonctionnement, tels que la température et le débit.",
+        "Envisager l'utilisation de systèmes de refroidissement plus efficaces, tels que les refroidisseurs à haut rendement."
+      ],
+      "energy_reduction": 0.03,
+      "implementation_cost": 6000,
+      "environmental_impact": {
+        "co2_reduction": 800,
+        "energy_saved": 3000
+      },
+      "business_impact": {
+        "efficiency_improvement": 2,
+        "risk_reduction": "Assurer un refroidissement fiable et réduire les coûts énergétiques.",
+        "regulatory_compliance": "Respecter les réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Ingénieur en énergie, technicien de maintenance.",
+        "tools": "Analyseur de puissance, instruments de mesure de température.",
+        "duration": "1 semaine.",
+        "cost": 6000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T17:01:29.590Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635702768-0",
+      "title": "Optimiser le Compresseur Principal COMP-001",
+      "description": "Le compresseur COMP-001 a une consommation énergétique élevée et un historique de données disponibles. Analyser plus en détail son fonctionnement pour identifier des axes d'optimisation.",
+      "machine_id": "COMP-001",
+      "priority": "Élevée",
+      "potential_savings": 1500,
+      "payback_period": 6,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer un audit énergétique détaillé du compresseur COMP-001 pour identifier les pertes et les inefficacités.",
+        "Optimiser les paramètres de fonctionnement du compresseur (pression, débit) pour minimiser la consommation d'énergie.",
+        "Mettre en place une maintenance préventive régulière pour assurer un fonctionnement optimal et éviter les pannes coûteuses."
+      ],
+      "energy_reduction": 0.1,
+      "implementation_cost": 5000,
+      "environmental_impact": {
+        "co2_reduction": 600,
+        "energy_saved": 50000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.05,
+        "risk_reduction": "Diminution des risques de panne et de perte de production.",
+        "regulatory_compliance": "Réduction de l'empreinte carbone et conformité aux réglementations environnementales."
+      },
+      "resources_required": {
+        "personnel": "Techniciens de maintenance, ingénieur énergétique",
+        "tools": "Analyseur de puissance, outils de maintenance",
+        "duration": "1 semaine",
+        "cost": 5000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T17:01:42.768Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635702768-1",
+      "title": "Résoudre l'alerte de température élevée sur la Machine de Découpe #3 CUT-003",
+      "description": "La machine de découpe CUT-003 présente une alerte de température élevée. Une intervention rapide est nécessaire pour éviter des dommages matériels et des arrêts de production.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 500,
+      "payback_period": 1,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Inspecter le système de refroidissement de la machine CUT-003 pour identifier la cause de la température élevée.",
+        "Nettoyer les filtres et les conduits de ventilation du système de refroidissement.",
+        "Vérifier le niveau de liquide de refroidissement et le compléter si nécessaire.",
+        "Effectuer une maintenance préventive sur le système de refroidissement pour éviter de futures surchauffes."
+      ],
+      "energy_reduction": 0.02,
+      "implementation_cost": 500,
+      "environmental_impact": {
+        "co2_reduction": 100,
+        "energy_saved": 10000
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.03,
+        "risk_reduction": "Évite l'arrêt de la machine et les coûts de réparation majeurs.",
+        "regulatory_compliance": "Assure la sécurité des opérateurs et le respect des normes de sécurité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance",
+        "tools": "Outils de base, thermomètre",
+        "duration": "1 jour",
+        "cost": 500
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T17:01:42.768Z",
+      "generated_by": "Gemini AI"
+    },
+    {
+      "id": "REC-AI-1753635702768-2",
+      "title": "Mettre en service le Système de Refroidissement COOL-001",
+      "description": "Le système de refroidissement COOL-001 est en maintenance et consomme 0 kW. Remettre en service le système pour assurer le refroidissement des équipements et optimiser la production.",
+      "machine_id": "COOL-001",
+      "priority": "Moyenne",
+      "potential_savings": 0,
+      "payback_period": 0,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Effectuer une inspection complète du système de refroidissement COOL-001 pour identifier les problèmes et les réparations nécessaires.",
+        "Réparer ou remplacer les composants défectueux du système de refroidissement.",
+        "Remplir le système de refroidissement avec le liquide de refroidissement approprié.",
+        "Démarrer le système de refroidissement et vérifier son bon fonctionnement."
+      ],
+      "energy_reduction": 0,
+      "implementation_cost": 2000,
+      "environmental_impact": {
+        "co2_reduction": 0,
+        "energy_saved": 0
+      },
+      "business_impact": {
+        "efficiency_improvement": 0.01,
+        "risk_reduction": "Assure le bon refroidissement des équipements et évite les arrêts de production.",
+        "regulatory_compliance": "Assure la sécurité des équipements et le respect des normes de sécurité."
+      },
+      "resources_required": {
+        "personnel": "Technicien de maintenance",
+        "tools": "Outils de base, manomètre",
+        "duration": "2 jours",
+        "cost": 2000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-27T17:01:42.768Z",
+      "generated_by": "Gemini AI"
     }
   ],
   "implementations": [

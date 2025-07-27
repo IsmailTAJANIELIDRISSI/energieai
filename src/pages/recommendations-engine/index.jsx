@@ -11,6 +11,8 @@ import ImplementationTracker from "./components/ImplementationTracker";
 import RecommendationModal from "./components/RecommendationModal";
 import { applyRecommendationFilters } from "../../utils/energyCalculations";
 import VoiceAgentButton from "./components/VoiceAgentButton";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import ReportDocument from "./components/ExportPdfButton";
 
 const RecommendationsEngine = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -426,9 +428,32 @@ const RecommendationsEngine = () => {
                 >
                   Actualiser
                 </Button>
-                <Button variant="default" iconName="Download" iconSize={16}>
+                {/* <Button variant="default" iconName="Download" iconSize={16}>
                   Exporter Rapport
-                </Button>
+                </Button> */}
+                <PDFDownloadLink
+                  document={
+                    <ReportDocument
+                      recommendations={filteredRecommendations}
+                      implementations={implementations}
+                      currentLanguage={currentLanguage}
+                    />
+                  }
+                  fileName={`Rapport_Optimisation_Energétique_${
+                    new Date().toISOString().split("T")[0]
+                  }.pdf`}
+                >
+                  {({ blob, url, loading, error }) => (
+                    <Button
+                      variant="default"
+                      iconName="Download"
+                      iconSize={16}
+                      disabled={loading}
+                    >
+                      {loading ? "Génération..." : "Exporter Rapport"}
+                    </Button>
+                  )}
+                </PDFDownloadLink>
               </div>
             </div>
           </motion.div>
