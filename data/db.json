@@ -21,7 +21,7 @@
       "name": "Machine de Découpe #3",
       "type": "cutter",
       "department": "production",
-      "status": "maintenance",
+      "status": "alert",
       "normalConsumption": "40-50",
       "currentPower": 52.8,
       "efficiency": 76,
@@ -29,7 +29,7 @@
       "lastMaintenance": "2024-12-20",
       "dailyCost": 378.9,
       "uptime": 92.1,
-      "alertMessage": "Surconsommation critique persistante",
+      "alertMessage": "Surconsommation détectée",
       "generated_by": "Claude AI"
     },
     {
@@ -59,8 +59,8 @@
       "lastMaintenance": "2025-01-22",
       "dailyCost": 0,
       "uptime": 0,
-      "alertMessage": "",
-      "generated_by": "Gemini AI"
+      "alertMessage": "Système hors service",
+      "generated_by": "Claude AI"
     },
     {
       "id": "CONV-002",
@@ -105,7 +105,7 @@
       "lastMaintenance": "2025-01-08",
       "dailyCost": 523,
       "uptime": 94.2,
-      "alertMessage": "Efficacité critique dégradée",
+      "alertMessage": "Efficacité très faible",
       "generated_by": "Claude AI"
     },
     {
@@ -135,7 +135,7 @@
       "lastMaintenance": "2024-12-15",
       "dailyCost": 204.5,
       "uptime": 95,
-      "alertMessage": "Surchauffe moteur critique",
+      "alertMessage": "Température critique détectée",
       "generated_by": "Claude AI"
     },
     {
@@ -165,7 +165,7 @@
       "lastMaintenance": "2024-11-30",
       "dailyCost": 472,
       "uptime": 96.5,
-      "alertMessage": "Maintenance critique requise",
+      "alertMessage": "Maintenance urgente requise",
       "generated_by": "Claude AI"
     }
   ],
@@ -273,261 +273,153 @@
   ],
   "alerts": [
     {
-      "id": "ALERT-AI-1753657316227-2",
-      "severity": "warning",
-      "title": "Efficacité dégradée - Mélangeur MIX-002",
-      "description": "Le mélangeur industriel B2 montre une efficacité critique de 73% avec une consommation de 72.8 kW. Le coût journalier élevé de 523 MAD indique une performance sous-optimale nécessitant une intervention.",
-      "machine_id": "MIX-002",
-      "timestamp": "2025-07-27T23:01:56.227Z",
-      "action": "Diagnostic approfondi et calibrage des paramètres de fonctionnement",
-      "generated_by": "Claude AI",
-      "location": "Mélangeur Industriel B2",
-      "status": "acknowledged"
-    },
-    {
-      "id": "ALERT-AI-1753657316227-1",
-      "severity": "warning",
-      "title": "Surchauffe détectée - Moteur M-205",
-      "description": "Le moteur M-205 présente une température élevée de 85°C avec une maintenance datant du 15 décembre 2024. L'efficacité est descendue à 82% et le coût journalier atteint 204.5 MAD.",
-      "machine_id": "M-205",
-      "timestamp": "2025-07-27T23:01:56.227Z",
-      "action": "Vérifier système de refroidissement et planifier maintenance préventive",
-      "generated_by": "Claude AI",
-      "location": "Moteur M-205",
-      "status": "acknowledged"
-    },
-    {
-      "id": "ALERT-AI-1753657319678-0",
+      "id": "ALERT-AI-1753696248697-0",
       "severity": "critical",
-      "title": "Surconsommation critique détectée - CUT-003",
-      "description": "La machine de découpe #3 consomme 52.8 kW, dépassant sa plage normale de 40-50 kW. Son efficacité est dégradée à 76% et sa température atteint 85°C. Une intervention immédiate est requise pour éviter une panne majeure.",
+      "title": "Surchauffe critique - Machine de Découpe #3",
+      "description": "La machine CUT-003 présente une température de 85°C avec une efficacité dégradée de 76%. Une action recommandée d'arrêt pour surconsommation a été détectée, et la dernière maintenance date du 20 décembre 2024.",
       "machine_id": "CUT-003",
-      "timestamp": "2025-07-27T23:01:59.678Z",
-      "action": "Arrêter immédiatement la machine et procéder à une inspection complète",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "acknowledged"
+      "timestamp": "2025-07-28T09:50:48.697Z",
+      "action": "Arrêt immédiat et maintenance urgente requise",
+      "generated_by": "Claude AI"
     },
     {
-      "id": "ALERT-AI-1753657319678-1",
-      "severity": "warning",
-      "title": "Maintenance critique requise - C-104",
-      "description": "Le compresseur C-104 n'a pas été maintenu depuis le 30 novembre 2024, soit plus de 7 semaines. Son efficacité de 85% et son uptime de 96.5% montrent des signes de dégradation. Une maintenance préventive est urgente.",
-      "machine_id": "C-104",
-      "timestamp": "2025-07-27T23:01:59.678Z",
-      "action": "Planifier une maintenance complète dans les 48 heures",
-      "generated_by": "Claude AI",
-      "location": "Compresseur C-104",
-      "status": "acknowledged"
+      "id": "ALERT-AI-1753696248697-1",
+      "severity": "critical",
+      "title": "Système de refroidissement hors service",
+      "description": "Le système COOL-001 est complètement arrêté avec 0 kW de consommation et 0% d'efficacité. Cette panne peut affecter la température d'autres équipements critiques de production.",
+      "machine_id": "COOL-001",
+      "timestamp": "2025-07-28T09:50:48.697Z",
+      "action": "Réparation urgente du système de refroidissement",
+      "generated_by": "Claude AI"
     },
     {
-      "id": "ALERT-AI-1753657319678-2",
+      "id": "ALERT-AI-1753696248697-2",
       "severity": "warning",
-      "title": "Température élevée et efficacité dégradée - MIX-002",
-      "description": "Le mélangeur industriel B2 présente une efficacité réduite à 73% avec une température de 70°C. Bien que dans sa plage normale de consommation, ses performances sont sous-optimales. Un diagnostic approfondi est recommandé.",
+      "title": "Efficacité critique du mélangeur industriel",
+      "description": "Le mélangeur MIX-002 affiche une efficacité de seulement 73% malgré une consommation normale de 72.8 kW. Cette dégradation des performances nécessite une intervention préventive.",
       "machine_id": "MIX-002",
-      "timestamp": "2025-07-27T23:01:59.678Z",
-      "action": "Effectuer un diagnostic complet et nettoyer les filtres de refroidissement",
-      "generated_by": "Claude AI",
-      "location": "Mélangeur Industriel B2",
-      "status": "acknowledged"
+      "timestamp": "2025-07-28T09:50:48.697Z",
+      "action": "Inspection et calibrage du mélangeur recommandés",
+      "generated_by": "Claude AI"
     },
     {
-      "id": "ALERT-AI-1753657397844-0",
+      "id": "ALERT-AI-1753696749490-0",
+      "severity": "critical",
+      "title": "Surchauffe critique machine de découpe",
+      "description": "La machine CUT-003 présente une température de 85°C avec une surconsommation énergétique de 52.8 kW (au-dessus de la normale 40-50 kW). L'efficacité a chuté à 76% et aucune maintenance n'a été effectuée depuis le 20 décembre 2024.",
+      "machine_id": "CUT-003",
+      "timestamp": "2025-07-28T09:59:09.490Z",
+      "action": "Arrêt immédiat pour maintenance préventive et vérification du système de refroidissement",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753696749490-1",
+      "severity": "warning",
+      "title": "Efficacité dégradée du mélangeur industriel",
+      "description": "Le mélangeur MIX-002 fonctionne avec une efficacité critique de 73% malgré une consommation normale de 72.8 kW. La température reste stable à 70°C mais les performances sont en dessous du seuil acceptable.",
+      "machine_id": "MIX-002",
+      "timestamp": "2025-07-28T09:59:09.490Z",
+      "action": "Planifier une maintenance corrective dans les 48h pour optimiser les performances",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753696749490-2",
+      "severity": "critical",
+      "title": "Maintenance urgente compresseur C-104",
+      "description": "Le compresseur C-104 n'a pas reçu de maintenance depuis le 30 novembre 2024 (près de 2 mois). Malgré un fonctionnement apparemment normal, le délai de maintenance dépassé présente un risque de panne majeure.",
+      "machine_id": "C-104",
+      "timestamp": "2025-07-28T09:59:09.490Z",
+      "action": "Maintenance urgente requise dans les 24h - révision complète du système",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753697252401-0",
+      "severity": "critical",
+      "title": "Système de refroidissement hors service",
+      "description": "Le système de refroidissement COOL-001 est complètement arrêté depuis plusieurs heures. Cette situation critique peut affecter la température de production et endommager d'autres équipements. Une intervention immédiate est requise.",
+      "machine_id": "COOL-001",
+      "timestamp": "2025-07-28T10:07:32.401Z",
+      "action": "Intervention technique immédiate pour diagnostic et réparation",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753697252401-2",
+      "severity": "warning",
+      "title": "Surconsommation machine de découpe",
+      "description": "La machine CUT-003 consomme 52.8 kW, dépassant sa plage normale de 40-50 kW. L'efficacité a chuté à 76% et la température atteint 85°C. Une action corrective est nécessaire pour éviter une panne majeure.",
+      "machine_id": "CUT-003",
+      "timestamp": "2025-07-28T10:07:32.402Z",
+      "action": "Éteindre temporairement et planifier maintenance corrective",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753697252401-1",
+      "severity": "warning",
+      "title": "Efficacité critique du mélangeur B2",
+      "description": "Le mélangeur MIX-002 présente une efficacité de seulement 73%, bien en dessous des standards normaux. La consommation reste élevée malgré la baisse de performance. Une maintenance préventive est recommandée avant dégradation complète.",
+      "machine_id": "MIX-002",
+      "timestamp": "2025-07-28T10:07:32.402Z",
+      "action": "Programmer maintenance préventive et diagnostic d'efficacité",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753697581251-0",
       "severity": "critical",
       "title": "Surconsommation critique - Machine de Découpe #3",
-      "description": "La machine CUT-003 présente une surconsommation de 52.8 kW alors que sa plage normale est de 40-50 kW. L'efficacité a chuté à 76% avec une température élevée de 85°C, indiquant un dysfonctionnement imminent.",
+      "description": "La machine CUT-003 présente une surconsommation de 52.8 kW, dépassant sa plage normale (40-50 kW). L'efficacité a chuté à 76% avec une température élevée de 85°C. Cette situation nécessite une intervention immédiate pour éviter une panne majeure.",
       "machine_id": "CUT-003",
-      "timestamp": "2025-07-27T23:03:17.845Z",
+      "timestamp": "2025-07-28T10:13:01.251Z",
+      "action": "Arrêt immédiat de la machine et inspection technique urgente",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753697581251-1",
+      "severity": "warning",
+      "title": "Efficacité dégradée - Mélangeur Industriel B2",
+      "description": "Le mélangeur MIX-002 fonctionne avec une efficacité de seulement 73%, bien en dessous des standards optimaux. Malgré une consommation normale de 72.8 kW, la performance réduite indique un problème mécanique potentiel. Une maintenance préventive est recommandée.",
+      "machine_id": "MIX-002",
+      "timestamp": "2025-07-28T10:13:01.251Z",
+      "action": "Programmer une maintenance préventive dans les 48h",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753697581251-2",
+      "severity": "critical",
+      "title": "Température critique - Moteur M-205",
+      "description": "Le moteur M-205 atteint une température critique de 85°C avec une maintenance datant du 15 décembre 2024. Cette surchauffe combinée à l'âge de la dernière maintenance présente un risque élevé de défaillance. L'efficacité de 82% confirme la dégradation des performances.",
+      "machine_id": "M-205",
+      "timestamp": "2025-07-28T10:13:01.251Z",
+      "action": "Arrêt programmé et maintenance corrective immédiate",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753698248510-0",
+      "severity": "critical",
+      "title": "Surconsommation critique - Machine de Découpe #3",
+      "description": "La machine CUT-003 consomme 52.8 kW alors que sa plage normale est de 40-50 kW. Son efficacité a chuté à 76% et la température atteint 85°C. Cette surconsommation combinée à une température élevée indique un dysfonctionnement imminent.",
+      "machine_id": "CUT-003",
+      "timestamp": "2025-07-28T10:24:08.510Z",
       "action": "Arrêt immédiat pour inspection et maintenance préventive",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753662409775-1",
-      "severity": "warning",
-      "title": "Dégradation performance - Mélangeur B2",
-      "description": "Le mélangeur MIX-002 présente une efficacité critique de 73% malgré une consommation normale. Cette dégradation progressive nécessite une intervention préventive pour éviter une panne majeure.",
-      "machine_id": "MIX-002",
-      "timestamp": "2025-07-28T00:26:49.775Z",
-      "action": "Planifier maintenance préventive dans les 48h",
-      "generated_by": "Claude AI",
-      "location": "Mélangeur Industriel B2",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753662409775-2",
-      "severity": "warning",
-      "title": "Maintenance urgente requise - Compresseur C-104",
-      "description": "Le compresseur C-104 n'a pas été maintenu depuis novembre 2024 et fonctionne à la limite haute de sa consommation normale. Le risque de panne augmente significativement sans intervention rapide.",
-      "machine_id": "C-104",
-      "timestamp": "2025-07-28T00:26:49.775Z",
-      "action": "Programmer maintenance dans les 7 jours maximum",
-      "generated_by": "Claude AI",
-      "location": "Compresseur C-104",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753662938809-0",
-      "severity": "critical",
-      "title": "Surconsommation critique - Machine de Découpe #3",
-      "description": "La machine CUT-003 consomme 52.8 kW alors que sa consommation normale est de 40-50 kW. Son efficacité est dégradée à 76% et elle présente une surconsommation critique continue depuis plusieurs heures.",
-      "machine_id": "CUT-003",
-      "timestamp": "2025-07-28T00:35:38.809Z",
-      "action": "Arrêt immédiat pour diagnostic et maintenance préventive",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753662938809-1",
-      "severity": "warning",
-      "title": "Efficacité dégradée - Mélangeur Industriel B2",
-      "description": "Le mélangeur MIX-002 affiche une efficacité critique de 73% bien qu'il consomme normalement. Cette dégradation d'efficacité peut indiquer une usure des composants internes ou un besoin de maintenance.",
-      "machine_id": "MIX-002",
-      "timestamp": "2025-07-28T00:35:38.809Z",
-      "action": "Planifier maintenance préventive dans les 48h",
-      "generated_by": "Claude AI",
-      "location": "Mélangeur Industriel B2",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753664919226-1",
-      "severity": "warning",
-      "title": "Surconsommation énergétique anormale",
-      "description": "La machine CUT-003 consomme 52.8 kW alors que sa plage normale est de 40-50 kW. Son efficacité a chuté à 76% avec une température élevée de 85°C. Cette surconsommation génère des coûts supplémentaires non justifiés.",
-      "machine_id": "CUT-003",
-      "timestamp": "2025-07-28T01:08:39.226Z",
-      "action": "Éteindre pour maintenance préventive et calibrage",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753664919226-2",
-      "severity": "warning",
-      "title": "Efficacité critique du mélangeur",
-      "description": "Le mélangeur MIX-002 affiche une efficacité de seulement 73%, bien en dessous des standards. Malgré une consommation normale de 72.8 kW, ses performances sont dégradées. Le système nécessite une maintenance corrective urgente.",
-      "machine_id": "MIX-002",
-      "timestamp": "2025-07-28T01:08:39.226Z",
-      "action": "Maintenance corrective et vérification des composants internes",
-      "generated_by": "Claude AI",
-      "location": "Mélangeur Industriel B2",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667229953-2",
-      "severity": "warning",
-      "title": "Surchauffe moteur critique",
-      "description": "Le moteur M-205 affiche une température critique de 85°C avec une efficacité réduite à 82%. Sa dernière maintenance remonte au 15 décembre 2024, indiquant un besoin de maintenance préventive. Le risque de panne augmente avec cette surchauffe persistante.",
-      "machine_id": "M-205",
-      "timestamp": "2025-07-28T01:47:09.953Z",
-      "action": "Vérifier le système de refroidissement et planifier une maintenance préventive",
-      "generated_by": "Claude AI",
-      "location": "Moteur M-205",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667326254-0",
-      "severity": "critical",
-      "title": "Surconsommation critique - Machine de Découpe #3",
-      "description": "La machine CUT-003 présente une surconsommation critique de 52.8 kW, dépassant sa plage normale de 40-50 kW. L'efficacité est dégradée à 76% avec une température élevée de 85°C. Une intervention immédiate est requise pour éviter une panne majeure.",
-      "machine_id": "CUT-003",
-      "timestamp": "2025-07-28T01:48:46.254Z",
-      "action": "Arrêter immédiatement la machine et procéder à une inspection complète du système de refroidissement",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667550802-1",
-      "severity": "warning",
-      "title": "Efficacité dégradée - Mélangeur Industriel B2",
-      "description": "Le mélangeur MIX-002 présente une efficacité critique de 73% malgré une consommation normale de 72.8 kW. Cette dégradation progressive nécessite une attention particulière. La maintenance programmée pourrait être avancée.",
-      "machine_id": "MIX-002",
-      "timestamp": "2025-07-28T01:52:30.802Z",
-      "action": "Planifier une maintenance préventive dans les 48h et surveiller l'évolution",
-      "generated_by": "Claude AI",
-      "location": "Mélangeur Industriel B2",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667550802-2",
-      "severity": "critical",
-      "title": "Surchauffe critique - Moteur M-205",
-      "description": "Le moteur M-205 présente une température de 85°C avec un message d'alerte de surchauffe critique. Sa dernière maintenance date du 15 décembre 2024. Un arrêt immédiat est recommandé pour éviter des dommages irréversibles.",
-      "machine_id": "M-205",
-      "timestamp": "2025-07-28T01:52:30.802Z",
-      "action": "Arrêt d'urgence et inspection du système de refroidissement",
-      "generated_by": "Claude AI",
-      "location": "Moteur M-205",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667587677-0",
-      "severity": "critical",
-      "title": "Surconsommation critique détectée - Machine de Découpe #3",
-      "description": "La machine CUT-003 présente une consommation de 52.8 kW, dépassant sa plage normale de 40-50 kW. L'efficacité est dégradée à 76% avec une température élevée de 85°C. La dernière maintenance date du 20 décembre 2024, suggérant un besoin urgent d'intervention.",
-      "machine_id": "CUT-003",
-      "timestamp": "2025-07-28T01:53:07.677Z",
-      "action": "Arrêter la machine immédiatement et planifier une maintenance d'urgence",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667655484-2",
-      "severity": "critical",
-      "title": "Surchauffe critique moteur M-205",
-      "description": "Le moteur M-205 présente une température critique de 85°C avec une consommation proche du maximum (28.5 kW) et une maintenance en retard depuis décembre 2024. Risque imminent de défaillance thermique.",
-      "machine_id": "M-205",
-      "timestamp": "2025-07-28T01:54:15.484Z",
-      "action": "Arrêt immédiat et refroidissement, maintenance d'urgence requise",
-      "generated_by": "Claude AI",
-      "location": "Moteur M-205",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753667699013-0",
-      "severity": "critical",
-      "title": "Surconsommation critique Machine de Découpe #3",
-      "description": "La machine CUT-003 présente une surconsommation de 52.8 kW dépassant sa plage normale (40-50 kW) avec une efficacité dégradée à 76%. La température élevée de 85°C et l'absence de maintenance depuis le 20 décembre 2024 indiquent un risque imminent de panne.",
-      "machine_id": "CUT-003",
-      "timestamp": "2025-07-28T01:54:59.013Z",
-      "action": "Arrêt immédiat pour maintenance préventive et inspection thermique",
-      "generated_by": "Claude AI",
-      "location": "Machine de Découpe #3",
-      "status": "closed"
-    },
-    {
-      "id": "ALERT-AI-1753671016914-0",
-      "severity": "critical",
-      "title": "Moteur M-205 - Surchauffe critique imminente",
-      "description": "Le moteur M-205 présente une température de 85°C avec une efficacité dégradée à 82%. La dernière maintenance date du 15 décembre 2024, soit plus d'un mois. Une panne imminente est probable sans intervention immédiate.",
-      "machine_id": "M-205",
-      "timestamp": "2025-07-28T02:50:16.914Z",
-      "action": "Arrêt immédiat pour maintenance d'urgence et vérification du système de refroidissement",
       "generated_by": "Claude AI"
     },
     {
-      "id": "ALERT-AI-1753671016914-1",
-      "severity": "warning",
-      "title": "Machine CUT-003 - Surconsommation énergétique persistante",
-      "description": "La machine de découpe #3 consomme 52.8 kW, dépassant sa plage normale de 40-50 kW. Son efficacité est tombée à 76% avec une température élevée de 85°C. Cette surconsommation génère des coûts supplémentaires de 378.9 MAD/jour.",
-      "machine_id": "CUT-003",
-      "timestamp": "2025-07-28T02:50:16.914Z",
-      "action": "Planifier maintenance préventive et vérifier l'alignement des lames de découpe",
+      "id": "ALERT-AI-1753698248510-2",
+      "severity": "critical",
+      "title": "Température critique - Moteur M-205",
+      "description": "Le moteur M-205 atteint une température critique de 85°C avec une efficacité réduite à 82%. Cette surchauffe peut causer des dommages permanents aux enroulements et compromettre la sécurité. La dernière maintenance date du 15 décembre, indiquant un besoin urgent d'intervention.",
+      "machine_id": "M-205",
+      "timestamp": "2025-07-28T10:24:08.510Z",
+      "action": "Arrêt immédiat, refroidissement et inspection thermique complète",
       "generated_by": "Claude AI"
     },
     {
-      "id": "ALERT-AI-1753671016914-2",
+      "id": "ALERT-AI-1753698248510-1",
       "severity": "warning",
-      "title": "Mélangeur MIX-002 - Efficacité critique dégradée",
-      "description": "Le mélangeur industriel B2 affiche une efficacité critique de 73%, bien en dessous des standards. Malgré une consommation normale de 72.8 kW, la productivité est compromise. Le système nécessite une intervention technique rapide.",
+      "title": "Efficacité dégradée - Mélangeur Industriel B2",
+      "description": "Le mélangeur MIX-002 présente une efficacité de seulement 73%, bien en dessous des standards. Malgré une consommation normale de 72.8 kW, cette baisse d'efficacité suggère une usure des composants internes. La maintenance préventive est nécessaire pour éviter une panne majeure.",
       "machine_id": "MIX-002",
-      "timestamp": "2025-07-28T02:50:16.914Z",
-      "action": "Inspection des composants mécaniques et recalibrage du système de mélange",
+      "timestamp": "2025-07-28T10:24:08.510Z",
+      "action": "Planifier maintenance dans les 48h et vérifier les composants mécaniques",
       "generated_by": "Claude AI"
     }
   ],
@@ -556,174 +448,377 @@
   ],
   "recommendations": [
     {
-      "id": "REC-AI-1753628908838-0",
-      "title": "Réduire la consommation du Compresseur Principal (COMP-001)",
-      "description": "Les données énergétiques historiques montrent une consommation élevée et variable du Compresseur Principal.  Optimiser son fonctionnement ou envisager son remplacement par un modèle plus efficient pourrait générer des économies significatives.",
-      "machine_id": "COMP-001",
-      "priority": "Élevée",
-      "potential_savings": 15000,
-      "payback_period": 36,
-      "difficulty": "Modérée",
-      "implementation_steps": [
-        "Effectuer un audit énergétique détaillé du Compresseur Principal pour identifier les sources de gaspillage.",
-        "Comparer les performances du compresseur actuel avec des modèles plus récents et plus efficients.",
-        "Implémenter des stratégies d'optimisation telles que la réduction de la pression de sortie et la maintenance préventive.",
-        "Envisager le remplacement du compresseur si le retour sur investissement est favorable."
-      ],
-      "energy_reduction": 15,
-      "implementation_cost": 45000,
-      "environmental_impact": {
-        "co2_reduction": 6000,
-        "energy_saved": 150000
-      },
-      "business_impact": {
-        "efficiency_improvement": 10,
-        "risk_reduction": "Réduction des coûts énergétiques et amélioration de la fiabilité du système d'air comprimé.",
-        "regulatory_compliance": "Conformité aux normes d'efficacité énergétique."
-      },
-      "resources_required": {
-        "personnel": "Ingénieur énergétique, technicien de maintenance.",
-        "tools": "Analyseur de puissance, outils de maintenance compresseur.",
-        "duration": "4 semaines",
-        "cost": 45000
-      },
-      "icon": "Lightbulb",
-      "generated_at": "2025-07-27T15:08:28.838Z",
-      "generated_by": "Gemini AI"
-    },
-    {
-      "id": "REC-AI-1753665687935-0",
-      "title": "Maintenance urgente du Mélangeur B2",
-      "description": "Le mélangeur MIX-002 présente une efficacité très dégradée de 73%. Une maintenance préventive permettrait de restaurer ses performances optimales et réduire sa consommation énergétique.",
-      "machine_id": "MIX-002",
+      "id": "REC-AI-1753697432853-0",
+      "title": "Maintenance préventive urgente - Machine de Découpe #3",
+      "description": "La machine CUT-003 présente une surconsommation critique avec 52.8 kW contre une normale de 40-50 kW. Une maintenance immédiate permettrait de restaurer son efficacité de 76% à 85-90%.",
+      "machine_id": "CUT-003",
       "priority": "Critique",
-      "potential_savings": 4200,
+      "potential_savings": 1890,
       "payback_period": 2,
       "difficulty": "Modérée",
       "implementation_steps": [
-        "Programmer un arrêt de maintenance dans les 48h",
-        "Remplacer les composants usés et effectuer la calibration",
-        "Vérifier l'efficacité post-maintenance et ajuster les paramètres"
+        "Diagnostiquer les composants défaillants causant la surconsommation",
+        "Remplacer les pièces usées et effectuer la calibration",
+        "Mettre en place un suivi hebdomadaire de performance"
       ],
       "energy_reduction": 15,
-      "implementation_cost": 8500,
+      "implementation_cost": 3500,
       "icon": "Lightbulb",
-      "generated_at": "2025-07-28T01:21:27.935Z",
+      "generated_at": "2025-07-28T10:10:32.853Z",
       "generated_by": "Claude AI"
     },
     {
-      "id": "REC-AI-1753665687935-1",
-      "title": "Intervention urgente sur le Moteur M-205",
-      "description": "Le moteur M-205 présente une surchauffe critique à 85°C avec une maintenance datant de décembre 2024. Une intervention immédiate est nécessaire pour éviter une panne majeure.",
-      "machine_id": "M-205",
-      "priority": "Critique",
-      "potential_savings": 1800,
+      "id": "REC-AI-1753697432853-1",
+      "title": "Optimisation énergétique - Mélangeur Industriel B2",
+      "description": "Le mélangeur MIX-002 fonctionne avec une efficacité très faible de 73%. Un réglage des paramètres et une maintenance ciblée peuvent améliorer significativement ses performances.",
+      "machine_id": "MIX-002",
+      "priority": "Élevée",
+      "potential_savings": 1260,
       "payback_period": 3,
-      "difficulty": "Facile",
+      "difficulty": "Modérée",
       "implementation_steps": [
-        "Arrêt immédiat et inspection du système de refroidissement",
-        "Nettoyage des filtres et vérification des roulements",
-        "Remplacement des composants défaillants et test de redémarrage"
+        "Analyser les paramètres de fonctionnement et identifier les déviations",
+        "Effectuer la maintenance des composants critiques",
+        "Recalibrer le système de contrôle automatique"
       ],
       "energy_reduction": 12,
-      "implementation_cost": 5200,
+      "implementation_cost": 4200,
       "icon": "Lightbulb",
-      "generated_at": "2025-07-28T01:21:27.935Z",
+      "generated_at": "2025-07-28T10:10:32.853Z",
       "generated_by": "Claude AI"
     },
     {
-      "id": "REC-AI-1753665687935-2",
-      "title": "Optimisation du Compresseur C-104",
-      "description": "Le compresseur C-104 nécessite une maintenance urgente après 2 mois de retard. Son efficacité de 85% peut être améliorée pour réduire significativement les coûts énergétiques.",
-      "machine_id": "C-104",
+      "id": "REC-AI-1753697432853-2",
+      "title": "Refroidissement préventif - Moteur M-205",
+      "description": "Le moteur M-205 présente une température critique de 85°C nécessitant une intervention immédiate. L'amélioration du système de refroidissement évitera une panne coûteuse.",
+      "machine_id": "M-205",
       "priority": "Élevée",
-      "potential_savings": 3600,
+      "potential_savings": 680,
+      "payback_period": 4,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Nettoyer et vérifier le système de ventilation existant",
+        "Installer un système de refroidissement auxiliaire",
+        "Mettre en place une surveillance continue de température"
+      ],
+      "energy_reduction": 8,
+      "implementation_cost": 2800,
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:10:32.853Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753697732331-1",
+      "title": "Optimisation du mélangeur industriel B2",
+      "description": "Le mélangeur MIX-002 présente une efficacité très faible de 73% avec une consommation de 72.8 kW. L'amélioration de son efficacité permettrait des économies significatives.",
+      "machine_id": "MIX-002",
+      "priority": "Élevée",
+      "potential_savings": 8500,
       "payback_period": 4,
       "difficulty": "Modérée",
       "implementation_steps": [
-        "Planifier la maintenance corrective dans la semaine",
-        "Révision complète du système de compression et remplacement des joints",
-        "Mise à jour des paramètres de fonctionnement et suivi des performances"
+        "Révision complète des composants mécaniques",
+        "Calibrage et ajustement des paramètres de fonctionnement",
+        "Installation de capteurs d'efficacité en temps réel"
       ],
-      "energy_reduction": 18,
-      "implementation_cost": 12000,
+      "energy_reduction": 15,
+      "implementation_cost": 18000,
       "icon": "Lightbulb",
-      "generated_at": "2025-07-28T01:21:27.935Z",
+      "generated_at": "2025-07-28T10:15:32.331Z",
       "generated_by": "Claude AI"
     },
     {
-      "id": "REC-AI-1753666501785-0",
-      "title": "Maintenance urgente du Mélangeur B2",
-      "description": "Le mélangeur MIX-002 présente une efficacité très dégradée de 73%. Une intervention de maintenance permettrait de restaurer les performances optimales et de réduire significativement la consommation énergétique.",
-      "machine_id": "MIX-002",
+      "id": "REC-AI-1753697732331-2",
+      "title": "Réparation urgente de la machine de découpe #3",
+      "description": "La machine CUT-003 consomme 52.8 kW alors que sa plage normale est 40-50 kW, avec une température élevée de 85°C. Cette surconsommation critique nécessite une intervention immédiate.",
+      "machine_id": "CUT-003",
       "priority": "Critique",
-      "potential_savings": 2800,
+      "potential_savings": 6200,
+      "payback_period": 3,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Nettoyage et lubrification des composants de coupe",
+        "Vérification et remplacement des lames usées",
+        "Ajustement des paramètres de vitesse et pression"
+      ],
+      "energy_reduction": 12,
+      "implementation_cost": 8500,
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:15:32.331Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753697844730-0",
+      "title": "Maintenance urgente du système de refroidissement",
+      "description": "Le système de refroidissement COOL-001 est complètement hors service, impactant l'efficacité de toute la ligne de production. Sa remise en service permettrait d'éviter la surchauffe des autres équipements et réduirait leur consommation énergétique.",
+      "machine_id": "COOL-001",
+      "priority": "Critique",
+      "potential_savings": 1250,
       "payback_period": 2,
       "difficulty": "Modérée",
       "implementation_steps": [
-        "Planifier l'arrêt de production pour maintenance complète",
-        "Remplacer les composants usés et effectuer la calibration",
-        "Tester et valider le retour aux performances normales"
+        "Diagnostic complet du système de refroidissement",
+        "Remplacement des composants défaillants",
+        "Test de performance et calibrage"
       ],
-      "energy_reduction": 18,
-      "implementation_cost": 5600,
+      "energy_reduction": 15,
+      "implementation_cost": 2500,
       "icon": "Lightbulb",
-      "generated_at": "2025-07-28T01:35:01.785Z",
+      "generated_at": "2025-07-28T10:17:24.730Z",
       "generated_by": "Claude AI"
     },
     {
-      "id": "REC-AI-1753666501785-1",
-      "title": "Intervention d'urgence sur le Moteur M-205",
-      "description": "Le moteur M-205 présente une surchauffe critique avec une température de 85°C. Une maintenance immédiate est nécessaire pour éviter une panne majeure et optimiser la consommation énergétique.",
-      "machine_id": "M-205",
-      "priority": "Critique",
-      "potential_savings": 1200,
-      "payback_period": 1,
-      "difficulty": "Facile",
-      "implementation_steps": [
-        "Arrêter immédiatement le moteur et vérifier le système de refroidissement",
-        "Nettoyer les circuits de ventilation et remplacer les filtres",
-        "Contrôler les roulements et lubrifier selon les spécifications"
-      ],
-      "energy_reduction": 12,
-      "implementation_cost": 1200,
-      "icon": "Lightbulb",
-      "generated_at": "2025-07-28T01:35:01.785Z",
-      "generated_by": "Claude AI"
-    },
-    {
-      "id": "REC-AI-1753666501785-2",
-      "title": "Optimisation énergétique du Compresseur C-104",
-      "description": "Le compresseur C-104 nécessite une maintenance urgente après 2 mois sans intervention. L'optimisation de ses paramètres de fonctionnement permettrait de réduire sa consommation tout en maintenant les performances.",
-      "machine_id": "C-104",
+      "id": "REC-AI-1753697844730-1",
+      "title": "Optimisation du mélangeur industriel B2",
+      "description": "Le mélangeur MIX-002 présente une efficacité très faible de 73% avec une consommation de 72.8 kW. Un réglage et une maintenance préventive permettraient d'améliorer significativement ses performances énergétiques.",
+      "machine_id": "MIX-002",
       "priority": "Élevée",
-      "potential_savings": 2100,
+      "potential_savings": 890,
       "payback_period": 3,
       "difficulty": "Modérée",
       "implementation_steps": [
-        "Effectuer un diagnostic complet des performances actuelles",
-        "Ajuster les paramètres de pression et remplacer les joints défaillants",
-        "Installer un système de surveillance continue de l'efficacité"
+        "Nettoyage approfondi et lubrification des composants",
+        "Calibrage des paramètres de mélange",
+        "Installation de capteurs d'efficacité en temps réel"
+      ],
+      "energy_reduction": 12,
+      "implementation_cost": 2670,
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:17:24.730Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753697844730-2",
+      "title": "Réparation urgente de la machine de découpe CUT-003",
+      "description": "La machine CUT-003 consomme 52.8 kW alors que sa plage normale est de 40-50 kW, indiquant une surconsommation critique. Son efficacité de 76% nécessite une intervention immédiate pour éviter une panne majeure.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 680,
+      "payback_period": 4,
+      "difficulty": "Difficile",
+      "implementation_steps": [
+        "Arrêt programmé pour inspection complète",
+        "Remplacement des lames et vérification du système de contrôle",
+        "Optimisation des paramètres de découpe"
+      ],
+      "energy_reduction": 18,
+      "implementation_cost": 2720,
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:17:24.730Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753698094526-1",
+      "title": "Optimisation énergétique du Mélangeur MIX-002",
+      "description": "Le mélangeur industriel B2 présente une efficacité très faible de 73% avec une surconsommation notable. Un recalibrage et une maintenance préventive permettront d'améliorer significativement ses performances.",
+      "machine_id": "MIX-002",
+      "priority": "Élevée",
+      "potential_savings": 18500,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Audit énergétique approfondi et analyse des paramètres de fonctionnement",
+        "Recalibrage des moteurs et optimisation des cycles de mélange",
+        "Installation de capteurs IoT pour surveillance continue"
       ],
       "energy_reduction": 15,
-      "implementation_cost": 6300,
+      "implementation_cost": 55000,
+      "environmental_impact": {
+        "co2_reduction": 45,
+        "energy_saved": 98550
+      },
+      "business_impact": {
+        "efficiency_improvement": 20,
+        "risk_reduction": "Réduction des arrêts non planifiés et amélioration de la qualité",
+        "regulatory_compliance": "Conformité aux standards d'efficacité énergétique marocains"
+      },
+      "resources_required": {
+        "personnel": "2 ingénieurs + 1 technicien, 12 heures",
+        "tools": "Analyseur de puissance, capteurs IoT, outils de calibrage",
+        "duration": "1-2 jours ouvrables",
+        "cost": 55000
+      },
       "icon": "Lightbulb",
-      "generated_at": "2025-07-28T01:35:01.785Z",
+      "generated_at": "2025-07-28T10:21:34.526Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753698094526-2",
+      "title": "Maintenance préventive du Moteur M-205",
+      "description": "Le moteur M-205 présente une température critique de 85°C avec une efficacité de 82%. Une intervention préventive immédiate évitera une panne coûteuse et améliorera les performances énergétiques.",
+      "machine_id": "M-205",
+      "priority": "Élevée",
+      "potential_savings": 8500,
+      "payback_period": 4,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Nettoyage complet du système de ventilation et remplacement des filtres",
+        "Vérification et ajustement des paliers et lubrification",
+        "Test de performance et surveillance thermique continue"
+      ],
+      "energy_reduction": 12,
+      "implementation_cost": 32000,
+      "environmental_impact": {
+        "co2_reduction": 18,
+        "energy_saved": 39420
+      },
+      "business_impact": {
+        "efficiency_improvement": 15,
+        "risk_reduction": "Prévention des pannes thermiques et extension de la durée de vie",
+        "regulatory_compliance": "Respect des normes de sécurité thermique industrielle"
+      },
+      "resources_required": {
+        "personnel": "2 techniciens, 6 heures",
+        "tools": "Outils de maintenance standard, lubrifiants industriels",
+        "duration": "1 jour ouvrable",
+        "cost": 32000
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:21:34.526Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753698357773-0",
+      "title": "Maintenance préventive urgente CUT-003",
+      "description": "La machine de découpe présente une surconsommation critique de 52.8 kW avec une efficacité réduite à 76%. Une maintenance immédiate permettrait de réduire significativement les coûts énergétiques.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 1890,
+      "payback_period": 2,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Arrêt programmé de la machine et diagnostic complet",
+        "Remplacement des composants usés et calibrage",
+        "Tests de performance et validation des paramètres optimaux"
+      ],
+      "energy_reduction": 18,
+      "implementation_cost": 3800,
+      "environmental_impact": {
+        "co2_reduction": 12.5,
+        "energy_saved": 28440
+      },
+      "business_impact": {
+        "efficiency_improvement": 15,
+        "risk_reduction": "Diminution des pannes imprévues et optimisation de la production",
+        "regulatory_compliance": "Respect des normes énergétiques industrielles marocaines"
+      },
+      "resources_required": {
+        "personnel": "2 techniciens spécialisés, 8 heures",
+        "tools": "Outils de précision et pièces de rechange",
+        "duration": "2 jours ouvrables",
+        "cost": 3800
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:25:57.773Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753698357773-1",
+      "title": "Optimisation énergétique MIX-002",
+      "description": "Le mélangeur industriel affiche une efficacité critique de 73% nécessitant une intervention rapide. L'optimisation des paramètres et la maintenance préventive amélioreront significativement les performances.",
+      "machine_id": "MIX-002",
+      "priority": "Élevée",
+      "potential_savings": 2340,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Analyse des paramètres de fonctionnement et diagnostic énergétique",
+        "Ajustement des réglages et maintenance des composants critiques",
+        "Installation d'un système de monitoring pour suivi continu"
+      ],
+      "energy_reduction": 22,
+      "implementation_cost": 6200,
+      "environmental_impact": {
+        "co2_reduction": 18.2,
+        "energy_saved": 41760
+      },
+      "business_impact": {
+        "efficiency_improvement": 20,
+        "risk_reduction": "Stabilisation de la production et réduction des arrêts non planifiés",
+        "regulatory_compliance": "Conformité aux standards environnementaux industriels"
+      },
+      "resources_required": {
+        "personnel": "1 ingénieur et 2 techniciens, 12 heures",
+        "tools": "Équipements de mesure et système de monitoring",
+        "duration": "3 jours ouvrables",
+        "cost": 6200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:25:57.773Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753698357773-2",
+      "title": "Maintenance préventive compresseur C-104",
+      "description": "Le compresseur C-104 nécessite une maintenance urgente après plus de 2 mois sans intervention. Cette action préventive évitera une panne coûteuse et optimisera la consommation énergétique.",
+      "machine_id": "C-104",
+      "priority": "Élevée",
+      "potential_savings": 1680,
+      "payback_period": 2,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Inspection complète et remplacement des filtres et joints",
+        "Vérification de l'alignement et lubrification des composants",
+        "Test de performance et ajustement des paramètres"
+      ],
+      "energy_reduction": 12,
+      "implementation_cost": 2850,
+      "environmental_impact": {
+        "co2_reduction": 9.8,
+        "energy_saved": 22320
+      },
+      "business_impact": {
+        "efficiency_improvement": 12,
+        "risk_reduction": "Prévention des pannes majeures et continuité de service",
+        "regulatory_compliance": "Maintien de la conformité aux normes de sécurité industrielle"
+      },
+      "resources_required": {
+        "personnel": "2 techniciens maintenance, 6 heures",
+        "tools": "Kit de maintenance standard et pièces détachées",
+        "duration": "1 jour ouvrable",
+        "cost": 2850
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:25:57.773Z",
       "generated_by": "Claude AI"
     }
   ],
   "implementations": [
     {
-      "id": "IMPL-1753628940389",
-      "title": "Optimisation de la consommation du Mélangeur Industriel B2 (MIX-002)",
-      "machine_id": "MIX-002",
+      "id": "IMPL-1753698110980",
+      "title": "Maintenance urgente du Système de Refroidissement COOL-001",
+      "machine_id": "COOL-001",
       "status": "Implémenté",
       "progress": 100,
-      "expected_savings": 3000,
-      "actual_savings": 3136.8387313648054,
-      "implementation_cost": 18000,
-      "accepted_at": "2025-07-27T15:09:00.389Z",
-      "completed_at": "2025-07-27T15:09:13.085Z"
+      "expected_savings": 45000,
+      "actual_savings": 48479.28286806459,
+      "implementation_cost": 85000,
+      "accepted_at": "2025-07-28T10:21:50.980Z",
+      "completed_at": "2025-07-28T10:26:43.474Z"
+    },
+    {
+      "id": "IMPL-1753698114733",
+      "title": "Maintenance critique du système de refroidissement",
+      "machine_id": "COOL-001",
+      "status": "En Cours",
+      "progress": 50,
+      "expected_savings": 15000,
+      "actual_savings": 0,
+      "implementation_cost": 30000,
+      "accepted_at": "2025-07-28T10:21:54.733Z",
+      "completed_at": null
+    },
+    {
+      "id": "IMPL-1753698394491",
+      "title": "Maintenance urgente du Système de Refroidissement COOL-001",
+      "machine_id": "COOL-001",
+      "status": "En Attente",
+      "progress": 0,
+      "expected_savings": 45000,
+      "actual_savings": 0,
+      "implementation_cost": 85000,
+      "accepted_at": "2025-07-28T10:26:34.491Z",
+      "completed_at": null
     }
   ]
 }

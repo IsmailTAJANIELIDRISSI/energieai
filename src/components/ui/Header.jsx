@@ -25,12 +25,12 @@ const Header = () => {
       icon: "Settings",
       tooltip: "Surveillance des équipements",
     },
-    {
-      path: "/energy-analytics",
-      label: "Analyses",
-      icon: "Zap",
-      tooltip: "Analyses énergétiques",
-    },
+    // {
+    //   path: "/energy-analytics",
+    //   label: "Analyses",
+    //   icon: "Zap",
+    //   tooltip: "Analyses énergétiques",
+    // },
     {
       path: "/recommendations-engine",
       label: "Recommandations",

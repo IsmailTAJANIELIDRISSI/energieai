@@ -1,113 +1,149 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Header from '../../components/ui/Header';
-import Breadcrumb from '../../components/ui/Breadcrumb';
-import Icon from '../../components/AppIcon';
-import Button from '../../components/ui/Button';
-import ReportBuilder from './components/ReportBuilder';
-import ReportPreview from './components/ReportPreview';
-import ReportHistory from './components/ReportHistory';
-import ScheduledReports from './components/ScheduledReports';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Header from "../../components/ui/Header";
+import Breadcrumb from "../../components/ui/Breadcrumb";
+import Icon from "../../components/AppIcon";
+import Button from "../../components/ui/Button";
+import ReportBuilder from "./components/ReportBuilder";
+import ReportPreview from "./components/ReportPreview";
+import ReportHistory from "./components/ReportHistory";
+import ScheduledReports from "./components/ScheduledReports";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import EnergyReportPDF from "./components/EnergyReportPDF";
+import { pdf } from "@react-pdf/renderer";
+import { createObjectURL } from "blob-util";
+import ReactDOM from "react-dom";
 
 const ReportsExport = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('fr');
-  const [activeTab, setActiveTab] = useState('builder');
-  const [reportConfig, setReportConfig] = useState(null);
+  const [currentLanguage, setCurrentLanguage] = useState("fr");
+  const [activeTab, setActiveTab] = useState("builder");
+  const [reportConfig, setReportConfig] = useState({
+    title: "Rapport personnalisé",
+    sections: ["summary", "machines", "alerts", "energy"], // Default sections
+    dateRange: "lastMonth",
+    // Add other default config properties as needed
+  });
   const [isGenerating, setIsGenerating] = useState(false);
+  const [data, setData] = useState({
+    machines: [],
+    energy: [],
+    alerts: [],
+    forecasts: [],
+    recommendations: [],
+    implementations: [],
+  });
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-      setCurrentLanguage(savedLanguage);
-    }
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage) setCurrentLanguage(savedLanguage);
+
+    // Fetch data from multiple endpoints
+    Promise.all([
+      fetch("http://localhost:3005/machines").then((res) => res.json()),
+      fetch("http://localhost:3005/energy").then((res) => res.json()),
+      fetch("http://localhost:3005/alerts").then((res) => res.json()),
+      fetch("http://localhost:3005/forecasts").then((res) => res.json()),
+      fetch("http://localhost:3005/recommendations").then((res) => res.json()),
+      fetch("http://localhost:3005/implementations").then((res) => res.json()),
+    ])
+      .then(
+        ([
+          machines,
+          energy,
+          alerts,
+          forecasts,
+          recommendations,
+          implementations,
+        ]) => {
+          setData({
+            machines,
+            energy,
+            alerts,
+            forecasts,
+            recommendations,
+            implementations,
+          });
+        }
+      )
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   const breadcrumbItems = [
-    { label: 'Accueil', path: '/dashboard-overview', icon: 'Home' },
-    { label: 'Rapports et Export', path: '/reports-export', icon: 'Download' }
+    { label: "Accueil", path: "/dashboard-overview", icon: "Home" },
+    { label: "Rapports et Export", path: "/reports-export", icon: "Download" },
   ];
 
   const tabs = [
     {
-      id: 'builder',
-      label: 'Générateur',
-      icon: 'FileText',
-      description: 'Créer un nouveau rapport'
+      id: "builder",
+      label: "Générateur",
+      icon: "FileText",
+      description: "Créer un nouveau rapport",
     },
     {
-      id: 'history',
-      label: 'Historique',
-      icon: 'History',
-      description: 'Rapports générés'
+      id: "history",
+      label: "Historique",
+      icon: "History",
+      description: "Rapports générés",
     },
     {
-      id: 'scheduled',
-      label: 'Programmés',
-      icon: 'Clock',
-      description: 'Rapports automatiques'
-    }
+      id: "scheduled",
+      label: "Programmés",
+      icon: "Clock",
+      description: "Rapports automatiques",
+    },
   ];
 
-  const handleReportConfigChange = (config) => {
-    setReportConfig(config);
-  };
-
-  const handleGenerateReport = async (config, previewData) => {
+  const handleReportConfigChange = (config) => setReportConfig(config);
+  const handleGenerateReport = async (config, aiData) => {
     setIsGenerating(true);
-    
+    console.log(data);
+    console.log(aiData);
+
     try {
-      // Simulate report generation with jsPDF
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
-      // Create mock PDF download
-      const reportTitle = `Rapport_EnergieAI_${new Date().toISOString().split('T')[0]}.${config.format}`;
-      
-      // Simulate file download
-      const link = document.createElement('a');
-      link.href = '#';
-      link.download = reportTitle;
+      // Créer un blob du PDF
+      const blob = await pdf(
+        <EnergyReportPDF
+          reportConfig={config}
+          data={{
+            ...aiData,
+            machines: data.machines,
+            energy: data.energy,
+            alerts: data.alerts,
+            forecasts: data.forecasts,
+            recommendations: aiData.recommendations,
+            implementations: data.implementations,
+          }}
+        />
+      ).toBlob();
+
+      // Créer un lien de téléchargement
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `Rapport_EnergieAI_${
+        new Date().toISOString().split("T")[0]
+      }.pdf`;
+
+      // Déclencher le téléchargement
+      document.body.appendChild(link);
       link.click();
-      
-      // Show success notification
-      alert(`Rapport généré avec succès: ${reportTitle}`);
-      
-      // Switch to history tab to show the new report
-      setActiveTab('history');
-      
+
+      // Nettoyer
+      setTimeout(() => {
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }, 100);
+
+      // Mettre à jour l'interface
+      setTimeout(() => {
+        setActiveTab("history");
+      }, 500);
     } catch (error) {
-      console.error('Erreur lors de la génération du rapport:', error);
-      alert('Erreur lors de la génération du rapport. Veuillez réessayer.');
+      console.error("Erreur lors de la génération du rapport:", error);
+      alert("Erreur lors de la génération du rapport. Veuillez réessayer.");
     } finally {
       setIsGenerating(false);
-    }
-  };
-
-  const handleViewReport = (report) => {
-    // Simulate opening report in new tab
-    window.open('#', '_blank');
-  };
-
-  const handleDeleteReport = (reportId) => {
-    if (confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?')) {
-      console.log('Suppression du rapport:', reportId);
-      // In real app, this would call an API
-    }
-  };
-
-  const handleCreateSchedule = (scheduleData) => {
-    console.log('Création du planning:', scheduleData);
-    alert('Planning créé avec succès !');
-  };
-
-  const handleUpdateSchedule = (scheduleId, scheduleData) => {
-    console.log('Mise à jour du planning:', scheduleId, scheduleData);
-    alert('Planning mis à jour avec succès !');
-  };
-
-  const handleDeleteSchedule = (scheduleId) => {
-    if (confirm('Êtes-vous sûr de vouloir supprimer ce planning ?')) {
-      console.log('Suppression du planning:', scheduleId);
-      alert('Planning supprimé avec succès !');
     }
   };
 
@@ -116,56 +152,53 @@ const ReportsExport = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.1
-      }
-    }
+      transition: { duration: 0.6, staggerChildren: 0.1 },
+    },
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       <Header />
-      
       <main className="pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={breadcrumbItems} />
-          
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="py-8"
           >
-            {/* Page Header */}
             <motion.div variants={itemVariants} className="mb-8">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-energy-primary rounded-xl flex items-center justify-center">
-                    <Icon name="Download" size={24} color="white" strokeWidth={2.5} />
+                    <Icon
+                      name="Download"
+                      size={24}
+                      color="white"
+                      strokeWidth={2.5}
+                    />
                   </div>
                   <div>
-                    <h1 className="text-3xl font-bold text-foreground">Rapports & Export</h1>
+                    <h1 className="text-3xl font-bold text-foreground">
+                      Rapports & Export
+                    </h1>
                     <p className="text-muted-foreground mt-1">
-                      Génération et gestion des rapports énergétiques pour la conformité et l'analyse stratégique
+                      Génération et gestion des rapports énergétiques
                     </p>
                   </div>
                 </div>
-                
                 <div className="flex items-center space-x-3">
                   <div className="text-right">
-                    <div className="text-sm font-medium text-foreground">Dernière mise à jour</div>
+                    <div className="text-sm font-medium text-foreground">
+                      Dernière mise à jour
+                    </div>
                     <div className="text-xs text-muted-foreground">
-                      {new Date().toLocaleString('fr-FR')}
+                      {new Date().toLocaleString("fr-FR")}
                     </div>
                   </div>
                   <Button
@@ -180,58 +213,80 @@ const ReportsExport = () => {
               </div>
             </motion.div>
 
-            {/* Quick Stats */}
-            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"
+            >
               <div className="bg-card border border-border rounded-lg p-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Icon name="FileText" size={20} className="text-primary" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-foreground">47</div>
-                    <div className="text-sm text-muted-foreground">Rapports Générés</div>
+                    <div className="text-2xl font-bold text-foreground">
+                      {data.machines.length}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Machines Suivies
+                    </div>
                   </div>
                 </div>
               </div>
-              
               <div className="bg-card border border-border rounded-lg p-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-success/10 rounded-lg flex items-center justify-center">
                     <Icon name="Download" size={20} className="text-success" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-foreground">156</div>
-                    <div className="text-sm text-muted-foreground">Téléchargements</div>
+                    <div className="text-2xl font-bold text-foreground">
+                      {data.energy.length}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Données Énergétiques
+                    </div>
                   </div>
                 </div>
               </div>
-              
               <div className="bg-card border border-border rounded-lg p-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
                     <Icon name="Clock" size={20} className="text-accent" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-foreground">8</div>
-                    <div className="text-sm text-muted-foreground">Plannings Actifs</div>
+                    <div className="text-2xl font-bold text-foreground">
+                      {data.alerts.length}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Alertes Actives
+                    </div>
                   </div>
                 </div>
               </div>
-              
               <div className="bg-card border border-border rounded-lg p-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-warning/10 rounded-lg flex items-center justify-center">
-                    <Icon name="TrendingUp" size={20} className="text-warning" />
+                    <Icon
+                      name="TrendingUp"
+                      size={20}
+                      className="text-warning"
+                    />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-foreground">98%</div>
-                    <div className="text-sm text-muted-foreground">Taux de Succès</div>
+                    <div className="text-2xl font-bold text-foreground">
+                      {data.machines.reduce(
+                        (sum, m) => sum + (m.efficiency || 0),
+                        0
+                      ) / data.machines.length || 0}
+                      %
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Efficacité Moyenne
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Tab Navigation */}
             <motion.div variants={itemVariants} className="mb-6">
               <div className="bg-card border border-border rounded-lg p-2">
                 <div className="flex space-x-2">
@@ -241,14 +296,16 @@ const ReportsExport = () => {
                       onClick={() => setActiveTab(tab.id)}
                       className={`flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 flex-1 ${
                         activeTab === tab.id
-                          ? 'bg-primary text-primary-foreground shadow-sm'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
                     >
                       <Icon name={tab.icon} size={18} />
                       <div className="text-left">
                         <div>{tab.label}</div>
-                        <div className="text-xs opacity-80">{tab.description}</div>
+                        <div className="text-xs opacity-80">
+                          {tab.description}
+                        </div>
                       </div>
                     </button>
                   ))}
@@ -256,38 +313,39 @@ const ReportsExport = () => {
               </div>
             </motion.div>
 
-            {/* Tab Content */}
             <motion.div variants={itemVariants} className="min-h-[600px]">
-              {activeTab === 'builder' && (
+              {activeTab === "builder" && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <ReportBuilder
                     onReportConfigChange={handleReportConfigChange}
                     selectedConfig={reportConfig}
+                    machines={data.machines}
                   />
                   <ReportPreview
                     reportConfig={reportConfig}
                     onGenerateReport={handleGenerateReport}
+                    energyData={data.energy}
+                    machines={data.machines}
+                    alerts={data.alerts}
                   />
                 </div>
               )}
-
-              {activeTab === 'history' && (
+              {activeTab === "history" && (
                 <ReportHistory
-                  onViewReport={handleViewReport}
-                  onDeleteReport={handleDeleteReport}
+                  onViewReport={() => {}}
+                  onDeleteReport={() => {}}
+                  reports={data.energy}
                 />
               )}
-
-              {activeTab === 'scheduled' && (
+              {activeTab === "scheduled" && (
                 <ScheduledReports
-                  onCreateSchedule={handleCreateSchedule}
-                  onUpdateSchedule={handleUpdateSchedule}
-                  onDeleteSchedule={handleDeleteSchedule}
+                  onCreateSchedule={() => {}}
+                  onUpdateSchedule={() => {}}
+                  onDeleteSchedule={() => {}}
                 />
               )}
             </motion.div>
 
-            {/* Loading Overlay */}
             {isGenerating && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -297,14 +355,23 @@ const ReportsExport = () => {
               >
                 <div className="bg-card border border-border rounded-lg p-8 text-center max-w-md mx-4">
                   <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Icon name="FileText" size={32} className="text-primary animate-pulse" />
+                    <Icon
+                      name="FileText"
+                      size={32}
+                      className="text-primary animate-pulse"
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Génération en cours...</h3>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    Génération en cours...
+                  </h3>
                   <p className="text-muted-foreground mb-4">
-                    Création de votre rapport personnalisé avec les données énergétiques
+                    Création de votre rapport personnalisé
                   </p>
                   <div className="w-full bg-muted rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
+                    <div
+                      className="bg-primary h-2 rounded-full animate-pulse"
+                      style={{ width: "60%" }}
+                    ></div>
                   </div>
                   <p className="text-xs text-muted-foreground mt-2">
                     Cela peut prendre quelques instants...

@@ -9,6 +9,8 @@ const MetricsSidebar = ({
   selectedChartType,
   onChartTypeChange,
 }) => {
+  console.log(averageCost);
+
   const metrics = [
     {
       id: "consumption",
@@ -55,7 +57,6 @@ const MetricsSidebar = ({
     { id: "bar", label: "Barres", icon: "BarChart3" },
     { id: "area", label: "Aires", icon: "Activity" },
   ];
-
 
   return (
     <div className="w-full space-y-6">

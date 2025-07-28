@@ -12,6 +12,7 @@ const RecommendationModal = ({
 }) => {
   const [activeTab, setActiveTab] = useState("overview");
   const [isProcessing, setIsProcessing] = useState(false);
+  console.log(recommendation);
 
   if (!isOpen || !recommendation) return null;
 

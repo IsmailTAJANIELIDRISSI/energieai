@@ -101,7 +101,7 @@ const DashboardReportDocument = ({ machines, energyData, alerts, metrics }) => {
 
         {/* Metrics Summary */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>📊 Résumé Exécutif</Text>
+          <Text style={styles.sectionTitle}>Résumé Exécutif</Text>
           <View
             style={{
               flexDirection: "row",
@@ -138,7 +138,7 @@ const DashboardReportDocument = ({ machines, energyData, alerts, metrics }) => {
 
         {/* Machines Table */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>🏭 État des Machines</Text>
+          <Text style={styles.sectionTitle}>État des Machines</Text>
           <View style={styles.table}>
             {/* Table Header */}
             <View style={[styles.tableRow, { backgroundColor: "#3b82f6" }]}>
@@ -227,7 +227,7 @@ const DashboardReportDocument = ({ machines, energyData, alerts, metrics }) => {
 
         {/* Alerts Table */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>🚨 Alertes Récentes</Text>
+          <Text style={styles.sectionTitle}>Alertes Récentes</Text>
           <View style={styles.table}>
             {/* Table Header */}
             <View style={[styles.tableRow, { backgroundColor: "#f97316" }]}>

@@ -7,6 +7,7 @@ const anthropic = new Anthropic({
 });
 
 export const calculateMetrics = async (energyData, machines) => {
+  console.log(energyData);
   const totalConsumption = energyData.reduce(
     (sum, entry) => sum + (entry.power_usage_kW || 0),
     0
@@ -79,6 +80,7 @@ export const calculateMetrics = async (energyData, machines) => {
   } catch (err) {
     console.error("Erreur lors de l'appel à Gemini:", err);
   }
+  console.log(totalConsumption);
 
   return {
     currentConsumption,

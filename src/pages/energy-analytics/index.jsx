@@ -32,6 +32,11 @@ const EnergyAnalytics = () => {
     selectedMachine: null,
     machineData: null,
   });
+  const [totalConsumption2, setTotalConsumption2] = useState(0);
+  const [averageCost2, setAverageCost2] = useState(0);
+  const [efficiency2, setEfficiency2] = useState(0);
+  const [co2Footprint2, setCo2Footprint2] = useState(0);
+  const [currentConsumption2, setCurrentConsumption2] = useState(0);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language");
@@ -51,11 +56,31 @@ const EnergyAnalytics = () => {
         console.log("Fetched energyData:", energyRes.data);
         console.log("Fetched machines:", machinesRes.data);
 
-        setEnergyData(
-          energyRes.data.filter((entry) =>
-            entry.timestamp.includes("T00:00:00Z")
-          )
-        );
+        const {
+          currentConsumption,
+          totalConsumption,
+          averageCost,
+          efficiency,
+          co2Footprint,
+        } = calculateMetrics(energyRes.data, machinesRes.data);
+        console.log(currentConsumption);
+        console.log(totalConsumption);
+        console.log(averageCost);
+        console.log(efficiency);
+        console.log(co2Footprint);
+
+        setCurrentConsumption2(currentConsumption);
+        setTotalConsumption2(totalConsumption);
+        setAverageCost2(averageCost);
+        setEfficiency2(efficiency);
+        setCo2Footprint2(co2Footprint2);
+
+        // setEnergyData(
+        //   energyRes.data.filter((entry) =>
+        //     entry.timestamp.includes("T00:00:00Z")
+        //   )
+        // );
+        setEnergyData(energyRes.data);
         setForecastData(forecastRes.data);
         setMachines(machinesRes.data);
         setLoading(false);
@@ -68,14 +93,6 @@ const EnergyAnalytics = () => {
 
     fetchData();
   }, []);
-
-  const {
-    currentConsumption,
-    totalConsumption,
-    averageCost,
-    efficiency,
-    co2Footprint,
-  } = calculateMetrics(energyData, machines);
 
   const handleExportPDF = () => {
     console.log("Exporting analytics report to PDF...");
@@ -272,10 +289,10 @@ const EnergyAnalytics = () => {
                 className="lg:col-span-2"
               >
                 <MetricsSidebar
-                  totalConsumption={totalConsumption}
-                  averageCost={averageCost}
-                  efficiency={efficiency}
-                  co2Footprint={co2Footprint}
+                  totalConsumption={totalConsumption2}
+                  averageCost={averageCost2}
+                  efficiency={efficiency2}
+                  co2Footprint={co2Footprint2}
                   selectedChartType={selectedChartType}
                   onChartTypeChange={setSelectedChartType}
                 />
