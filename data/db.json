@@ -29,7 +29,7 @@
       "lastMaintenance": "2024-12-20",
       "dailyCost": 378.9,
       "uptime": 92.1,
-      "alertMessage": "Surconsommation détectée",
+      "alertMessage": "Maintenance urgente requise",
       "generated_by": "Claude AI"
     },
     {
@@ -421,6 +421,36 @@
       "timestamp": "2025-07-28T10:24:08.510Z",
       "action": "Planifier maintenance dans les 48h et vérifier les composants mécaniques",
       "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753699744662-0",
+      "severity": "critical",
+      "title": "Maintenance urgente requise - Compresseur C-104",
+      "description": "Le compresseur C-104 n'a pas été maintenu depuis le 30 novembre 2024, soit plus de 50 jours. Cette situation présente un risque élevé de panne et peut affecter la production.",
+      "machine_id": "C-104",
+      "timestamp": "2025-07-28T10:49:04.662Z",
+      "action": "Programmer une maintenance immédiate",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753699744662-1",
+      "severity": "warning",
+      "title": "Température critique détectée - Moteur M-205",
+      "description": "Le moteur M-205 présente une température de 85°C, ce qui est critique pour ce type d'équipement. La dernière maintenance date du 15 décembre 2024, indiquant un besoin d'intervention.",
+      "machine_id": "M-205",
+      "timestamp": "2025-07-28T10:49:04.662Z",
+      "action": "Vérifier le système de refroidissement et programmer une maintenance",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "ALERT-AI-1753699744662-2",
+      "severity": "warning",
+      "title": "Efficacité très faible - Mélangeur B2",
+      "description": "Le mélangeur industriel B2 affiche une efficacité de seulement 73%, bien en dessous des standards optimaux. Cette baisse de performance peut impacter la qualité de production et augmenter les coûts énergétiques.",
+      "machine_id": "MIX-002",
+      "timestamp": "2025-07-28T10:49:04.662Z",
+      "action": "Inspecter les composants mécaniques et calibrer le système",
+      "generated_by": "Claude AI"
     }
   ],
   "forecasts": [
@@ -780,6 +810,111 @@
       },
       "icon": "Lightbulb",
       "generated_at": "2025-07-28T10:25:57.773Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753699802045-0",
+      "title": "Maintenance urgente du Mélangeur B2",
+      "description": "Le mélangeur industriel B2 présente une efficacité très faible de 73% et nécessite une maintenance immédiate. Cette intervention permettra de restaurer les performances optimales et réduire la consommation énergétique excessive.",
+      "machine_id": "MIX-002",
+      "priority": "Critique",
+      "potential_savings": 2850,
+      "payback_period": 2,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Diagnostic complet du système de mélange et remplacement des pièces usées",
+        "Calibrage des paramètres de fonctionnement et test de performance",
+        "Formation de l'équipe sur les bonnes pratiques d'utilisation"
+      ],
+      "energy_reduction": 18,
+      "implementation_cost": 5800,
+      "environmental_impact": {
+        "co2_reduction": 12.5,
+        "energy_saved": 28600
+      },
+      "business_impact": {
+        "efficiency_improvement": 22,
+        "risk_reduction": "Élimination des risques de panne majeure et amélioration de la qualité de production",
+        "regulatory_compliance": "Conformité aux normes d'efficacité énergétique marocaines NM ISO 50001"
+      },
+      "resources_required": {
+        "personnel": "3 techniciens spécialisés, 12 heures",
+        "tools": "Outils de maintenance industrielle, pièces de rechange certifiées",
+        "duration": "2-3 jours ouvrables",
+        "cost": 5800
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:50:02.045Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753699802045-1",
+      "title": "Optimisation du Compresseur C-104",
+      "description": "Le compresseur C-104 fonctionne avec une efficacité de 85% et nécessite une maintenance préventive urgente. L'optimisation de ses paramètres de fonctionnement permettra une réduction significative des coûts énergétiques.",
+      "machine_id": "C-104",
+      "priority": "Élevée",
+      "potential_savings": 1980,
+      "payback_period": 3,
+      "difficulty": "Modérée",
+      "implementation_steps": [
+        "Révision complète du système de compression et remplacement des filtres",
+        "Ajustement de la pression de fonctionnement et optimisation du cycle de travail",
+        "Installation d'un système de surveillance en temps réel"
+      ],
+      "energy_reduction": 15,
+      "implementation_cost": 6200,
+      "environmental_impact": {
+        "co2_reduction": 8.7,
+        "energy_saved": 19800
+      },
+      "business_impact": {
+        "efficiency_improvement": 12,
+        "risk_reduction": "Prévention des pannes critiques et amélioration de la fiabilité",
+        "regulatory_compliance": "Respect des normes de sécurité industrielle marocaines"
+      },
+      "resources_required": {
+        "personnel": "2 techniciens certifiés, 8 heures",
+        "tools": "Équipement de diagnostic pneumatique, pièces de maintenance",
+        "duration": "1-2 jours ouvrables",
+        "cost": 6200
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:50:02.045Z",
+      "generated_by": "Claude AI"
+    },
+    {
+      "id": "REC-AI-1753699802045-2",
+      "title": "Intervention sur la Machine de Découpe #3",
+      "description": "La machine CUT-003 dépasse sa consommation normale et présente une température élevée de 85°C. Une maintenance corrective immédiate évitera une panne majeure et optimisera sa consommation énergétique.",
+      "machine_id": "CUT-003",
+      "priority": "Critique",
+      "potential_savings": 1650,
+      "payback_period": 2,
+      "difficulty": "Facile",
+      "implementation_steps": [
+        "Nettoyage du système de refroidissement et vérification des ventilateurs",
+        "Remplacement des lames usées et lubrification des mécanismes",
+        "Recalibrage des paramètres de découpe pour optimiser l'efficacité"
+      ],
+      "energy_reduction": 12,
+      "implementation_cost": 3400,
+      "environmental_impact": {
+        "co2_reduction": 6.2,
+        "energy_saved": 14200
+      },
+      "business_impact": {
+        "efficiency_improvement": 18,
+        "risk_reduction": "Élimination des risques d'arrêt de production et amélioration de la qualité de découpe",
+        "regulatory_compliance": "Conformité aux normes de sécurité au travail marocaines"
+      },
+      "resources_required": {
+        "personnel": "2 techniciens, 6 heures",
+        "tools": "Outils de maintenance standard, lames de rechange",
+        "duration": "1 jour ouvrable",
+        "cost": 3400
+      },
+      "icon": "Lightbulb",
+      "generated_at": "2025-07-28T10:50:02.045Z",
       "generated_by": "Claude AI"
     }
   ],
