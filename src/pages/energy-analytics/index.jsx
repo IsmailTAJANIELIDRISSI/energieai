@@ -76,13 +76,6 @@ const EnergyAnalytics = () => {
     efficiency,
     co2Footprint,
   } = calculateMetrics(energyData, machines);
-  console.log("Calculated metrics:", {
-    currentConsumption,
-    totalConsumption,
-    averageCost,
-    efficiency,
-    co2Footprint,
-  });
 
   const handleExportPDF = () => {
     console.log("Exporting analytics report to PDF...");

@@ -6,6 +6,8 @@ const MachineStatusGrid = ({ machines = [] }) => {
     switch (status) {
       case "operational":
         return "bg-green-100 text-green-800 border-green-200";
+      case "optimal":
+        return "bg-green-100 text-green-800 border-green-200";
       case "alert":
         return "bg-red-100 text-red-800 border-red-200";
       case "maintenance":
@@ -19,7 +21,9 @@ const MachineStatusGrid = ({ machines = [] }) => {
 
   const getStatusIcon = (status) => {
     switch (status) {
-      case "operational":
+      case "operational" || "optimal":
+        return "CheckCircle";
+      case "optimal":
         return "CheckCircle";
       case "alert":
         return "AlertTriangle";
@@ -36,6 +40,8 @@ const MachineStatusGrid = ({ machines = [] }) => {
     switch (status) {
       case "operational":
         return "Opérationnel";
+      case "optimal":
+        return "Optimal";
       case "alert":
         return "Alerte";
       case "maintenance":
@@ -89,25 +95,26 @@ const MachineStatusGrid = ({ machines = [] }) => {
                   {machine.name}
                 </h4>
               </div>
-
-              <div
-                className={`inline-flex items-center space-x-1 mt-2 px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(
-                  machine.status
-                )} `}
-                style={{
-                  backgroundColor: getStatusColor(machine.status) + "20",
-                  borderColor: getStatusColor(machine.status),
-                  color: getStatusColor(machine.status),
-                }}
-              >
-                <Icon
-                  name={getStatusIcon(machine.status)}
-                  size={12}
-                  className="shrink-0"
-                />
-                <span className="whitespace-nowrap">
-                  {getStatusText(machine.status)}
-                </span>
+              <div className="flex items-center space-x-2 mt-2">
+                <div
+                  className={`inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(
+                    machine.status
+                  )}`}
+                >
+                  <Icon
+                    name={getStatusIcon(machine.status)}
+                    size={12}
+                    className="shrink-0"
+                  />
+                  <span className="whitespace-nowrap">
+                    {getStatusText(machine.status)}
+                  </span>
+                </div>
+                {machine.generated_by === "Gemini AI" && (
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-800 border-purple-200">
+                    IA Générative
+                  </span>
+                )}
               </div>
             </div>
 

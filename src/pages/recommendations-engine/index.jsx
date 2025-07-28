@@ -13,6 +13,7 @@ import { applyRecommendationFilters } from "../../utils/energyCalculations";
 import VoiceAgentButton from "./components/VoiceAgentButton";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import ReportDocument from "./components/ExportPdfButton";
+import Anthropic from "@anthropic-ai/sdk";
 
 const RecommendationsEngine = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -36,6 +37,12 @@ const RecommendationsEngine = () => {
   const [machines, setMachines] = useState([]);
   const [currentLanguage, setCurrentLanguage] = useState("fr");
 
+  // Initialize Anthropic client (put this outside your component)
+  const anthropic = new Anthropic({
+    apiKey: import.meta.env.VITE_CLAUDE_API_KEY,
+    dangerouslyAllowBrowser: true, // Required for browser usage
+  });
+
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language");
     if (savedLanguage) setCurrentLanguage(savedLanguage);
@@ -51,151 +58,61 @@ const RecommendationsEngine = () => {
         ]);
 
         const energyData = energyRes.data;
-        const machines = machinesRes.data;
         setEnergyData(energyData);
-        setMachines(machines);
+        setMachines(machinesRes.data);
 
-        // Enhanced Gemini API call with error handling
-        const fetchAIRecommendations = async () => {
-          try {
-            const prompt = `
-            Vous êtes un agent intelligent optimisant une usine intelligente.
-            Données énergétiques :
-            \`\`\`json
-            ${JSON.stringify(energyData.slice(-5), null, 2)}
-            \`\`\`
-            Machines :
-            \`\`\`json
-            ${JSON.stringify(machines, null, 2)}
-            \`\`\`
-            Générez 3 recommandations au format JSON strict :
-            \`\`\`json
+        // Call Claude 4 Sonnet to generate new recommendations
+        const prompt = `
+        Vous êtes un agent intelligent optimisant une usine intelligente.
+        Données énergétiques :
+        \`\`\`json
+        ${JSON.stringify(energyData.slice(-5), null, 2)}
+        \`\`\`
+        Machines :
+        \`\`\`json
+        ${JSON.stringify(machinesRes.data, null, 2)}
+        \`\`\`
+        Générez 3 recommandations pour optimiser l'énergie ou la maintenance. Pour chaque recommandation, fournissez :
+        - title (titre court)
+        - description (2-3 phrases)
+        - machine_id (e.g., COMP-001)
+        - priority (Critique, Élevée, Moyenne, Faible)
+        - potential_savings (MAD/mois, estimé)
+        - payback_period (mois)
+        - difficulty (Facile, Modérée, Difficile)
+        - implementation_steps (liste de 2-3 étapes)
+        - energy_reduction (%)
+        - implementation_cost (MAD)
+        Formattez en JSON uniquement, sans texte supplémentaire.
+      `;
+
+        const claudeResponse = await anthropic.messages.create({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 2500,
+          messages: [
             {
-              "recommendations": [
-                {
-                  "title": "...",
-                  "description": "...",
-                  "machine_id": "...",
-                  "priority": "Critique|Élevée|Moyenne|Faible",
-                  "potential_savings": 0,
-                  "payback_period": 0,
-                  "difficulty": "Facile|Modérée|Difficile",
-                  "implementation_steps": ["...", "..."],
-                  "energy_reduction": 0,
-                  "implementation_cost": 0,
-                  "environmental_impact": {
-                    "co2_reduction": 0,
-                    "energy_saved": 0
-                  },
-                  "business_impact": {
-                    "efficiency_improvement": 0,
-                    "risk_reduction": "...",
-                    "regulatory_compliance": "..."
-                  },
-                  "resources_required": {
-                    "personnel": "...",
-                    "tools": "...",
-                    "duration": "...",
-                    "cost": 0
-                  }
-                }
-              ]
-            }
-            \`\`\`
-            Retournez uniquement l'objet JSON valide.
-          `;
+              role: "user",
+              content: prompt,
+            },
+          ],
+        });
 
-            const response = await axios.post(
-              `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${
-                import.meta.env.VITE_GEMINI_API_KEY
-              }`,
-              { contents: [{ parts: [{ text: prompt }] }] },
-              { timeout: 10000 } // 10 second timeout
-            );
+        const aiRecommendations = JSON.parse(
+          claudeResponse.content[0].text.replace(/```json|```/g, "")
+        );
 
-            // Extract and clean response
-            const responseText =
-              response.data.candidates[0]?.content?.parts[0]?.text || "";
-            const cleanText = responseText.replace(/```json|```/g, "").trim();
+        const newRecommendations = aiRecommendations.map((rec, index) => ({
+          ...rec,
+          id: `REC-AI-${Date.now()}-${index}`,
+          icon: "Lightbulb",
+          generated_at: new Date().toISOString(),
+          generated_by: "Claude AI",
+        }));
 
-            // Parse with validation
-            const parsed = JSON.parse(cleanText);
-            if (
-              !parsed?.recommendations ||
-              !Array.isArray(parsed.recommendations)
-            ) {
-              throw new Error("Invalid recommendations format");
-            }
-
-            return parsed.recommendations.map((rec, index) => ({
-              ...rec,
-              id: `REC-AI-${Date.now()}-${index}`,
-              icon: "Lightbulb",
-              generated_at: new Date().toISOString(),
-              generated_by: "Gemini AI",
-              // Ensure required fields exist
-              priority: ["Critique", "Élevée", "Moyenne", "Faible"].includes(
-                rec.priority
-              )
-                ? rec.priority
-                : "Moyenne",
-              potential_savings: Number(rec.potential_savings) || 0,
-              energy_reduction: Number(rec.energy_reduction) || 0,
-              implementation_cost: Number(rec.implementation_cost) || 0,
-              implementation_steps: Array.isArray(rec.implementation_steps)
-                ? rec.implementation_steps
-                : ["Étape 1: À déterminer", "Étape 2: À planifier"],
-            }));
-          } catch (error) {
-            console.error("AI recommendation error:", error);
-            // Fallback recommendations
-            return [
-              {
-                id: `REC-FALLBACK-${Date.now()}`,
-                title: "Optimisation des équipements",
-                description: "Réglage des paramètres pour meilleure efficacité",
-                machine_id: machines[0]?.id || "COMP-001",
-                priority: "Moyenne",
-                potential_savings: 1200,
-                payback_period: 6,
-                difficulty: "Modérée",
-                implementation_steps: [
-                  "Analyse des paramètres actuels",
-                  "Ajustement des configurations",
-                  "Vérification des performances",
-                ],
-                energy_reduction: 10,
-                implementation_cost: 3000,
-                environmental_impact: {
-                  co2_reduction: 0.5,
-                  energy_saved: 1500,
-                },
-                business_impact: {
-                  efficiency_improvement: 10,
-                  risk_reduction: "Réduction des pannes",
-                  regulatory_compliance: "Conforme aux normes marocaines",
-                },
-                resources_required: {
-                  personnel: "1 technicien, 3 heures",
-                  tools: "Multimètre, logiciel de diagnostic",
-                  duration: "1 jour",
-                  cost: 3000,
-                },
-                icon: "Lightbulb",
-                generated_at: new Date().toISOString(),
-                generated_by: "Système de secours",
-              },
-            ];
-          }
-        };
-
-        const aiRecommendations = await fetchAIRecommendations();
-        console.log("AI Recommendations:", aiRecommendations);
-
-        // Merge and save recommendations
-        const updatedRecommendations = [...recRes.data, ...aiRecommendations];
+        // Merge AI recommendations with existing ones
+        const updatedRecommendations = [...recRes.data, ...newRecommendations];
         await Promise.all(
-          aiRecommendations.map((rec) =>
+          newRecommendations.map((rec) =>
             axios.post(
               `${import.meta.env.VITE_JSON_SERVER_URL}/recommendations`,
               rec
@@ -207,17 +124,9 @@ const RecommendationsEngine = () => {
         setImplementations(implRes.data);
         setIsLoading(false);
       } catch (err) {
-        console.error("Fetch error:", err);
-        setError("Erreur lors du chargement des données");
+        setError("Erreur lors du chargement des recommandations ou de l'IA");
         setIsLoading(false);
-
-        // Attempt to load without AI recommendations
-        try {
-          setRecommendations(recRes?.data || []);
-          setImplementations(implRes?.data || []);
-        } catch (fallbackError) {
-          console.error("Fallback failed:", fallbackError);
-        }
+        console.error(err);
       }
     };
 

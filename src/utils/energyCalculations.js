@@ -1,6 +1,12 @@
-export const calculateMetrics = (energyData, machines) => {
-  console.log(energyData.map((e) => e.co2));
+import axios from "axios";
+import Anthropic from "@anthropic-ai/sdk";
 
+const anthropic = new Anthropic({
+  apiKey: import.meta.env.VITE_CLAUDE_API_KEY,
+  dangerouslyAllowBrowser: true, // Required for browser usage
+});
+
+export const calculateMetrics = async (energyData, machines) => {
   const totalConsumption = energyData.reduce(
     (sum, entry) => sum + (entry.power_usage_kW || 0),
     0
@@ -31,6 +37,49 @@ export const calculateMetrics = (energyData, machines) => {
     0
   );
 
+  // AI Predictions
+  let predictedEfficiency = efficiency;
+  let anomalyRisk = 0;
+  try {
+    const prompt = `
+  Vous êtes un agent intelligent dans une usine intelligente.
+  Données énergétiques (dernières 10 entrées) :
+  \`\`\`json
+  ${JSON.stringify(energyData.slice(-10), null, 2)}
+  \`\`\`
+  Machines :
+  \`\`\`json
+  ${JSON.stringify(machines, null, 2)}
+  \`\`\`
+  Prédisez :
+  - predictedEfficiency: Score d'efficacité moyen (%) pour les 24 prochaines heures
+  - anomalyRisk: Pourcentage de risque d'anomalie (0-100)
+  - generated_by: "Claude AI"
+  Formattez en JSON uniquement, sans texte supplémentaire.
+`;
+
+    const response = await anthropic.messages.create({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1000,
+      temperature: 0.2, // Low temperature for consistent predictions
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+    });
+
+    const aiMetrics = JSON.parse(
+      response.content[0].text.replace(/```json|```/g, "")
+    );
+
+    predictedEfficiency = aiMetrics.predictedEfficiency || efficiency;
+    anomalyRisk = aiMetrics.anomalyRisk || 0;
+  } catch (err) {
+    console.error("Erreur lors de l'appel à Gemini:", err);
+  }
+
   return {
     currentConsumption,
     dailyCost,
@@ -38,6 +87,9 @@ export const calculateMetrics = (energyData, machines) => {
     averageCost: averageCost || 0,
     efficiency: efficiency || 0,
     co2Footprint: co2Footprint || 0,
+    predictedEfficiency: predictedEfficiency || 0,
+    anomalyRisk: anomalyRisk || 0,
+    generated_by: "Gemini AI",
   };
 };
 
@@ -55,7 +107,6 @@ export const calculateCostDistribution = (energyData, machines) => {
     { name: "Climatisation", types: ["cooling"] },
     { name: "Équipements Auxiliaires", types: ["conveyor", "packaging"] },
   ];
-  console.log(energyData);
 
   return categories.map((category) => {
     const categoryCost = energyData

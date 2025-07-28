@@ -56,7 +56,6 @@ const MetricsSidebar = ({
     { id: "area", label: "Aires", icon: "Activity" },
   ];
 
-  console.log(metrics);
 
   return (
     <div className="w-full space-y-6">

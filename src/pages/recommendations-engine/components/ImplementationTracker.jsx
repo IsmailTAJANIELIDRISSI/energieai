@@ -7,12 +7,7 @@ const ImplementationTracker = ({
   onUpdateStatus,
   onViewDetails,
 }) => {
-  console.log(implementations);
-  console.log(
-    implementations[0].actual_savings
-      ? `${implementations[0].actual_savings.toLocaleString("fr-MA")} MAD/mois`
-      : "En attente"
-  );
+
   const getStatusColor = (status) => {
     switch (status) {
       case "Implémenté":

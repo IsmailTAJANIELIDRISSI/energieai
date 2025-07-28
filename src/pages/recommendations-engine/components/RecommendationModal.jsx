@@ -15,8 +15,6 @@ const RecommendationModal = ({
 
   if (!isOpen || !recommendation) return null;
 
-  console.log(recommendation);
-
   const getPriorityColor = (priority) => {
     switch (priority) {
       case "Critique":

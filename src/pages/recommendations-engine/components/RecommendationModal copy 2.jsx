@@ -9,8 +9,7 @@ const RecommendationCard = ({
   onDismiss,
   onViewDetails,
 }) => {
-  console.log(recommendation);
-  console.log(isOpen);
+
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);

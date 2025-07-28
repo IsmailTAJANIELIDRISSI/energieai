@@ -10,7 +10,6 @@ import {
 } from "recharts";
 
 const EnergyChart = ({ data, title = "Consommation Énergétique" }) => {
-  console.log(data);
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
