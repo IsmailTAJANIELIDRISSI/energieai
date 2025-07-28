@@ -5,6 +5,22 @@ import path from "path";
 // Temporary polyfill
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      "/api/claude": {
+        target: "https://api.anthropic.com/v1/messages",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/claude/, ""),
+        configure: (proxy, options) => {
+          proxy.on("proxyReq", (proxyReq, req, res) => {
+            // Add headers
+            proxyReq.setHeader("x-api-key", process.env.VITE_ANTHROPIC_API_KEY);
+            proxyReq.setHeader("anthropic-version", "2023-06-01");
+          });
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       // Set up aliases to match jsconfig.json

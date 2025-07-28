@@ -20,12 +20,7 @@ const EnergyChart = ({
   selectedMetric,
   showComparison = false,
 }) => {
-  console.log({
-    data,
-    chartType,
-    selectedMetric,
-    showComparison,
-  });
+
 
   const formatTooltip = (value, name) => {
     if (name === "consumption" || name === "staticAudit") {

@@ -1,39 +1,54 @@
-import React from 'react';
-import Button from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+import React from "react";
+import Button from "../../../components/ui/Button";
+import Icon from "../../../components/AppIcon";
 
-const QuickActions = ({ onGenerateReport, onViewRecommendations, onExportData }) => {
+const QuickActions = ({
+  onGenerateReport,
+  onViewRecommendations,
+  onExportData,
+  ExportPdfButton,
+}) => {
   const actions = [
     {
-      id: 'generate-report',
-      title: 'Générer un Rapport',
-      description: 'Créer un rapport PDF détaillé',
-      icon: 'FileText',
-      variant: 'default',
-      onClick: onGenerateReport
+      id: "generate-report",
+      title: "Générer un Rapport",
+      description: "Créer un rapport PDF détaillé",
+      icon: "FileText",
+      variant: "default",
+      onClick: onGenerateReport,
     },
     {
-      id: 'view-recommendations',
-      title: 'Voir les Recommandations',
-      description: 'Consulter les optimisations suggérées',
-      icon: 'Lightbulb',
-      variant: 'outline',
-      onClick: onViewRecommendations
+      id: "view-recommendations",
+      title: "Voir les Recommandations",
+      description: "Consulter les optimisations suggérées",
+      icon: "Lightbulb",
+      variant: "outline",
+      onClick: onViewRecommendations,
     },
     {
-      id: 'export-data',
-      title: 'Exporter les Données',
-      description: 'Télécharger les données en CSV/Excel',
-      icon: 'Download',
-      variant: 'ghost',
-      onClick: onExportData
-    }
+      id: "export-data",
+      title: "Exporter les Données",
+      description: "Télécharger les données en CSV/Excel",
+      icon: "Download",
+      variant: "ghost",
+      onClick: onExportData,
+    },
+    {
+      id: "export-data-pdf",
+      title: "Exporter les Données en PDF",
+      description: "Télécharger les données en PDF",
+      icon: "Download",
+      variant: "ghost",
+      customComponent: ExportPdfButton,
+    },
   ];
 
   return (
     <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-card">
-      <h3 className="text-lg font-semibold text-slate-900 mb-6">Actions Rapides</h3>
-      
+      <h3 className="text-lg font-semibold text-slate-900 mb-6">
+        Actions Rapides
+      </h3>
+
       <div className="space-y-4">
         {actions.map((action) => (
           <div
@@ -49,17 +64,21 @@ const QuickActions = ({ onGenerateReport, onViewRecommendations, onExportData })
                 <p className="text-sm text-slate-600">{action.description}</p>
               </div>
             </div>
-            
-            <Button
-              variant={action.variant}
-              size="sm"
-              onClick={action.onClick}
-              iconName="ChevronRight"
-              iconPosition="right"
-              iconSize={16}
-            >
-              Ouvrir
-            </Button>
+
+            {action.customComponent ? (
+              action.customComponent
+            ) : (
+              <Button
+                variant={action.variant}
+                size="sm"
+                onClick={action.onClick}
+                iconName="ChevronRight"
+                iconPosition="right"
+                iconSize={16}
+              >
+                Ouvrir
+              </Button>
+            )}
           </div>
         ))}
       </div>
@@ -68,10 +87,10 @@ const QuickActions = ({ onGenerateReport, onViewRecommendations, onExportData })
         <div className="flex items-center justify-between text-sm">
           <span className="text-slate-600">Dernière mise à jour:</span>
           <span className="text-slate-900 font-medium">
-            {new Date().toLocaleTimeString('fr-FR', {
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit'
+            {new Date().toLocaleTimeString("fr-FR", {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
             })}
           </span>
         </div>

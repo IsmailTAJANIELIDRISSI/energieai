@@ -79,11 +79,6 @@ const RecommendationCard = ({
                 <span className="text-sm text-muted-foreground">
                   Machine: {recommendation.machine_id}
                 </span>
-                {recommendation.generated_by === "Gemini AI" && (
-                  <span className="px-2 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-800 border-purple-200">
-                    IA Générative
-                  </span>
-                )}
               </div>
             </div>
           </div>
@@ -158,7 +153,7 @@ const RecommendationCard = ({
               Étapes d'Implémentation
             </h4>
             <ul className="space-y-2">
-              {recommendation.implementation_steps.map((step, index) => (
+              {recommendation.implementationSteps.map((step, index) => (
                 <li
                   key={index}
                   className="flex items-start space-x-2 text-sm text-muted-foreground"
@@ -180,20 +175,20 @@ const RecommendationCard = ({
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex items-center space-x-2 text-sm">
-                <Icon name="Zap" size={16} className="text-green-600" />
+                <Icon name="Zap" size={14} className="text-green-600" />
                 <span className="text-muted-foreground">
-                  Réduction énergétique :{" "}
+                  Réduction énergétique:{" "}
                   <span className="font-medium text-foreground">
-                    {recommendation.energy_reduction}%
+                    {recommendation.energyReduction}%
                   </span>
                 </span>
               </div>
               <div className="flex items-center space-x-2 text-sm">
-                <Icon name="DollarSign" size={16} className="text-blue-600" />
+                <Icon name="DollarSign" size={14} className="text-blue-600" />
                 <span className="text-muted-foreground">
-                  Coût d’implémentation :{" "}
+                  Coût d'implémentation:{" "}
                   <span className="font-medium text-foreground">
-                    {recommendation.implementation_cost.toLocaleString("fr-FR")}{" "}
+                    {recommendation.implementationCost.toLocaleString("fr-MA")}{" "}
                     MAD
                   </span>
                 </span>
@@ -202,7 +197,7 @@ const RecommendationCard = ({
           </div>
 
           {/* Supporting Data */}
-          {recommendation.supporting_data && (
+          {recommendation.supportingData && (
             <div>
               <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center">
                 <Icon name="BarChart3" size={16} className="mr-2" />
@@ -210,7 +205,7 @@ const RecommendationCard = ({
               </h4>
               <div className="bg-muted rounded-lg p-3">
                 <p className="text-sm text-muted-foreground">
-                  {recommendation.supporting_data}
+                  {recommendation.supportingData}
                 </p>
               </div>
             </div>
@@ -221,10 +216,10 @@ const RecommendationCard = ({
       {/* Actions */}
       <div className="flex items-center justify-between pt-4 border-t border-border">
         <div className="flex items-center space-x-2">
-          <Icon name="Calendar" size={16} className="text-muted-foreground" />
+          <Icon name="Calendar" size={14} className="text-muted-foreground" />
           <span className="text-xs text-muted-foreground">
             Généré le{" "}
-            {new Date(recommendation.generated_at).toLocaleDateString("fr-FR")}
+            {new Date(recommendation.generatedAt).toLocaleDateString("fr-FR")}
           </span>
         </div>
 
@@ -237,7 +232,7 @@ const RecommendationCard = ({
             iconName="X"
             iconSize={14}
           >
-            supprimer
+            Ignorer
           </Button>
           <Button
             variant="ghost"

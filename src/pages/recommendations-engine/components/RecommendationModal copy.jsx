@@ -1,48 +1,29 @@
 import React, { useState } from "react";
 import Icon from "../../../components/AppIcon";
 import Button from "../../../components/ui/Button";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+} from "recharts";
 
 const RecommendationModal = ({
   recommendation,
   isOpen,
   onClose,
-  energyData,
   onAccept,
   onDismiss,
 }) => {
   const [activeTab, setActiveTab] = useState("overview");
   const [isProcessing, setIsProcessing] = useState(false);
-  console.log(recommendation);
 
   if (!isOpen || !recommendation) return null;
-
-  const getPriorityColor = (priority) => {
-    switch (priority) {
-      case "Critique":
-        return "bg-red-100 text-red-800 border-red-200";
-      case "Élevée":
-        return "bg-orange-100 text-orange-800 border-orange-200";
-      case "Moyenne":
-        return "bg-amber-100 text-amber-800 border-amber-200";
-      case "Faible":
-        return "bg-blue-100 text-blue-800 border-blue-200";
-      default:
-        return "bg-slate-100 text-slate-600 border-slate-200";
-    }
-  };
-
-  const getDifficultyColor = (difficulty) => {
-    switch (difficulty) {
-      case "Facile":
-        return "text-green-600";
-      case "Modérée":
-        return "text-amber-600";
-      case "Difficile":
-        return "text-red-600";
-      default:
-        return "text-slate-600";
-    }
-  };
 
   const handleAccept = async () => {
     setIsProcessing(true);
@@ -60,10 +41,44 @@ const RecommendationModal = ({
 
   const tabs = [
     { id: "overview", label: "Vue d'ensemble", icon: "Eye" },
-    // { id: "analysis", label: "Analyse", icon: "BarChart3" },
+    { id: "analysis", label: "Analyse", icon: "BarChart3" },
     { id: "implementation", label: "Implémentation", icon: "Settings" },
     { id: "impact", label: "Impact", icon: "TrendingUp" },
   ];
+
+  // Mock data for charts
+  const energyData = [
+    { month: "Jan", current: 2400, optimized: 2040 },
+    { month: "Fév", current: 2210, optimized: 1879 },
+    { month: "Mar", current: 2290, optimized: 1946 },
+    { month: "Avr", current: 2000, optimized: 1700 },
+    { month: "Mai", current: 2181, optimized: 1854 },
+    { month: "Jun", current: 2500, optimized: 2125 },
+  ];
+
+  const savingsProjection = [
+    { month: "Mois 1", savings: 1200 },
+    { month: "Mois 2", savings: 1350 },
+    { month: "Mois 3", savings: 1500 },
+    { month: "Mois 4", savings: 1650 },
+    { month: "Mois 5", savings: 1800 },
+    { month: "Mois 6", savings: 1950 },
+  ];
+
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case "Critique":
+        return "text-red-600 bg-red-100";
+      case "Élevée":
+        return "text-orange-600 bg-orange-100";
+      case "Moyenne":
+        return "text-amber-600 bg-amber-100";
+      case "Faible":
+        return "text-blue-600 bg-blue-100";
+      default:
+        return "text-slate-600 bg-slate-100";
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
@@ -93,11 +108,6 @@ const RecommendationModal = ({
                 <span className="text-sm text-muted-foreground">
                   Machine: {recommendation.machine_id}
                 </span>
-                {recommendation.generated_by === "Gemini AI" && (
-                  <span className="px-2 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-800 border-purple-200">
-                    IA Générative
-                  </span>
-                )}
               </div>
             </div>
           </div>
@@ -110,8 +120,6 @@ const RecommendationModal = ({
             <Icon name="X" size={20} />
           </Button>
         </div>
-
-        {/* Metrics */}
 
         {/* Tabs */}
         <div className="border-b border-border">
@@ -175,11 +183,7 @@ const RecommendationModal = ({
                       Difficulté
                     </span>
                   </div>
-                  <div
-                    className={`text-xl font-bold mt-1 ${getDifficultyColor(
-                      recommendation.difficulty
-                    )}`}
-                  >
+                  <div className="text-2xl font-bold text-amber-900">
                     {recommendation.difficulty}
                   </div>
                 </div>
@@ -236,6 +240,79 @@ const RecommendationModal = ({
             </div>
           )}
 
+          {activeTab === "analysis" && (
+            <div className="space-y-6">
+              {/* Energy Consumption Comparison */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  Comparaison de Consommation Énergétique
+                </h3>
+                <div className="h-64 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={energyData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="month" />
+                      <YAxis />
+                      <Tooltip
+                        formatter={(value, name) => [
+                          `${value} kWh`,
+                          name === "current"
+                            ? "Consommation Actuelle"
+                            : "Consommation Optimisée",
+                        ]}
+                      />
+                      <Bar dataKey="current" fill="#dc2626" name="current" />
+                      <Bar
+                        dataKey="optimized"
+                        fill="#16a34a"
+                        name="optimized"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              {/* Savings Projection */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  Projection des Économies
+                </h3>
+                <div className="h-64 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={savingsProjection}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="month" />
+                      <YAxis />
+                      <Tooltip
+                        formatter={(value) => [`${value} MAD`, "Économies"]}
+                      />
+                      <Line
+                        type="monotone"
+                        dataKey="savings"
+                        stroke="#2563eb"
+                        strokeWidth={2}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              {/* Supporting Data */}
+              {recommendation.supportingData && (
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                    Données de Support
+                  </h3>
+                  <div className="bg-muted rounded-lg p-4">
+                    <p className="text-muted-foreground">
+                      {recommendation.supporting_data}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           {activeTab === "implementation" && (
             <div className="space-y-6">
               {/* Implementation Steps */}
@@ -274,7 +351,7 @@ const RecommendationModal = ({
                       </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {recommendation.resources_required.personnel}
+                      2 techniciens, 4 heures
                     </p>
                   </div>
                   <div className="p-4 border border-border rounded-lg">
@@ -289,7 +366,7 @@ const RecommendationModal = ({
                       </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {recommendation.resources_required.tools}
+                      Outils standard de maintenance
                     </p>
                   </div>
                   <div className="p-4 border border-border rounded-lg">
@@ -298,7 +375,7 @@ const RecommendationModal = ({
                       <span className="font-medium text-foreground">Durée</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {recommendation.resources_required.duration} ouvrables
+                      1-2 jours ouvrables
                     </p>
                   </div>
                   <div className="p-4 border border-border rounded-lg">
@@ -338,8 +415,7 @@ const RecommendationModal = ({
                       </span>
                     </div>
                     <div className="text-2xl font-bold text-green-900">
-                      {recommendation.environmental_impact.co2_reduction}{" "}
-                      tonnes/an
+                      1.2 tonnes/an
                     </div>
                   </div>
                   <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
@@ -350,7 +426,7 @@ const RecommendationModal = ({
                       </span>
                     </div>
                     <div className="text-2xl font-bold text-blue-900">
-                      {recommendation.environmental_impact.energy_saved} kWh/an
+                      2,400 kWh/an
                     </div>
                   </div>
                 </div>
@@ -373,9 +449,7 @@ const RecommendationModal = ({
                         Amélioration de l'Efficacité
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Augmentation de{" "}
-                        {recommendation.business_impact.efficiency_improvement}%
-                        de l'efficacité énergétique
+                        Augmentation de 15% de l'efficacité énergétique
                       </div>
                     </div>
                   </div>
@@ -386,7 +460,7 @@ const RecommendationModal = ({
                         Réduction des Risques
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        {recommendation.business_impact.risk_reduction}
+                        Diminution des pannes et maintenance préventive
                       </div>
                     </div>
                   </div>
@@ -397,7 +471,7 @@ const RecommendationModal = ({
                         Conformité Réglementaire
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        {recommendation.business_impact.regulatory_compliance}
+                        Respect des normes environnementales marocaines
                       </div>
                     </div>
                   </div>

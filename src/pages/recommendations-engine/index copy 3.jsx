@@ -11,9 +11,6 @@ import ImplementationTracker from "./components/ImplementationTracker";
 import RecommendationModal from "./components/RecommendationModal";
 import { applyRecommendationFilters } from "../../utils/energyCalculations";
 import VoiceAgentButton from "./components/VoiceAgentButton";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import ReportDocument from "./components/ExportPdfButton";
-import Anthropic from "@anthropic-ai/sdk";
 
 const RecommendationsEngine = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -37,12 +34,6 @@ const RecommendationsEngine = () => {
   const [machines, setMachines] = useState([]);
   const [currentLanguage, setCurrentLanguage] = useState("fr");
 
-  // Initialize Anthropic client (put this outside your component)
-  const anthropic = new Anthropic({
-    apiKey: import.meta.env.VITE_CLAUDE_API_KEY,
-    dangerouslyAllowBrowser: true, // Required for browser usage
-  });
-
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language");
     if (savedLanguage) setCurrentLanguage(savedLanguage);
@@ -61,64 +52,48 @@ const RecommendationsEngine = () => {
         setEnergyData(energyData);
         setMachines(machinesRes.data);
 
-        // Call Claude 4 Sonnet to generate new recommendations
+        // Call Gemini to generate new recommendations
         const prompt = `
-        Vous êtes un agent intelligent optimisant une usine intelligente.
-        Données énergétiques :
-        \`\`\`json
-        ${JSON.stringify(energyData.slice(-5), null, 2)}
-        \`\`\`
-        Machines :
-        \`\`\`json
-        ${JSON.stringify(machinesRes.data, null, 2)}
-        \`\`\`
-        Générez 3 recommandations pour optimiser l'énergie ou la maintenance. Pour chaque recommandation, fournissez :
-        - title (titre court)
-    - description (2-3 phrases)
-    - machine_id (e.g., COMP-001)
-    - priority (Critique, Élevée, Moyenne, Faible)
-    - potential_savings (MAD/mois, estimé)
-    - payback_period (mois)
-    - difficulty (Facile, Modérée, Difficile)
-    - implementation_steps (liste de 2-3 étapes)
-    - energy_reduction (%)
-    - implementation_cost (MAD)
-    - environmental_impact (objet avec les champs suivants)
-      - co2_reduction (tonnes/an, estimé, basé sur des métriques industrielles au Maroc)
-      - energy_saved (kWh/an, estimé)
-    - business_impact (objet avec les champs suivants)
-      - efficiency_improvement (%, estimé)
-      - risk_reduction (description courte, e.g., "Diminution des pannes et maintenance préventive")
-      - regulatory_compliance (description courte, e.g., "Respect des normes environnementales marocaines")
-    - resources_required (objet avec les champs suivants)
-      - personnel (description, e.g., "2 techniciens, 4 heures")
-      - tools (description, e.g., "Outils standard de maintenance")
-      - duration (description, e.g., "1-2 jours ouvrables")
-      - cost (MAD, doit correspondre à implementation_cost)
-        Formattez en JSON uniquement, sans texte supplémentaire.
-      `;
-
-        const claudeResponse = await anthropic.messages.create({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 2500,
-          messages: [
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-        });
-
-        const aiRecommendations = JSON.parse(
-          claudeResponse.content[0].text.replace(/```json|```/g, "")
+          Vous êtes un agent intelligent optimisant une usine intelligente.
+          Données énergétiques :
+          \`\`\`json
+          ${JSON.stringify(energyData.slice(-5), null, 2)}
+          \`\`\`
+          Machines :
+          \`\`\`json
+          ${JSON.stringify(machines, null, 2)}
+          \`\`\`
+          Générez 3 recommandations pour optimiser l’énergie ou la maintenance. Pour chaque recommandation, fournissez :
+          - title (titre court)
+          - description (2-3 phrases)
+          - machine_id (e.g., COMP-001)
+          - priority (Critique, Élevée, Moyenne, Faible)
+          - potential_savings (MAD/mois, estimé)
+          - payback_period (mois)
+          - difficulty (Facile, Modérée, Difficile)
+          - implementation_steps (liste de 2-3 étapes)
+          - energy_reduction (%)
+          - implementation_cost (MAD)
+          Formattez en JSON.
+        `;
+        const geminiResponse = await axios.post(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${
+            import.meta.env.VITE_GEMINI_API_KEY
+          }`,
+          { contents: [{ parts: [{ text: prompt }] }] }
         );
-
+        const aiRecommendations = JSON.parse(
+          geminiResponse.data.candidates[0].content.parts[0].text.replace(
+            /```json|```/g,
+            ""
+          )
+        );
         const newRecommendations = aiRecommendations.map((rec, index) => ({
           ...rec,
           id: `REC-AI-${Date.now()}-${index}`,
           icon: "Lightbulb",
           generated_at: new Date().toISOString(),
-          generated_by: "Claude AI",
+          generated_by: "Gemini AI",
         }));
 
         // Merge AI recommendations with existing ones
@@ -349,32 +324,9 @@ const RecommendationsEngine = () => {
                 >
                   Actualiser
                 </Button>
-                {/* <Button variant="default" iconName="Download" iconSize={16}>
+                <Button variant="default" iconName="Download" iconSize={16}>
                   Exporter Rapport
-                </Button> */}
-                <PDFDownloadLink
-                  document={
-                    <ReportDocument
-                      recommendations={filteredRecommendations}
-                      implementations={implementations}
-                      currentLanguage={currentLanguage}
-                    />
-                  }
-                  fileName={`Rapport_Optimisation_Energétique_${
-                    new Date().toISOString().split("T")[0]
-                  }.pdf`}
-                >
-                  {({ blob, url, loading, error }) => (
-                    <Button
-                      variant="default"
-                      iconName="Download"
-                      iconSize={16}
-                      disabled={loading}
-                    >
-                      {loading ? "Génération..." : "Exporter Rapport"}
-                    </Button>
-                  )}
-                </PDFDownloadLink>
+                </Button>
               </div>
             </div>
           </motion.div>
@@ -539,7 +491,7 @@ const RecommendationsEngine = () => {
         onClose={() => setIsModalOpen(false)}
         onAccept={handleAcceptRecommendation}
         onDismiss={handleDismissRecommendation}
-        energyData={energyData} // Pass energyData fetched in useEffect
+        energyData={recommendations} // Pass energyData fetched in useEffect
       />
     </div>
   );

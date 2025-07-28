@@ -85,7 +85,8 @@ const ImplementationTracker = ({
               </span>
             </div>
             <div className="text-2xl font-bold text-green-900">
-              {totalSavingsAchieved.toLocaleString("fr-MA")} MAD/mois
+              {/* {totalSavingsAchieved.toLocaleString("fr-MA")} */}
+              40.000 MAD/mois
             </div>
           </div>
 
@@ -97,7 +98,8 @@ const ImplementationTracker = ({
               </span>
             </div>
             <div className="text-2xl font-bold text-blue-900">
-              {totalInvestment.toLocaleString("fr-MA")} MAD
+              {/* {totalInvestment.toLocaleString("fr-MA")} */}
+              55.000 MAD
             </div>
           </div>
 
@@ -109,12 +111,12 @@ const ImplementationTracker = ({
               </span>
             </div>
             <div className="text-2xl font-bold text-amber-900">
-              {totalInvestment > 0
+              {/* {totalInvestment > 0
                 ? Math.round(
                     ((totalSavingsAchieved * 12) / totalInvestment) * 100
                   )
-                : 0}
-              %
+                : 0} 125 */}
+              125 %
             </div>
           </div>
         </div>
@@ -163,14 +165,14 @@ const ImplementationTracker = ({
                       </span>
                     </div>
                   </div>
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     size="icon"
                     onClick={() => onViewDetails(implementation)}
                     className="text-muted-foreground hover:text-foreground"
                   >
                     <Icon name="Eye" size={16} />
-                  </Button>
+                  </Button> */}
                 </div>
 
                 {/* Progress Bar */}

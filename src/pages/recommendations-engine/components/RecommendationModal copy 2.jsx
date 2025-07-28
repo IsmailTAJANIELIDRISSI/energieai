@@ -5,11 +5,16 @@ import Button from "../../../components/ui/Button";
 const RecommendationCard = ({
   recommendation,
   onAccept,
+  isOpen,
   onDismiss,
   onViewDetails,
 }) => {
+
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+
+  if (!isOpen || !recommendation) return null;
 
   const getPriorityColor = (priority) => {
     switch (priority) {
